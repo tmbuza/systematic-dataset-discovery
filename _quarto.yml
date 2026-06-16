@@ -25,7 +25,6 @@ book:
 
     - part: "Reference"
       chapters:
-        - 999-appendix.qmd
         - 999-references.qmd
 
 format:
