@@ -1,21 +1,3 @@
-#!/bin/bash
-
-##############################################################################
-# Build Exclusion Criteria Table
-##############################################################################
-# Purpose:
-#   Create a structured exclusion criteria table for the CDI Systematic
-#   Dataset Discovery workflow.
-#
-# Output:
-#   outputs/exclusion-criteria.tsv
-##############################################################################
-
-set -euo pipefail
-
-mkdir -p outputs
-
-cat > outputs/exclusion-criteria.tsv << 'EOF'
 criterion_id	domain	criterion_name	exclusion_rule	review_condition	notes
 EXC001	Biological relevance	Wrong organism	Exclude studies containing non-human samples only	Review if human and non-human samples are mixed	Main workflow focuses on human samples
 EXC002	Biological relevance	Wrong sample context	Exclude studies that do not include gut, stool, fecal, faecal, intestinal, or gastrointestinal samples	Review if body site is unclear	Non-gut microbiome studies are outside this case-study scope
@@ -26,10 +8,3 @@ EXC006	Repository accessibility	Unavailable files	Exclude studies where sequence
 EXC007	Metadata completeness	Insufficient metadata	Exclude studies where sample context cannot be interpreted	Review if supplementary metadata may resolve the issue	Metadata must support biological and technical screening
 EXC008	Repository mapping	Missing sample-to-run mapping	Exclude studies where samples cannot be connected to run accessions	Review if mapping may exist in supplementary files	Sample-to-run mapping is important for reproducible manifests
 EXC009	Workflow priority	Not prioritized now	Defer studies that are relevant but not needed for the primary case study	Review later if expansion is needed	Useful for secondary or future discovery workflows
-EOF
-
-echo "Exclusion criteria table created:"
-echo "outputs/exclusion-criteria.tsv"
-echo
-echo "Preview:"
-column -t -s $'\t' outputs/exclusion-criteria.tsv

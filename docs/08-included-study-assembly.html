@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>included-study-assembly – CDI Systematic Dataset Discovery</title>
+<title>Included Study Assembly – CDI Systematic Dataset Discovery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-included-study-assembly.html"><span class="chapter-title">08-included-study-assembly.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-dataset-screening.html">Screening and Prioritization</a></li><li class="breadcrumb-item"><a href="./08-included-study-assembly.html"><span class="chapter-title">Included Study Assembly</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,65 +149,109 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-preface-and-overview.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">01-why-dataset-discovery-matters.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">02-research-questions-and-objectives.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">03-data-sources-and-repositories.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">04-search-strategy-development.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">05-eligibility-criteria.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">06-dataset-screening.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">07-study-prioritization.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">08-included-study-assembly.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">09-case-study-healthy-human-gut-microbiome.html</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Reference</span></a>
+ <span class="menu-text">Foundation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Why Dataset Discovery Matters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Questions and Objectives</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Discovery System</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Sources and Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Search Strategy Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eligibility Criteria</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Screening and Prioritization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dataset Screening</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Prioritization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Included Study Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Case Study: Healthy Human Gut Microbiome</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references.html</span></a>
@@ -185,14 +264,36 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-included-study-assembly-matters" id="toc-why-included-study-assembly-matters" class="nav-link active" data-scroll-target="#why-included-study-assembly-matters">Why Included Study Assembly Matters</a></li>
+  <li><a href="#from-prioritized-studies-to-handoff-package" id="toc-from-prioritized-studies-to-handoff-package" class="nav-link" data-scroll-target="#from-prioritized-studies-to-handoff-package">From Prioritized Studies to Handoff Package</a></li>
+  <li><a href="#inputs-to-included-study-assembly" id="toc-inputs-to-included-study-assembly" class="nav-link" data-scroll-target="#inputs-to-included-study-assembly">Inputs to Included Study Assembly</a></li>
+  <li><a href="#primary-case-study-accession" id="toc-primary-case-study-accession" class="nav-link" data-scroll-target="#primary-case-study-accession">Primary Case-Study Accession</a></li>
+  <li><a href="#primary-test-subset" id="toc-primary-test-subset" class="nav-link" data-scroll-target="#primary-test-subset">Primary Test Subset</a></li>
+  <li><a href="#secondary-comparison-record" id="toc-secondary-comparison-record" class="nav-link" data-scroll-target="#secondary-comparison-record">Secondary Comparison Record</a></li>
+  <li><a href="#cdi-das-input-package" id="toc-cdi-das-input-package" class="nav-link" data-scroll-target="#cdi-das-input-package">CDI-DAS Input Package</a></li>
+  <li><a href="#building-the-included-study-package" id="toc-building-the-included-study-package" class="nav-link" data-scroll-target="#building-the-included-study-package">Building the Included Study Package</a></li>
+  <li><a href="#expected-package-structure" id="toc-expected-package-structure" class="nav-link" data-scroll-target="#expected-package-structure">Expected Package Structure</a></li>
+  <li><a href="#handoff-to-cdi-das" id="toc-handoff-to-cdi-das" class="nav-link" data-scroll-target="#handoff-to-cdi-das">Handoff to CDI-DAS</a></li>
+  <li><a href="#why-the-handoff-must-be-explicit" id="toc-why-the-handoff-must-be-explicit" class="nav-link" data-scroll-target="#why-the-handoff-must-be-explicit">Why the Handoff Must Be Explicit</a></li>
+  <li><a href="#included-study-assembly-checklist" id="toc-included-study-assembly-checklist" class="nav-link" data-scroll-target="#included-study-assembly-checklist">Included Study Assembly Checklist</a></li>
+  <li><a href="#applying-the-assembly-to-the-case-study" id="toc-applying-the-assembly-to-the-case-study" class="nav-link" data-scroll-target="#applying-the-assembly-to-the-case-study">Applying the Assembly to the Case Study</a></li>
+  <li><a href="#relationship-to-the-case-study-chapter" id="toc-relationship-to-the-case-study-chapter" class="nav-link" data-scroll-target="#relationship-to-the-case-study-chapter">Relationship to the Case Study Chapter</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-dataset-screening.html">Screening and Prioritization</a></li><li class="breadcrumb-item"><a href="./08-included-study-assembly.html"><span class="chapter-title">Included Study Assembly</span></a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Included Study Assembly</span></h1>
 </div>
 
 
@@ -215,8 +316,239 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="why-included-study-assembly-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-included-study-assembly-matters">Why Included Study Assembly Matters</h2>
+<p>After studies have been screened and prioritized, the next step is to assemble the final discovery outputs.</p>
+<p>Included study assembly is the process of converting screened and prioritized records into a structured package that can be used for downstream data acquisition.</p>
+<p>This step is important because the output of dataset discovery should not be a vague list of interesting studies.</p>
+<p>It should be a documented, organized, and acquisition-ready input package.</p>
+<pre class="text"><code>Screened Studies
+        ↓
+Prioritization Table
+        ↓
+Included Study Assembly
+        ↓
+CDI-DAS Input Package
+        ↓
+Data Acquisition</code></pre>
+<p>Included study assembly creates the formal handoff between the CDI Systematic Dataset Discovery workflow and the CDI Data Acquisition System.</p>
+</section>
+<section id="from-prioritized-studies-to-handoff-package" class="level2">
+<h2 class="anchored" data-anchor-id="from-prioritized-studies-to-handoff-package">From Prioritized Studies to Handoff Package</h2>
+<p>Study prioritization identifies which eligible studies should move forward first.</p>
+<p>Included study assembly organizes those decisions into files that can be reused by downstream workflows.</p>
+<p>For CDI workflows, the most important handoff elements are:</p>
+<ul>
+<li>included BioProject accessions</li>
+<li>selected run accessions</li>
+<li>test subset accessions</li>
+<li>prioritization notes</li>
+<li>screening decisions</li>
+<li>acquisition readiness information</li>
+</ul>
+<p>These outputs allow CDI-DAS to begin with clear, documented inputs.</p>
+</section>
+<section id="inputs-to-included-study-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="inputs-to-included-study-assembly">Inputs to Included Study Assembly</h2>
+<p>The included study assembly step uses outputs from earlier chapters.</p>
+<p>Expected inputs include:</p>
+<pre class="text"><code>outputs/screened-studies.tsv
+outputs/included-studies.tsv
+outputs/review-studies.tsv
+outputs/prioritization-table.tsv</code></pre>
+<p>The screened studies table preserves all screening decisions.</p>
+<p>The included studies table records records that passed screening.</p>
+<p>The review studies table records studies that may need additional checking.</p>
+<p>The prioritization table records which included records should be used first.</p>
+</section>
+<section id="primary-case-study-accession" class="level2">
+<h2 class="anchored" data-anchor-id="primary-case-study-accession">Primary Case-Study Accession</h2>
+<p>For this guide, the primary BioProject is:</p>
+<pre class="text"><code>PRJNA802976</code></pre>
+<p>This BioProject is prioritized as the main healthy human gut microbiome case-study accession.</p>
+<p>It is carried forward because it supports a practical CDI-DAS handoff and provides run-level accessions that can be used for acquisition validation.</p>
+</section>
+<section id="primary-test-subset" class="level2">
+<h2 class="anchored" data-anchor-id="primary-test-subset">Primary Test Subset</h2>
+<p>The primary test subset is:</p>
+<pre class="text"><code>SRR17868090
+SRR17868091
+SRR17868092</code></pre>
+<p>These runs provide a small, controlled subset for testing the downstream CDI-DAS acquisition workflow before scaling to the full BioProject.</p>
+<p>Using a test subset helps confirm that metadata retrieval, manifest creation, download planning, and validation steps work as expected.</p>
+</section>
+<section id="secondary-comparison-record" class="level2">
+<h2 class="anchored" data-anchor-id="secondary-comparison-record">Secondary Comparison Record</h2>
+<p>A secondary comparison BioProject may be retained:</p>
+<pre class="text"><code>PRJNA322554</code></pre>
+<p>This record is not the primary handoff accession.</p>
+<p>Instead, it can be used as a comparison example when demonstrating technical differences, metadata review, sequencing layout, or acquisition-readiness decisions.</p>
+</section>
+<section id="cdi-das-input-package" class="level2">
+<h2 class="anchored" data-anchor-id="cdi-das-input-package">CDI-DAS Input Package</h2>
+<p>The main output of included study assembly is the CDI-DAS input package.</p>
+<p>This package should contain the accessions and supporting records needed to begin data acquisition.</p>
+<p>Expected outputs include:</p>
+<pre class="text"><code>outputs/cdi-das-input-accessions.txt
+outputs/cdi-das-test-accessions.txt
+outputs/included-study-package.tsv</code></pre>
+<p>The accession list provides the study-level handoff.</p>
+<p>The test accession file provides the run-level subset for validation.</p>
+<p>The included study package provides the documented context for the handoff.</p>
+</section>
+<section id="building-the-included-study-package" class="level2">
+<h2 class="anchored" data-anchor-id="building-the-included-study-package">Building the Included Study Package</h2>
+<p>The included study package can be created with a script.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/08a-build-included-study-package.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The expected outputs are:</p>
+<pre class="text"><code>outputs/cdi-das-input-accessions.txt
+outputs/cdi-das-test-accessions.txt
+outputs/included-study-package.tsv</code></pre>
+<p>These files prepare the discovery outputs for downstream use in CDI-DAS.</p>
+</section>
+<section id="expected-package-structure" class="level2">
+<h2 class="anchored" data-anchor-id="expected-package-structure">Expected Package Structure</h2>
+<p>The included study package may contain:</p>
+<ul>
+<li>package ID</li>
+<li>accession</li>
+<li>accession type</li>
+<li>source</li>
+<li>priority label</li>
+<li>screening decision</li>
+<li>downstream role</li>
+<li>CDI-DAS readiness</li>
+<li>notes</li>
+</ul>
+<p>Example:</p>
+<pre class="text"><code>package_id    accession      accession_type    downstream_role
+PKG001        PRJNA802976    BioProject        Primary CDI-DAS input
+PKG002        SRR17868090    SRA Run           Test subset accession
+PKG003        SRR17868091    SRA Run           Test subset accession
+PKG004        SRR17868092    SRA Run           Test subset accession</code></pre>
+<p>This structure makes the handoff explicit and reproducible.</p>
+</section>
+<section id="handoff-to-cdi-das" class="level2">
+<h2 class="anchored" data-anchor-id="handoff-to-cdi-das">Handoff to CDI-DAS</h2>
+<p>The CDI Data Acquisition System begins from accessions.</p>
+<p>For this guide, the systematic discovery workflow hands off:</p>
+<pre class="text"><code>Primary BioProject:
+PRJNA802976
+
+Primary test subset:
+SRR17868090
+SRR17868091
+SRR17868092</code></pre>
+<p>This allows CDI-DAS to retrieve metadata, build manifests, download files, validate data, and assemble a reference dataset package.</p>
+<pre class="text"><code>CDI Systematic Dataset Discovery
+        ↓
+Included Study Package
+        ↓
+CDI-DAS Input Accessions
+        ↓
+Metadata Acquisition
+        ↓
+Download Manifest
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Reference Dataset Package</code></pre>
+</section>
+<section id="why-the-handoff-must-be-explicit" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-handoff-must-be-explicit">Why the Handoff Must Be Explicit</h2>
+<p>A clear handoff prevents confusion between discovery and acquisition.</p>
+<p>Dataset discovery answers:</p>
+<blockquote class="blockquote">
+<p>Which studies should be included, and why?</p>
+</blockquote>
+<p>CDI-DAS answers:</p>
+<blockquote class="blockquote">
+<p>How do we retrieve, validate, and organize the data reproducibly?</p>
+</blockquote>
+<p>Keeping these systems separate but connected makes the overall workflow easier to explain, test, reuse, and scale.</p>
+</section>
+<section id="included-study-assembly-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="included-study-assembly-checklist">Included Study Assembly Checklist</h2>
+<p>Before handing off to CDI-DAS, confirm that the following are available:</p>
+<pre class="text"><code>Included BioProject selected
+        ↓
+Primary test subset defined
+        ↓
+Screening decision recorded
+        ↓
+Prioritization reason documented
+        ↓
+CDI-DAS input accession file created
+        ↓
+Test accession file created
+        ↓
+Included study package assembled</code></pre>
+<p>This checklist helps ensure that discovery outputs are ready for acquisition.</p>
+</section>
+<section id="applying-the-assembly-to-the-case-study" class="level2">
+<h2 class="anchored" data-anchor-id="applying-the-assembly-to-the-case-study">Applying the Assembly to the Case Study</h2>
+<p>For the healthy human gut microbiome case study, the assembled handoff package should contain:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primary BioProject</td>
+<td>PRJNA802976</td>
+</tr>
+<tr class="even">
+<td>Primary test run 1</td>
+<td>SRR17868090</td>
+</tr>
+<tr class="odd">
+<td>Primary test run 2</td>
+<td>SRR17868091</td>
+</tr>
+<tr class="even">
+<td>Primary test run 3</td>
+<td>SRR17868092</td>
+</tr>
+<tr class="odd">
+<td>Secondary comparison</td>
+<td>PRJNA322554</td>
+</tr>
+<tr class="even">
+<td>Downstream system</td>
+<td>CDI Data Acquisition System</td>
+</tr>
+<tr class="odd">
+<td>Handoff status</td>
+<td>Ready for acquisition testing</td>
+</tr>
+</tbody>
+</table>
+<p>This confirms that the discovery workflow has produced a usable input package.</p>
+</section>
+<section id="relationship-to-the-case-study-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="relationship-to-the-case-study-chapter">Relationship to the Case Study Chapter</h2>
+<p>This chapter assembles the generic handoff outputs.</p>
+<p>The next chapter applies the full workflow as a case study.</p>
+<p>The case study will show how the healthy human gut microbiome example moves from research question to prioritized public BioProject and then into CDI-DAS-ready accessions.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Included study assembly converts screened and prioritized records into a structured CDI-DAS input package.</p>
+<p>For this guide, <strong>PRJNA802976</strong> is assembled as the primary BioProject accession, while <strong>SRR17868090</strong>, <strong>SRR17868091</strong>, and <strong>SRR17868092</strong> are assembled as the primary test subset.</p>
+<p><strong>PRJNA322554</strong> remains available as a secondary comparison record.</p>
+<p>This chapter creates the bridge between systematic discovery and reproducible data acquisition.</p>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>In the next chapter, we apply the complete workflow to the healthy human gut microbiome case study and show how the selected public study becomes ready for CDI-DAS acquisition.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -622,13 +954,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-study-prioritization.html" class="pagination-link" aria-label="07-study-prioritization.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">07-study-prioritization.html</span></span>
+      <a href="./07-study-prioritization.html" class="pagination-link" aria-label="Study Prioritization">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Study Prioritization</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09-case-study-healthy-human-gut-microbiome.html" class="pagination-link" aria-label="09-case-study-healthy-human-gut-microbiome.html">
-        <span class="nav-page-text"><span class="chapter-title">09-case-study-healthy-human-gut-microbiome.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./09-case-study-healthy-human-gut-microbiome.html" class="pagination-link" aria-label="Case Study: Healthy Human Gut Microbiome">
+        <span class="nav-page-text"><span class="chapter-title">Case Study: Healthy Human Gut Microbiome</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

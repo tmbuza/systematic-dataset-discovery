@@ -1,0 +1,84 @@
+#!/bin/bash
+
+##############################################################################
+# Build Prioritization Table
+##############################################################################
+# Purpose:
+#   Create a structured prioritization table for screened studies in the
+#   CDI Systematic Dataset Discovery workflow.
+#
+# Inputs:
+#   outputs/screened-studies.tsv
+#   outputs/included-studies.tsv
+#   outputs/review-studies.tsv
+#
+# Output:
+#   outputs/prioritization-table.tsv
+##############################################################################
+
+set -euo pipefail
+
+##############################################################################
+# Input and output paths
+##############################################################################
+
+SCREENED="outputs/screened-studies.tsv"
+INCLUDED="outputs/included-studies.tsv"
+REVIEW="outputs/review-studies.tsv"
+PRIORITIZATION="outputs/prioritization-table.tsv"
+
+##############################################################################
+# Check required inputs
+##############################################################################
+
+if [ ! -f "$SCREENED" ]; then
+    echo "ERROR: Missing input file: $SCREENED"
+    echo "Run Chapter 06 screening first:"
+    echo "bash scripts/bash/06a-screen-candidate-studies.sh"
+    exit 1
+fi
+
+if [ ! -f "$INCLUDED" ]; then
+    echo "ERROR: Missing input file: $INCLUDED"
+    echo "Run Chapter 06 screening first:"
+    echo "bash scripts/bash/06a-screen-candidate-studies.sh"
+    exit 1
+fi
+
+if [ ! -f "$REVIEW" ]; then
+    echo "ERROR: Missing input file: $REVIEW"
+    echo "Run Chapter 06 screening first:"
+    echo "bash scripts/bash/06a-screen-candidate-studies.sh"
+    exit 1
+fi
+
+##############################################################################
+# Create prioritization table
+##############################################################################
+
+cat > "$PRIORITIZATION" << 'EOF'
+priority_id	candidate_id	accession	source	screening_decision	priority_label	research_alignment_score	metadata_score	accession_clarity_score	file_availability_score	cdi_das_readiness_score	test_subset_score	total_score	prioritization_reason	notes
+PRI001	CAND001	PRJNA802976	NCBI BioProject	include	primary	2	2	2	2	2	2	12	Strong fit for healthy human gut microbiome discovery objective and CDI-DAS handoff	Prioritized case-study BioProject
+PRI002	CAND002	SRR17868090	NCBI SRA	include	primary_test_subset	2	2	2	2	2	2	12	Test run from prioritized BioProject suitable for acquisition validation	Primary test subset
+PRI003	CAND003	SRR17868091	NCBI SRA	include	primary_test_subset	2	2	2	2	2	2	12	Test run from prioritized BioProject suitable for acquisition validation	Primary test subset
+PRI004	CAND004	SRR17868092	NCBI SRA	include	primary_test_subset	2	2	2	2	2	2	12	Test run from prioritized BioProject suitable for acquisition validation	Primary test subset
+PRI005	CAND005	PRJNA322554	NCBI BioProject	review	secondary_comparison	1	1	2	1	1	0	6	Relevant human gut microbiome BioProject retained for technical comparison	Secondary comparison record
+EOF
+
+##############################################################################
+# Report
+##############################################################################
+
+echo "Prioritization table created:"
+echo "$PRIORITIZATION"
+echo
+echo "Priority summary:"
+echo "Primary records:"
+awk -F '\t' 'NR > 1 && ($6 == "primary" || $6 == "primary_test_subset") {count++} END {print count + 0}' "$PRIORITIZATION"
+
+echo "Secondary or review records:"
+awk -F '\t' 'NR > 1 && ($6 != "primary" && $6 != "primary_test_subset") {count++} END {print count + 0}' "$PRIORITIZATION"
+
+echo
+echo "Preview:"
+column -t -s $'\t' "$PRIORITIZATION"

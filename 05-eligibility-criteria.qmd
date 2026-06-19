@@ -1,0 +1,389 @@
+# Eligibility Criteria
+
+## Why Eligibility Criteria Matter
+
+After candidate studies have been identified, the next step is to decide which studies are suitable for inclusion.
+
+This decision should not be made informally.
+
+Eligibility criteria provide the rules used to include, exclude, or set aside candidate studies. They help ensure that screening decisions are consistent, transparent, and aligned with the research question.
+
+Without eligibility criteria, study selection can become subjective. One analyst may include a study because it appears relevant, while another may exclude it because the metadata are incomplete or the sample context is unclear.
+
+A systematic dataset discovery workflow avoids this problem by defining eligibility criteria before screening begins.
+
+## From Search Results to Screening Rules
+
+Search results are broad by design.
+
+They may include relevant studies, partially relevant studies, unrelated studies, duplicate records, secondary publications, studies without public accessions, and datasets that cannot support downstream acquisition.
+
+Eligibility criteria help convert this broad search output into a structured screening process.
+
+```text
+Candidate Studies
+        ↓
+Eligibility Criteria
+        ↓
+Screening Decisions
+        ↓
+Included / Excluded / Review
+```
+
+The purpose of eligibility criteria is not to make the final dataset as large as possible.
+
+The purpose is to make the final dataset appropriate for the research question and usable for downstream workflows.
+
+## Core Eligibility Domains
+
+For CDI Systematic Dataset Discovery, eligibility criteria should usually cover five domains:
+
+```text
+Biological Relevance
+        ↓
+Technical Suitability
+        ↓
+Metadata Completeness
+        ↓
+Repository Accessibility
+        ↓
+CDI-DAS Readiness
+```
+
+Each domain helps answer a different question.
+
+| Domain | Main Question |
+|---|---|
+| Biological relevance | Does the study match the biological question? |
+| Technical suitability | Does the data type match the intended workflow? |
+| Metadata completeness | Are the samples sufficiently described? |
+| Repository accessibility | Are public accessions and files available? |
+| CDI-DAS readiness | Can the study move into reproducible acquisition? |
+
+Together, these domains provide a structured basis for deciding whether a candidate study should continue in the workflow.
+
+## Biological Eligibility
+
+Biological eligibility checks whether the study matches the research question.
+
+For the healthy human gut microbiome case study, biological eligibility may include:
+
+- human samples
+- gut, stool, fecal, or intestinal sample context
+- healthy, non-diseased, control, or baseline participants
+- microbiome-related biological material
+- study context relevant to reference dataset assembly
+
+A study may mention the gut microbiome but still fail biological eligibility if it focuses only on animals, disease-only cohorts, environmental samples, or unrelated body sites.
+
+For example, these studies may be excluded from the main healthy human gut microbiome reference workflow:
+
+- mouse gut microbiome studies
+- oral microbiome studies
+- skin microbiome studies
+- disease-only patient cohorts without healthy controls
+- intervention-only studies without usable baseline samples
+- studies with unclear host or sample source
+
+## Technical Eligibility
+
+Technical eligibility checks whether the data type is suitable for the intended analysis or acquisition workflow.
+
+For microbiome discovery, this may include:
+
+- sequencing data are available
+- library strategy is relevant
+- platform information is available
+- read layout is documented
+- data type is compatible with the planned workflow
+- run-level accessions can be retrieved
+
+For the prioritized case study, **PRJNA802976** is treated as the primary BioProject because it supports a practical CDI-DAS handoff and includes run-level accessions that can be used for acquisition testing.
+
+The primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+These accessions allow the workflow to test acquisition and validation before scaling to the full BioProject.
+
+## Metadata Eligibility
+
+Metadata eligibility checks whether the study has enough information to interpret the samples.
+
+A dataset may be public and downloadable, but still difficult to reuse if the metadata are incomplete.
+
+Important metadata may include:
+
+- organism
+- sample source
+- body site
+- health status
+- disease or control status
+- treatment or exposure
+- age group
+- sex
+- geographic location
+- sequencing platform
+- library strategy
+- sample accession
+- run accession
+
+Not every study will contain every metadata field. However, the minimum required metadata should be defined before screening.
+
+For the healthy human gut microbiome case study, minimum metadata should support identification of human gut or stool samples and their relevance to healthy or non-diseased microbiome analysis.
+
+## Repository Accessibility
+
+Repository accessibility checks whether the public data can actually be located and acquired.
+
+A study should provide enough accession information to connect the publication or repository record to public data files.
+
+Useful accession types include:
+
+| Accession Type | Example |
+|---|---|
+| BioProject | PRJNA802976 |
+| SRA Run | SRR17868090 |
+| BioSample | SAMN... |
+| ENA Run | ERR... or SRR... |
+| PubMed ID | PMID... |
+
+A candidate study may be excluded or set aside if:
+
+- no public accession is provided
+- accessions are unclear
+- repository records cannot be resolved
+- sequence files are unavailable
+- files require controlled access
+- sample-to-run mapping is missing
+
+For CDI-DAS handoff, BioProject and run-level accessions are especially important.
+
+## CDI-DAS Readiness
+
+CDI-DAS readiness checks whether the study can be passed into the CDI Data Acquisition System.
+
+This does not require downloading the full dataset during eligibility assessment. It only requires enough confidence that the study can move into acquisition.
+
+A study is more CDI-DAS-ready when it has:
+
+- clear BioProject or study accession
+- retrievable run-level metadata
+- public sequence files
+- usable sample metadata
+- clear repository mapping
+- compatible data type
+- manageable test subset
+
+For the primary case study, the CDI-DAS-ready starting point is:
+
+```text
+BioProject: PRJNA802976
+
+Test runs:
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+## Inclusion Criteria
+
+Inclusion criteria define what a study must have to be considered eligible.
+
+For the healthy human gut microbiome case study, inclusion criteria may include:
+
+| Criterion | Inclusion Rule |
+|---|---|
+| Organism | Human samples |
+| Sample context | Gut, stool, fecal, or intestinal microbiome |
+| Health context | Healthy, non-diseased, control, or baseline samples |
+| Data type | Public microbiome sequencing data |
+| Repository record | BioProject, SRA, ENA, or equivalent accession available |
+| Metadata | Sufficient sample and technical metadata for reuse |
+| Acquisition readiness | Data can be prepared for CDI-DAS handoff |
+
+These criteria can be refined as the workflow matures, but they should remain explicit and documented.
+
+## Exclusion Criteria
+
+Exclusion criteria define which studies should not be included in the main workflow.
+
+For the case study, exclusion criteria may include:
+
+| Criterion | Exclusion Rule |
+|---|---|
+| Wrong organism | Non-human samples only |
+| Wrong sample context | Non-gut body site only |
+| Disease-only cohort | No healthy, control, or baseline group available |
+| No public data | No accessible public sequencing data |
+| Missing accessions | No usable BioProject, SRA, ENA, or equivalent accession |
+| Insufficient metadata | Sample context cannot be interpreted |
+| Incompatible data | Data type does not match the intended workflow |
+| Controlled access only | Data cannot be acquired through the public CDI-DAS workflow |
+
+Exclusion does not mean a study has no scientific value.
+
+It only means the study does not meet the criteria for this specific discovery workflow.
+
+## Review or Unclear Studies
+
+Not every candidate study will be clearly eligible or clearly ineligible.
+
+Some studies may require manual review.
+
+A study can be marked as **review** when:
+
+- the accession is present but unclear
+- the study appears relevant but metadata are incomplete
+- the publication and repository record do not match clearly
+- the health status is ambiguous
+- the study includes mixed sample types
+- only part of the dataset may be eligible
+- supplementary files must be checked before a decision
+
+Using a review category prevents premature inclusion or exclusion.
+
+```text
+Include
+        Study meets criteria
+
+Exclude
+        Study does not meet criteria
+
+Review
+        More information is needed
+```
+
+## Eligibility Decision Labels
+
+A simple decision system can be used during screening:
+
+| Decision | Meaning |
+|---|---|
+| include | Study meets the criteria |
+| exclude | Study does not meet the criteria |
+| review | Study requires additional checking |
+| defer | Study may be useful later but is not prioritized now |
+
+These labels should be used consistently across the screening table.
+
+## Creating Inclusion and Exclusion Criteria Tables
+
+Eligibility criteria are stored in two structured tables: one for inclusion rules and one for exclusion rules.
+
+```bash
+bash scripts/bash/05a-build-inclusion-criteria.sh
+bash scripts/bash/05b-build-exclusion-criteria.sh
+```
+
+The expected outputs are:
+
+```text
+outputs/inclusion-criteria.tsv
+outputs/exclusion-criteria.tsv
+```
+
+The inclusion criteria table defines what a candidate study must contain to move forward.
+
+The exclusion criteria table defines the conditions that remove a candidate study from the main workflow.
+
+Together, these files document the screening rules used in the next chapter.
+
+## Example Eligibility Table Structure
+
+A useful eligibility criteria table may include:
+
+- criterion ID
+- criterion domain
+- criterion name
+- inclusion rule or exclusion rule
+- review condition, when applicable
+- notes
+
+Example inclusion table:
+
+```text
+criterion_id    domain                  criterion_name       inclusion_rule
+INC001          Biological relevance    Organism             Study includes human samples
+INC002          Biological relevance    Sample context       Study includes gut or stool microbiome samples
+INC005          Repository access       Public accession     Study provides a usable public accession
+```
+
+Example exclusion table:
+
+```text
+criterion_id    domain                  criterion_name       exclusion_rule
+EXC001          Biological relevance    Wrong organism       Exclude studies containing non-human samples only
+EXC002          Biological relevance    Wrong sample context Exclude studies that do not include gut or stool samples
+EXC005          Repository access       No public accession  Exclude studies with no usable public accession
+```
+
+The full criteria tables are created by the Chapter 05 scripts.
+
+## Applying Criteria to the Case Study
+
+For the primary case-study BioProject:
+
+```text
+PRJNA802976
+```
+
+the eligibility decision should focus on whether it meets the discovery question:
+
+> Which public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?
+
+The initial screening decision may be:
+
+| Field | Value |
+|---|---|
+| BioProject | PRJNA802976 |
+| Priority | Primary case-study accession |
+| Organism | Human |
+| Sample context | Gut or stool microbiome |
+| Data type | Microbiome sequencing |
+| CDI-DAS readiness | Suitable for test acquisition |
+| Test subset | SRR17868090, SRR17868091, SRR17868092 |
+| Initial decision | include |
+
+A secondary comparison BioProject can remain available for contrast:
+
+```text
+PRJNA322554
+```
+
+This comparison helps demonstrate why eligibility and prioritization should consider technical characteristics, metadata completeness, and acquisition readiness.
+
+## Common Eligibility Problems
+
+Candidate studies may fail eligibility for several reasons:
+
+- title appears relevant but sample type is wrong
+- publication describes microbiome data but accessions are missing
+- repository record exists but sample metadata are unclear
+- BioProject contains mixed sample types
+- disease and healthy samples are not clearly separated
+- run-level metadata are incomplete
+- files are not publicly downloadable
+- study is relevant but not compatible with the intended analysis
+
+These problems should be recorded rather than handled silently.
+
+A transparent exclusion reason is part of the discovery audit trail.
+
+## Summary
+
+Eligibility criteria define the rules used to move from candidate studies to screened studies.
+
+They help ensure that study selection is transparent, consistent, and aligned with the research question.
+
+For the healthy human gut microbiome case study, eligibility focuses on human gut or stool microbiome studies with public sequencing accessions, interpretable metadata, and readiness for CDI-DAS handoff.
+
+The prioritized case-study BioProject is **PRJNA802976**, with **SRR17868090**, **SRR17868091**, and **SRR17868092** used as the primary test subset.
+
+## Looking Ahead
+
+In the next chapter, we apply the eligibility criteria to candidate studies through a structured dataset screening workflow.

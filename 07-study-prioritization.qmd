@@ -1,0 +1,325 @@
+# Study Prioritization
+
+## Why Study Prioritization Matters
+
+After candidate studies have been screened, the next step is study prioritization.
+
+Screening determines whether a study is eligible.
+
+Prioritization determines which eligible studies should be used first.
+
+These are related but different decisions.
+
+```text
+Dataset Screening
+        ↓
+Eligible Studies
+        ↓
+Study Prioritization
+        ↓
+Priority Study List
+        ↓
+CDI-DAS Input Package
+```
+
+A study may meet the eligibility criteria but still not be the best starting point for data acquisition, reference dataset assembly, or case-study demonstration.
+
+Prioritization helps rank eligible studies based on usefulness, readiness, metadata quality, technical suitability, and alignment with the project objective.
+
+## Screening Versus Prioritization
+
+Screening is a yes, no, or review decision.
+
+Prioritization is a ranking decision.
+
+| Step | Main Question | Output |
+|---|---|---|
+| Screening | Does the study meet the eligibility criteria? | Included, excluded, or review studies |
+| Prioritization | Which eligible studies should be used first? | Ranked study list |
+
+For example, two studies may both be eligible human gut microbiome datasets. However, one may have clearer metadata, better file accessibility, paired-end sequencing, and a manageable test subset. That study would be prioritized first.
+
+## Inputs to Study Prioritization
+
+The prioritization step uses outputs from dataset screening.
+
+Expected inputs include:
+
+```text
+outputs/screened-studies.tsv
+outputs/included-studies.tsv
+outputs/review-studies.tsv
+```
+
+The included studies table contains records that passed eligibility screening.
+
+The review studies table contains records that may be useful but need additional checking.
+
+The screened studies table preserves all screening decisions and reasons.
+
+## Prioritization Criteria
+
+Prioritization should be based on practical and scientific considerations.
+
+For CDI Systematic Dataset Discovery, useful prioritization criteria include:
+
+- relevance to the research question
+- metadata completeness
+- accession clarity
+- public file availability
+- run-level metadata availability
+- compatibility with CDI-DAS
+- sequencing layout
+- platform suitability
+- manageable test subset
+- usefulness as a reference dataset
+- usefulness as a teaching or demonstration case
+
+The goal is not to rank studies only by size.
+
+A smaller study with clear metadata and accessible files may be more useful than a larger study with confusing records or incomplete metadata.
+
+## Core Prioritization Domains
+
+Study prioritization can be organized into five domains:
+
+```text
+Research Alignment
+        ↓
+Metadata Quality
+        ↓
+Technical Suitability
+        ↓
+Repository Readiness
+        ↓
+CDI-DAS Handoff Value
+```
+
+Each domain contributes to the final priority decision.
+
+| Domain | Main Question |
+|---|---|
+| Research alignment | Does the study strongly match the discovery objective? |
+| Metadata quality | Are the sample and technical metadata usable? |
+| Technical suitability | Does the sequencing design fit the workflow? |
+| Repository readiness | Are public files and accessions clear? |
+| CDI-DAS handoff value | Can the study move smoothly into acquisition? |
+
+## Priority Labels
+
+A simple priority label system can be used.
+
+| Priority Label | Meaning |
+|---|---|
+| primary | Main study for the current workflow |
+| secondary | Useful comparison or backup study |
+| review | Potentially useful but needs more checking |
+| deferred | Relevant but not needed now |
+
+These labels help separate the main case-study accession from supporting or future-use records.
+
+## Prioritization Scoring
+
+A simple scoring system can make prioritization more transparent.
+
+Each study can be scored across several criteria.
+
+Example:
+
+| Criterion | Score Meaning |
+|---|---|
+| 0 | Does not meet the criterion |
+| 1 | Partially meets the criterion |
+| 2 | Strongly meets the criterion |
+
+A study with higher total score may be prioritized first.
+
+Example scoring criteria:
+
+| Criterion | Description |
+|---|---|
+| Research alignment | Matches the discovery question |
+| Metadata completeness | Provides usable biological and technical metadata |
+| Accession clarity | Provides clear BioProject or run-level accessions |
+| File availability | Public sequence files are available |
+| CDI-DAS readiness | Can be handed off to the acquisition system |
+| Test subset suitability | Has a practical subset for validation |
+| Technical suitability | Sequencing layout and platform are useful for the workflow |
+
+## Creating a Prioritization Table
+
+The prioritization table can be created with a script.
+
+```bash
+bash scripts/bash/07a-build-prioritization-table.sh
+```
+
+The expected output is:
+
+```text
+outputs/prioritization-table.tsv
+```
+
+This table records how screened studies are ranked and why a study is prioritized for downstream acquisition.
+
+## Expected Prioritization Table Structure
+
+A useful prioritization table may include:
+
+- candidate ID
+- accession
+- source
+- screening decision
+- priority label
+- research alignment score
+- metadata score
+- accession clarity score
+- file availability score
+- CDI-DAS readiness score
+- test subset score
+- total score
+- prioritization reason
+- notes
+
+This table makes the ranking process more transparent.
+
+## Applying Prioritization to the Case Study
+
+For this guide, the primary BioProject is:
+
+```text
+PRJNA802976
+```
+
+The primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+This BioProject is prioritized because it provides a practical, accession-linked human gut microbiome case study that can be handed off to CDI-DAS.
+
+A secondary comparison BioProject is:
+
+```text
+PRJNA322554
+```
+
+This record may remain useful for technical contrast, but it is not the primary acquisition example.
+
+## Priority Decision for PRJNA802976
+
+The priority decision for PRJNA802976 can be summarized as:
+
+| Field | Value |
+|---|---|
+| BioProject | PRJNA802976 |
+| Priority | primary |
+| Screening decision | include |
+| Study role | Main healthy human gut microbiome case-study accession |
+| Test subset | SRR17868090, SRR17868091, SRR17868092 |
+| Downstream use | CDI-DAS acquisition and validation |
+| Prioritization reason | Strong fit for the discovery objective and practical CDI-DAS handoff |
+
+This makes PRJNA802976 the main accession carried forward into included study assembly.
+
+## Secondary Comparison Record
+
+PRJNA322554 can be retained as a secondary comparison record.
+
+```text
+PRJNA322554
+```
+
+Its role is not to replace the primary case study. Instead, it helps demonstrate that eligible or relevant studies may still differ in technical characteristics, metadata structure, sequencing layout, or acquisition readiness.
+
+This supports the teaching point that prioritization is more than inclusion.
+
+```text
+Eligible
+        ↓
+Useful
+        ↓
+Prioritized
+        ↓
+Ready for handoff
+```
+
+## Why Not Prioritize Everything Equally?
+
+Not all eligible studies should be treated equally.
+
+Some studies may be eligible but difficult to use immediately.
+
+Reasons include:
+
+- metadata require manual cleaning
+- sample groups are difficult to interpret
+- run-level mapping is unclear
+- file access needs additional validation
+- study contains mixed sample types
+- data are useful but not central to the current objective
+
+Prioritization helps the workflow focus first on the studies that best support the current objective.
+
+## Prioritization and CDI-DAS Handoff
+
+The purpose of prioritization is to prepare a clear handoff into CDI-DAS.
+
+CDI-DAS needs accession inputs that can be used for metadata retrieval, download manifest generation, file acquisition, and validation.
+
+Prioritized studies should therefore be organized into an input-ready structure.
+
+```text
+Prioritized Study
+        ↓
+BioProject Accession
+        ↓
+Run Accessions
+        ↓
+Test Subset
+        ↓
+CDI-DAS Input Package
+```
+
+For this guide, that handoff begins with:
+
+```text
+BioProject: PRJNA802976
+
+Test subset:
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+## Common Prioritization Problems
+
+Prioritization can become unclear when ranking decisions are not documented.
+
+Common problems include:
+
+- choosing a study only because it was found first
+- prioritizing the largest dataset without checking metadata
+- ignoring file availability
+- mixing primary and secondary examples
+- failing to explain why one eligible study was selected over another
+- changing the priority study without updating documentation
+
+A prioritization table helps prevent these issues.
+
+## Summary
+
+Study prioritization ranks screened studies based on their usefulness, readiness, and alignment with the discovery objective.
+
+Screening determines whether a study is eligible. Prioritization determines which eligible study should be used first.
+
+For this guide, **PRJNA802976** is prioritized as the primary healthy human gut microbiome BioProject, with **SRR17868090**, **SRR17868091**, and **SRR17868092** used as the primary test subset.
+
+**PRJNA322554** remains available as a secondary comparison record.
+
+## Looking Ahead
+
+In the next chapter, we assemble the included and prioritized studies into a structured output package that can be handed off to the CDI Data Acquisition System.

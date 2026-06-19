@@ -1,0 +1,87 @@
+# Preface and Overview
+
+## Why This Guide Exists
+
+Public omics repositories contain an enormous amount of reusable biological data. These datasets can support new research questions, strengthen reference resources, enable benchmarking, and reduce the need to generate new data when suitable public data already exist.
+
+However, public data reuse is only reliable when dataset discovery is performed systematically.
+
+Finding a dataset is not the same as selecting a dataset.
+
+A dataset may be publicly available, but still unsuitable for a specific analysis because of missing metadata, unclear sample descriptions, incompatible study design, limited accessions, incomplete files, or poor alignment with the research question.
+
+This guide introduces the **CDI Systematic Dataset Discovery** workflow: a structured approach for identifying, screening, evaluating, and prioritizing public omics studies before data acquisition.
+
+## Purpose of the Workflow
+
+The purpose of this workflow is to move from a biological or biomedical question to a transparent set of eligible public omics studies.
+
+The workflow helps answer questions such as:
+
+- What public studies are available for this topic?
+- Which repositories should be searched?
+- What search terms should be used?
+- Which studies meet the inclusion criteria?
+- Which studies should be excluded, and why?
+- Which studies are most suitable for downstream data acquisition?
+- What accession list should be handed off to the CDI Data Acquisition System?
+
+The goal is not simply to collect as many studies as possible. The goal is to produce a defensible, reproducible, and well-documented dataset selection process.
+
+## Relationship to CDI Data Acquisition System
+
+This guide is designed as the upstream companion to the **CDI Data Acquisition System**.
+
+The discovery workflow identifies eligible public studies. The data acquisition system then retrieves, validates, and organizes the corresponding public data files.
+
+```{mermaid}
+flowchart TD
+    A[Research Question] --> B[Systematic Dataset Discovery]
+    B --> C[Eligible Public Omics Studies]
+    C --> D[CDI Data Acquisition System]
+    D --> E[Reference Dataset Package]
+
+    classDef question fill:#eaf4ff,stroke:#0b3c5d,stroke-width:1.5px,color:#0b1f3a;
+    classDef discovery fill:#eaf7ef,stroke:#0b6b3a,stroke-width:1.5px,color:#0b1f3a;
+    classDef output fill:#fff8e6,stroke:#b7791f,stroke-width:1.5px,color:#0b1f3a;
+    classDef system fill:#eef2ff,stroke:#1e3a8a,stroke-width:1.5px,color:#0b1f3a;
+    classDef package fill:#f0fdf4,stroke:#166534,stroke-width:1.5px,color:#0b1f3a;
+
+    class A question;
+    class B discovery;
+    class C output;
+    class D system;
+    class E package;
+```
+
+## A Reproducible but Human-Guided Workflow
+
+This workflow is reproducible, but it is not fully automatic.
+
+Manual input is required at stages where scientific judgment is needed. These include defining the research question, refining search terms, reviewing candidate studies, developing eligibility criteria, resolving ambiguous records, prioritizing studies, and approving the final handoff to the CDI Data Acquisition System.
+
+The purpose of the scripts is not to remove human judgment.
+
+The purpose is to make human judgment structured, documented, and reproducible.
+
+```text
+Human Judgment
+        ↓
+Structured Decision
+        ↓
+Documented Output
+        ↓
+Reproducible Workflow
+```
+
+## Summary
+
+The CDI Systematic Dataset Discovery workflow provides a structured bridge between biological research questions and reusable public omics datasets.
+
+It helps transform public data reuse from an informal search activity into a transparent, reproducible, and decision-ready process.
+
+By separating dataset discovery from data acquisition, the workflow ensures that only eligible, well-documented, and relevant public studies are handed off to the CDI Data Acquisition System.
+
+## Looking Ahead
+
+In the next chapter, we discuss why dataset discovery matters and why systematic study selection is essential for reliable public omics data reuse.

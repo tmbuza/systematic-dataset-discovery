@@ -1,0 +1,275 @@
+# Included Study Assembly
+
+## Why Included Study Assembly Matters
+
+After studies have been screened and prioritized, the next step is to assemble the final discovery outputs.
+
+Included study assembly is the process of converting screened and prioritized records into a structured package that can be used for downstream data acquisition.
+
+This step is important because the output of dataset discovery should not be a vague list of interesting studies.
+
+It should be a documented, organized, and acquisition-ready input package.
+
+```text
+Screened Studies
+        ↓
+Prioritization Table
+        ↓
+Included Study Assembly
+        ↓
+CDI-DAS Input Package
+        ↓
+Data Acquisition
+```
+
+Included study assembly creates the formal handoff between the CDI Systematic Dataset Discovery workflow and the CDI Data Acquisition System.
+
+## From Prioritized Studies to Handoff Package
+
+Study prioritization identifies which eligible studies should move forward first.
+
+Included study assembly organizes those decisions into files that can be reused by downstream workflows.
+
+For CDI workflows, the most important handoff elements are:
+
+- included BioProject accessions
+- selected run accessions
+- test subset accessions
+- prioritization notes
+- screening decisions
+- acquisition readiness information
+
+These outputs allow CDI-DAS to begin with clear, documented inputs.
+
+## Inputs to Included Study Assembly
+
+The included study assembly step uses outputs from earlier chapters.
+
+Expected inputs include:
+
+```text
+outputs/screened-studies.tsv
+outputs/included-studies.tsv
+outputs/review-studies.tsv
+outputs/prioritization-table.tsv
+```
+
+The screened studies table preserves all screening decisions.
+
+The included studies table records records that passed screening.
+
+The review studies table records studies that may need additional checking.
+
+The prioritization table records which included records should be used first.
+
+## Primary Case-Study Accession
+
+For this guide, the primary BioProject is:
+
+```text
+PRJNA802976
+```
+
+This BioProject is prioritized as the main healthy human gut microbiome case-study accession.
+
+It is carried forward because it supports a practical CDI-DAS handoff and provides run-level accessions that can be used for acquisition validation.
+
+## Primary Test Subset
+
+The primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+These runs provide a small, controlled subset for testing the downstream CDI-DAS acquisition workflow before scaling to the full BioProject.
+
+Using a test subset helps confirm that metadata retrieval, manifest creation, download planning, and validation steps work as expected.
+
+## Secondary Comparison Record
+
+A secondary comparison BioProject may be retained:
+
+```text
+PRJNA322554
+```
+
+This record is not the primary handoff accession.
+
+Instead, it can be used as a comparison example when demonstrating technical differences, metadata review, sequencing layout, or acquisition-readiness decisions.
+
+## CDI-DAS Input Package
+
+The main output of included study assembly is the CDI-DAS input package.
+
+This package should contain the accessions and supporting records needed to begin data acquisition.
+
+Expected outputs include:
+
+```text
+outputs/cdi-das-input-accessions.txt
+outputs/cdi-das-test-accessions.txt
+outputs/included-study-package.tsv
+```
+
+The accession list provides the study-level handoff.
+
+The test accession file provides the run-level subset for validation.
+
+The included study package provides the documented context for the handoff.
+
+## Building the Included Study Package
+
+The included study package can be created with a script.
+
+```bash
+bash scripts/bash/08a-build-included-study-package.sh
+```
+
+The expected outputs are:
+
+```text
+outputs/cdi-das-input-accessions.txt
+outputs/cdi-das-test-accessions.txt
+outputs/included-study-package.tsv
+```
+
+These files prepare the discovery outputs for downstream use in CDI-DAS.
+
+## Expected Package Structure
+
+The included study package may contain:
+
+- package ID
+- accession
+- accession type
+- source
+- priority label
+- screening decision
+- downstream role
+- CDI-DAS readiness
+- notes
+
+Example:
+
+```text
+package_id    accession      accession_type    downstream_role
+PKG001        PRJNA802976    BioProject        Primary CDI-DAS input
+PKG002        SRR17868090    SRA Run           Test subset accession
+PKG003        SRR17868091    SRA Run           Test subset accession
+PKG004        SRR17868092    SRA Run           Test subset accession
+```
+
+This structure makes the handoff explicit and reproducible.
+
+## Handoff to CDI-DAS
+
+The CDI Data Acquisition System begins from accessions.
+
+For this guide, the systematic discovery workflow hands off:
+
+```text
+Primary BioProject:
+PRJNA802976
+
+Primary test subset:
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+This allows CDI-DAS to retrieve metadata, build manifests, download files, validate data, and assemble a reference dataset package.
+
+```text
+CDI Systematic Dataset Discovery
+        ↓
+Included Study Package
+        ↓
+CDI-DAS Input Accessions
+        ↓
+Metadata Acquisition
+        ↓
+Download Manifest
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Reference Dataset Package
+```
+
+## Why the Handoff Must Be Explicit
+
+A clear handoff prevents confusion between discovery and acquisition.
+
+Dataset discovery answers:
+
+> Which studies should be included, and why?
+
+CDI-DAS answers:
+
+> How do we retrieve, validate, and organize the data reproducibly?
+
+Keeping these systems separate but connected makes the overall workflow easier to explain, test, reuse, and scale.
+
+## Included Study Assembly Checklist
+
+Before handing off to CDI-DAS, confirm that the following are available:
+
+```text
+Included BioProject selected
+        ↓
+Primary test subset defined
+        ↓
+Screening decision recorded
+        ↓
+Prioritization reason documented
+        ↓
+CDI-DAS input accession file created
+        ↓
+Test accession file created
+        ↓
+Included study package assembled
+```
+
+This checklist helps ensure that discovery outputs are ready for acquisition.
+
+## Applying the Assembly to the Case Study
+
+For the healthy human gut microbiome case study, the assembled handoff package should contain:
+
+| Field | Value |
+|---|---|
+| Primary BioProject | PRJNA802976 |
+| Primary test run 1 | SRR17868090 |
+| Primary test run 2 | SRR17868091 |
+| Primary test run 3 | SRR17868092 |
+| Secondary comparison | PRJNA322554 |
+| Downstream system | CDI Data Acquisition System |
+| Handoff status | Ready for acquisition testing |
+
+This confirms that the discovery workflow has produced a usable input package.
+
+## Relationship to the Case Study Chapter
+
+This chapter assembles the generic handoff outputs.
+
+The next chapter applies the full workflow as a case study.
+
+The case study will show how the healthy human gut microbiome example moves from research question to prioritized public BioProject and then into CDI-DAS-ready accessions.
+
+## Summary
+
+Included study assembly converts screened and prioritized records into a structured CDI-DAS input package.
+
+For this guide, **PRJNA802976** is assembled as the primary BioProject accession, while **SRR17868090**, **SRR17868091**, and **SRR17868092** are assembled as the primary test subset.
+
+**PRJNA322554** remains available as a secondary comparison record.
+
+This chapter creates the bridge between systematic discovery and reproducible data acquisition.
+
+## Looking Ahead
+
+In the next chapter, we apply the complete workflow to the healthy human gut microbiome case study and show how the selected public study becomes ready for CDI-DAS acquisition.

@@ -1,0 +1,487 @@
+# Case Study: Healthy Human Gut Microbiome
+
+## Why This Case Study
+
+This chapter applies the CDI Systematic Dataset Discovery workflow to a practical example: healthy human gut microbiome datasets.
+
+The purpose of the case study is to show how a broad biological topic can be converted into a documented, screened, prioritized, and CDI-DAS-ready public dataset package.
+
+The case study follows the full discovery workflow:
+
+```text
+Research Question
+        ↓
+Search Strategy
+        ↓
+Candidate Studies
+        ↓
+Eligibility Criteria
+        ↓
+Dataset Screening
+        ↓
+Study Prioritization
+        ↓
+Included Study Assembly
+        ↓
+CDI-DAS Input Package
+```
+
+The final output is not only a selected BioProject.
+
+The final output is a documented decision trail showing why the BioProject was selected, which accessions are used for testing, and how the result connects to the CDI Data Acquisition System.
+
+## Default Case Study Settings
+
+This executable case study uses the default accessions defined in the workflow scripts.
+
+```text
+Primary BioProject:
+PRJNA802976
+
+Primary test subset:
+SRR17868090
+SRR17868091
+SRR17868092
+
+Secondary comparison:
+PRJNA322554
+```
+
+These settings represent the manual scientific choices for this case study.
+
+Once these choices are defined, the workflow can be executed reproducibly.
+
+```text
+Manual Case-Study Decision
+        ↓
+Scripted Workflow
+        ↓
+Structured Outputs
+        ↓
+CDI-DAS-Ready Handoff
+```
+
+## Case Study Objective
+
+The case-study discovery question is:
+
+> Which public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?
+
+The case-study objective is:
+
+> Identify, screen, and prioritize public studies containing healthy human gut microbiome sequencing data, and assemble a curated accession package suitable for CDI-DAS data acquisition.
+
+This objective connects the discovery workflow directly to downstream acquisition.
+
+## Discovery Scope
+
+The discovery scope focuses on public omics studies with:
+
+- human samples
+- gut, stool, fecal, faecal, intestinal, or gastrointestinal sample context
+- healthy, non-diseased, control, or baseline sample relevance
+- microbiome sequencing data
+- public repository accessions
+- sufficient metadata for screening and reuse
+- suitability for CDI-DAS handoff
+
+The workflow does not attempt to include every microbiome publication.
+
+It focuses on accession-linked public studies that can move from discovery into reproducible acquisition.
+
+## Primary Case-Study Accession
+
+The prioritized BioProject for this case study is:
+
+```text
+PRJNA802976
+```
+
+This BioProject is used as the primary case-study accession because it provides a practical human gut microbiome example for systematic discovery and CDI-DAS handoff.
+
+It is treated as the main study carried forward from discovery into data acquisition.
+
+## Primary Test Subset
+
+The primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+These three run accessions are used as a small acquisition-testing subset.
+
+A test subset is useful because it allows the workflow to validate metadata retrieval, manifest generation, download planning, and file validation before scaling to the full BioProject.
+
+```text
+PRJNA802976
+        ↓
+SRR17868090
+SRR17868091
+SRR17868092
+        ↓
+CDI-DAS test acquisition
+```
+
+## Secondary Comparison Accession
+
+A secondary comparison BioProject is retained:
+
+```text
+PRJNA322554
+```
+
+This accession is not the primary case-study handoff.
+
+It is retained as a comparison record to demonstrate that relevant public studies may differ in technical characteristics, sequencing layout, metadata completeness, repository structure, or acquisition readiness.
+
+## Step 1: Discovery Output Structure
+
+The case study begins by creating the standard discovery output files.
+
+```bash
+#| label: case-study-01-create-discovery-outputs
+
+bash scripts/bash/01-create-discovery-outputs.sh
+```
+
+Expected outputs include:
+
+```text
+outputs/candidate-studies.tsv
+outputs/screened-studies.tsv
+outputs/included-studies.tsv
+outputs/excluded-studies.tsv
+outputs/prioritization-table.tsv
+outputs/cdi-das-input-accessions.txt
+```
+
+This step prepares the output structure used by the rest of the workflow.
+
+## Step 2: Discovery Planning
+
+The workflow then creates the discovery plan.
+
+```bash
+#| label: case-study-02-create-discovery-plan
+
+bash scripts/bash/02-create-discovery-plan.sh
+```
+
+Expected output:
+
+```text
+outputs/discovery-plan.tsv
+```
+
+This file records the research topic, discovery question, objective, scope, unit of inclusion, and downstream system.
+
+For this case study, the planning file identifies:
+
+| Field | Value |
+|---|---|
+| Research topic | Healthy human gut microbiome |
+| Organism | Human |
+| Body site | Gut or stool |
+| Health status | Healthy or non-diseased |
+| Data type | Microbiome sequencing |
+| Downstream system | CDI Data Acquisition System |
+
+## Step 3: Repository Source Planning
+
+The next step is to define the data sources and repositories used for discovery.
+
+```bash
+#| label: case-study-03-create-repository-sources
+
+bash scripts/bash/03-create-repository-sources.sh
+```
+
+Expected output:
+
+```text
+outputs/repository-sources.tsv
+```
+
+The repository source table documents where candidate records may be identified or validated.
+
+For this case study, useful sources include:
+
+- PubMed
+- NCBI BioProject
+- NCBI SRA
+- NCBI BioSample
+- ENA
+- supplementary materials
+
+## Step 4: Search Strategy Development
+
+The search strategy identifies candidate records across BioProject and literature sources.
+
+```bash
+#| label: case-study-04a-search-bioprojects
+
+bash scripts/bash/04a-search-bioprojects.sh
+```
+
+```bash
+#| label: case-study-04b-search-literature
+
+bash scripts/bash/04b-search-literature.sh
+```
+
+```bash
+#| label: case-study-04c-create-candidate-studies-template
+
+bash scripts/bash/04c-create-candidate-studies-template.sh
+```
+
+Expected outputs:
+
+```text
+outputs/search-strategy.tsv
+outputs/bioproject-search-results.tsv
+outputs/literature-search-results.tsv
+outputs/candidate-studies.tsv
+```
+
+The BioProject search records the project-level discovery process.
+
+The literature search records publication-level discovery and accession-linked study context.
+
+The candidate study table provides the working set for screening.
+
+## Step 5: Eligibility Criteria
+
+Before screening candidate records, inclusion and exclusion criteria are defined.
+
+```bash
+#| label: case-study-05a-build-inclusion-criteria
+
+bash scripts/bash/05a-build-inclusion-criteria.sh
+```
+
+```bash
+#| label: case-study-05b-build-exclusion-criteria
+
+bash scripts/bash/05b-build-exclusion-criteria.sh
+```
+
+Expected outputs:
+
+```text
+outputs/inclusion-criteria.tsv
+outputs/exclusion-criteria.tsv
+```
+
+The inclusion criteria define what a study must contain to move forward.
+
+The exclusion criteria define what removes a study from the main workflow.
+
+For this case study, eligibility focuses on human gut or stool microbiome studies with public sequencing accessions, usable metadata, and readiness for CDI-DAS handoff.
+
+## Step 6: Dataset Screening
+
+The candidate studies are screened using the eligibility criteria.
+
+```bash
+#| label: case-study-06a-screen-candidate-studies
+
+bash scripts/bash/06a-screen-candidate-studies.sh
+```
+
+Expected outputs:
+
+```text
+outputs/screened-studies.tsv
+outputs/included-studies.tsv
+outputs/excluded-studies.tsv
+outputs/review-studies.tsv
+```
+
+The screening step assigns a decision label to each candidate record.
+
+For the primary case study, the key decisions are:
+
+| Accession | Decision | Reason |
+|---|---|---|
+| PRJNA802976 | include | Primary healthy human gut microbiome case-study BioProject |
+| SRR17868090 | include | Primary test subset run |
+| SRR17868091 | include | Primary test subset run |
+| SRR17868092 | include | Primary test subset run |
+| PRJNA322554 | review | Secondary comparison record |
+
+## Step 7: Study Prioritization
+
+Screened studies are prioritized to determine which records should be used first.
+
+```bash
+#| label: case-study-07a-build-prioritization-table
+
+bash scripts/bash/07a-build-prioritization-table.sh
+```
+
+Expected output:
+
+```text
+outputs/prioritization-table.tsv
+```
+
+The prioritization table ranks records based on research alignment, metadata quality, accession clarity, file availability, CDI-DAS readiness, and test subset suitability.
+
+For this case study:
+
+```text
+Primary:
+PRJNA802976
+
+Primary test subset:
+SRR17868090
+SRR17868091
+SRR17868092
+
+Secondary comparison:
+PRJNA322554
+```
+
+This confirms that PRJNA802976 is the main accession carried forward.
+
+## Step 8: Included Study Assembly
+
+The final discovery outputs are assembled into a CDI-DAS-ready package.
+
+```bash
+#| label: case-study-08a-build-included-study-package
+
+bash scripts/bash/08a-build-included-study-package.sh
+```
+
+Expected outputs:
+
+```text
+outputs/cdi-das-input-accessions.txt
+outputs/cdi-das-test-accessions.txt
+outputs/included-study-package.tsv
+```
+
+The CDI-DAS input accession file contains:
+
+```text
+PRJNA802976
+```
+
+The CDI-DAS test accession file contains:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+The included study package records the accession type, source, priority label, screening decision, downstream role, CDI-DAS readiness, and notes.
+
+## Final Case Study Output
+
+The final output of the case study is a structured handoff package:
+
+```text
+outputs/
+├── discovery-plan.tsv
+├── repository-sources.tsv
+├── search-strategy.tsv
+├── bioproject-search-results.tsv
+├── literature-search-results.tsv
+├── candidate-studies.tsv
+├── inclusion-criteria.tsv
+├── exclusion-criteria.tsv
+├── screened-studies.tsv
+├── included-studies.tsv
+├── excluded-studies.tsv
+├── review-studies.tsv
+├── prioritization-table.tsv
+├── included-study-package.tsv
+├── cdi-das-input-accessions.txt
+└── cdi-das-test-accessions.txt
+```
+
+Together, these files document the full discovery process.
+
+They show what was planned, where records were searched, which candidates were identified, how criteria were applied, which studies were prioritized, and what was handed off to CDI-DAS.
+
+## Manual Judgment in the Case Study
+
+This case study is executable and reproducible, but it is not fully automatic.
+
+Manual judgment is required when defining the research question, interpreting search results, reviewing metadata, applying eligibility criteria, resolving ambiguous records, and approving the final handoff.
+
+The scripts make these decisions structured and documented.
+
+They do not replace scientific judgment.
+
+```text
+Manual Judgment
+        ↓
+Documented Decision
+        ↓
+Structured Output
+        ↓
+Reproducible Handoff
+```
+
+For this case study, the key manual decision is that **PRJNA802976** is prioritized as the main BioProject, while **PRJNA322554** is retained only as a secondary comparison.
+
+## Handoff to CDI-DAS
+
+At the end of this workflow, CDI-DAS receives a clear input package.
+
+```text
+CDI Systematic Dataset Discovery
+        ↓
+PRJNA802976
+        ↓
+SRR17868090
+SRR17868091
+SRR17868092
+        ↓
+CDI Data Acquisition System
+```
+
+CDI-DAS can then use these accessions for metadata acquisition, manifest generation, data download, file validation, and reference dataset assembly.
+
+This completes the bridge between systematic discovery and reproducible acquisition.
+
+## Case Study Summary
+
+The healthy human gut microbiome case study demonstrates how a broad public-data topic can be converted into a documented, executable, and reproducible discovery workflow.
+
+The workflow begins with a research question and ends with CDI-DAS-ready accessions.
+
+The primary case-study BioProject is:
+
+```text
+PRJNA802976
+```
+
+The primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+The secondary comparison BioProject is:
+
+```text
+PRJNA322554
+```
+
+The result is a transparent and reproducible handoff from dataset discovery into data acquisition.
+
+## Looking Ahead
+
+This concludes the CDI Systematic Dataset Discovery guide.
+
+The same workflow can be adapted to other omics domains, including RNA-seq, single-cell, metagenomics, GWAS, proteomics, metabolomics, and multi-omics studies.

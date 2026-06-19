@@ -1,0 +1,3 @@
+candidate_id	source	search_date	search_query	bioproject_accession	priority_level	organism	sample_context	data_type	notes
+BP001	NCBI BioProject	2026-06-20	human gut microbiome healthy	PRJNA802976	primary	Human	Gut or stool microbiome	Microbiome sequencing	Prioritized case-study BioProject for CDI-DAS handoff
+BP002	NCBI BioProject	2026-06-20	human gut microbiome healthy	PRJNA322554	secondary	Human	Gut or stool microbiome	Microbiome sequencing	Secondary comparison BioProject for technical contrast

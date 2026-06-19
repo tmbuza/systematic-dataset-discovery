@@ -1,0 +1,311 @@
+# Dataset Screening
+
+## Why Dataset Screening Matters
+
+After candidate studies have been identified and eligibility criteria have been defined, the next step is dataset screening.
+
+Dataset screening is the process of applying inclusion and exclusion criteria to candidate studies in a structured way.
+
+The goal is to decide whether each candidate record should be:
+
+- included
+- excluded
+- reviewed further
+- deferred for later use
+
+Screening turns a broad candidate list into a smaller, better-documented set of studies that are suitable for downstream prioritization and data acquisition.
+
+```text
+Candidate Studies
+        ↓
+Eligibility Criteria
+        ↓
+Dataset Screening
+        ↓
+Screened Studies
+        ↓
+Included / Excluded / Review
+```
+
+Dataset screening is not only a filtering step. It is also a documentation step.
+
+Every screening decision should be traceable.
+
+## Screening Is a Decision Process
+
+A candidate study may look relevant at first, but screening determines whether it actually meets the discovery objective.
+
+For the healthy human gut microbiome case study, screening asks:
+
+- Is the study based on human samples?
+- Does it include gut, stool, fecal, or intestinal microbiome data?
+- Does it include healthy, non-diseased, control, or baseline samples?
+- Are public accessions available?
+- Is the data type suitable for CDI-DAS handoff?
+- Are metadata sufficient for interpretation?
+- Can a test subset be prepared for acquisition validation?
+
+These questions help move from general relevance to actual eligibility.
+
+## Inputs to Dataset Screening
+
+The screening step uses outputs from earlier chapters.
+
+Expected inputs include:
+
+```text
+outputs/candidate-studies.tsv
+outputs/inclusion-criteria.tsv
+outputs/exclusion-criteria.tsv
+```
+
+The candidate study table provides the records to be screened.
+
+The inclusion criteria table defines what a study must contain to move forward.
+
+The exclusion criteria table defines the conditions that remove a study from the main workflow.
+
+Together, these files support consistent screening decisions.
+
+## Screening Decision Labels
+
+A simple decision system is used during screening.
+
+| Decision | Meaning |
+|---|---|
+| include | The candidate meets the criteria and should move forward |
+| exclude | The candidate does not meet the criteria |
+| review | More information is needed before a final decision |
+| defer | The candidate may be useful later but is not prioritized now |
+
+These labels should be used consistently across the screened study table.
+
+## Screening the Candidate Studies
+
+The screening workflow can be run with:
+
+```bash
+bash scripts/bash/06a-screen-candidate-studies.sh
+```
+
+The expected outputs are:
+
+```text
+outputs/screened-studies.tsv
+outputs/included-studies.tsv
+outputs/excluded-studies.tsv
+outputs/review-studies.tsv
+```
+
+The script applies structured screening decisions to the candidate study records and separates them into included, excluded, and review tables.
+
+## Screening Output Structure
+
+The main screening output is:
+
+```text
+outputs/screened-studies.tsv
+```
+
+This table records the screening decision for each candidate record.
+
+A useful screened study table may include:
+
+- candidate ID
+- source
+- title or record name
+- accession
+- publication ID
+- organism
+- sample context
+- data type
+- repository link or accession
+- screening decision
+- screening reason
+- priority level
+- notes
+
+This table becomes part of the discovery audit trail.
+
+## Included Studies
+
+Included studies are candidate records that meet the eligibility criteria.
+
+For the primary case study, the prioritized BioProject is:
+
+```text
+PRJNA802976
+```
+
+The primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+These records are included because they match the case-study direction and provide a practical starting point for CDI-DAS acquisition validation.
+
+The included study output is:
+
+```text
+outputs/included-studies.tsv
+```
+
+## Excluded Studies
+
+Excluded studies are candidate records that do not meet the criteria for this workflow.
+
+A study may be excluded because it has:
+
+- the wrong organism
+- the wrong sample context
+- no usable public accession
+- insufficient metadata
+- incompatible data type
+- unavailable public sequence files
+- no clear sample-to-run mapping
+
+Exclusion should always be documented with a reason.
+
+The excluded study output is:
+
+```text
+outputs/excluded-studies.tsv
+```
+
+In the early case-study template, there may be no excluded records yet. That is acceptable. The exclusion table still exists so that future screening decisions can be recorded consistently.
+
+## Review Studies
+
+Some studies may not be clearly eligible or clearly ineligible.
+
+These records should be marked for review rather than forced into an include or exclude decision.
+
+A study may require review if:
+
+- the accession is unclear
+- supplementary metadata must be checked
+- the sample context is ambiguous
+- the study contains mixed sample types
+- only part of the study may be eligible
+- the publication and repository records need reconciliation
+
+The review output is:
+
+```text
+outputs/review-studies.tsv
+```
+
+For this guide, **PRJNA322554** may be retained as a secondary comparison record for review.
+
+```text
+PRJNA322554
+```
+
+This BioProject can help demonstrate technical contrast, metadata review, and prioritization decisions, but it is not the primary case-study accession.
+
+## Screening the Primary Case Study
+
+For the healthy human gut microbiome case study, the primary screening decision is:
+
+| Field | Value |
+|---|---|
+| BioProject | PRJNA802976 |
+| Decision | include |
+| Priority | primary |
+| Reason | Matches organism, sample context, data type, public accession, and CDI-DAS readiness |
+| Test subset | SRR17868090, SRR17868091, SRR17868092 |
+
+The test runs are included as acquisition validation records:
+
+| Run | Decision | Reason |
+|---|---|---|
+| SRR17868090 | include | Primary test subset run |
+| SRR17868091 | include | Primary test subset run |
+| SRR17868092 | include | Primary test subset run |
+
+This creates a small but practical screened dataset for downstream acquisition testing.
+
+## Screening Flow
+
+The screening process can be summarized as:
+
+```text
+Candidate Studies
+        ↓
+Apply Inclusion Criteria
+        ↓
+Apply Exclusion Criteria
+        ↓
+Assign Decision Label
+        ↓
+Record Screening Reason
+        ↓
+Create Screening Outputs
+```
+
+The screening outputs then support study prioritization.
+
+## Why Screening Reasons Matter
+
+A screening decision without a reason is difficult to interpret later.
+
+For every included, excluded, or review record, the workflow should record why the decision was made.
+
+Examples:
+
+| Decision | Example Reason |
+|---|---|
+| include | Human gut microbiome study with public accession and CDI-DAS-ready run metadata |
+| exclude | Non-human study only |
+| exclude | No usable public accession found |
+| review | Sample context unclear; supplementary metadata needed |
+| defer | Relevant but not needed for primary case study |
+
+These reasons make the workflow auditable.
+
+## Manual Review and Iteration
+
+Dataset screening may require manual review.
+
+Some repository records are incomplete. Some publications use unclear terminology. Some BioProjects contain mixed samples or multiple experiments. Some accessions are only visible in supplementary files.
+
+When this happens, the study should be marked as review until the missing information is resolved.
+
+Screening can be updated later as new information becomes available, but changes should be documented.
+
+## Relationship to Study Prioritization
+
+Screening determines whether a study is eligible.
+
+Prioritization determines which eligible studies should be used first.
+
+These are related but separate steps.
+
+```text
+Screening
+        ↓
+Is the study eligible?
+
+Prioritization
+        ↓
+How important or useful is the eligible study?
+```
+
+For example, both PRJNA802976 and PRJNA322554 may be relevant human gut microbiome BioProjects, but PRJNA802976 is prioritized as the main case-study accession because it better supports the current CDI-DAS demonstration.
+
+## Summary
+
+Dataset screening applies eligibility criteria to candidate studies and records structured decisions.
+
+The screening workflow produces included, excluded, and review tables that document which records move forward and why.
+
+For the healthy human gut microbiome case study, **PRJNA802976** is included as the primary BioProject, with **SRR17868090**, **SRR17868091**, and **SRR17868092** used as the primary test subset.
+
+**PRJNA322554** can remain available as a secondary comparison record for review or technical contrast.
+
+## Looking Ahead
+
+In the next chapter, we prioritize screened studies and decide which eligible records should be used first for downstream acquisition and reference dataset assembly.

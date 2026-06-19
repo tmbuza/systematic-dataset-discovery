@@ -1,0 +1,425 @@
+# Search Strategy Development
+
+## Why Search Strategy Matters
+
+A systematic dataset discovery workflow requires a clear search strategy.
+
+The search strategy defines how candidate public studies will be identified across literature databases, project repositories, sequence archives, and linked records.
+
+Without a documented search strategy, dataset discovery can become inconsistent and difficult to reproduce. Different analysts may search different sources, use different keywords, apply different assumptions, and produce different candidate study lists.
+
+A structured search strategy helps make the discovery process transparent.
+
+It records:
+
+- what was searched
+- where it was searched
+- which terms were used
+- when the search was performed
+- what types of records were expected
+- how candidate studies were captured
+- how records were prepared for screening
+
+The search strategy does not decide which studies are eligible. That happens later during eligibility assessment and screening.
+
+The purpose of the search strategy is to identify candidate records in a reproducible way.
+
+## From Research Question to Search Concepts
+
+A search strategy begins by translating the research question into searchable concepts.
+
+For the case study in this guide, the discovery question is:
+
+> Which public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?
+
+This question can be broken into major concepts:
+
+| Concept | Meaning |
+|---|---|
+| Human | Studies involving human participants or samples |
+| Gut microbiome | Studies involving gut, stool, fecal, or intestinal microbiome samples |
+| Healthy | Studies involving healthy, non-diseased, control, or baseline participants |
+| Sequencing data | Studies with public omics sequencing accessions |
+| Reference dataset assembly | Studies suitable for reuse and downstream CDI-DAS acquisition |
+
+Each concept can then be expanded into search terms.
+
+## Search Term Expansion
+
+Public records may use different words for similar ideas.
+
+For example, a study may refer to “gut microbiome,” “intestinal microbiota,” “fecal microbiome,” or “stool microbial communities.” A strict search for only one phrase may miss relevant studies.
+
+Search term expansion helps improve recall.
+
+For the healthy human gut microbiome case study, possible terms include:
+
+| Concept | Example Search Terms |
+|---|---|
+| Human | human, Homo sapiens, adult, participant, subject |
+| Gut | gut, intestinal, gastrointestinal, stool, fecal, faecal |
+| Microbiome | microbiome, microbiota, microbial community, metagenome |
+| Healthy | healthy, control, non-diseased, baseline, normal |
+| Sequencing | sequencing, 16S, metagenomic, amplicon, Illumina, MiSeq |
+| Public data | BioProject, SRA, ENA, accession, public dataset |
+
+Search terms should be broad enough to find relevant studies but focused enough to avoid overwhelming irrelevant results.
+
+## Combining Search Concepts
+
+Search concepts can be combined using Boolean logic.
+
+Common Boolean operators include:
+
+| Operator | Use |
+|---|---|
+| AND | Requires both concepts to be present |
+| OR | Allows alternative terms for the same concept |
+| NOT | Excludes unwanted concepts |
+
+For example:
+
+```text
+human AND gut AND microbiome
+```
+
+is narrower than:
+
+```text
+human AND (gut OR stool OR fecal) AND (microbiome OR microbiota)
+```
+
+A more structured search expression may look like:
+
+```text
+(human OR "Homo sapiens")
+AND
+(gut OR intestinal OR stool OR fecal OR faecal)
+AND
+(microbiome OR microbiota OR metagenome)
+AND
+(healthy OR control OR baseline)
+```
+
+The exact syntax may differ by source. PubMed, NCBI BioProject, SRA, and ENA may support different search fields and search behavior.
+
+## Source-Specific Search Strategy
+
+A single search string may not work equally well across all sources.
+
+Each source should be searched according to its role.
+
+| Source | Search Strategy Role |
+|---|---|
+| PubMed | Find candidate publications and study context |
+| NCBI BioProject | Find project-level accessions |
+| NCBI SRA | Validate sequencing runs and technical metadata |
+| NCBI BioSample | Check sample-level metadata |
+| ENA | Validate FASTQ links, layout, and checksums |
+| Supplementary materials | Confirm sample annotations and accession mapping |
+
+This means the search strategy should include both broad discovery searches and targeted validation searches.
+
+## PubMed Search Strategy
+
+PubMed is useful for identifying candidate publications.
+
+A PubMed search may combine biological context, sample type, and sequencing terms.
+
+Example:
+
+```text
+(human[Title/Abstract] OR "Homo sapiens"[Title/Abstract])
+AND
+(gut[Title/Abstract] OR intestinal[Title/Abstract] OR stool[Title/Abstract] OR fecal[Title/Abstract] OR faecal[Title/Abstract])
+AND
+(microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR metagenome[Title/Abstract])
+AND
+(healthy[Title/Abstract] OR control[Title/Abstract] OR baseline[Title/Abstract])
+```
+
+This search is used to identify publications that may describe eligible public datasets.
+
+Publication records should then be checked for repository accessions, data availability statements, and supplementary materials.
+
+## NCBI BioProject Search Strategy
+
+NCBI BioProject is useful for finding project-level public dataset records.
+
+A BioProject search may use a simpler query because repository records may contain shorter descriptions than publications.
+
+Example:
+
+```text
+human gut microbiome healthy
+```
+
+or:
+
+```text
+human stool microbiome
+```
+
+BioProject search results should be reviewed for relevance and accession information.
+
+For the case study, the prioritized BioProject is:
+
+```text
+PRJNA802976
+```
+
+This BioProject becomes the main case-study accession for downstream validation and CDI-DAS handoff.
+
+## SRA Search Strategy
+
+SRA is useful for validating whether a candidate study contains sequencing runs suitable for acquisition.
+
+For a known BioProject, SRA can be queried using the BioProject accession.
+
+Example:
+
+```text
+PRJNA802976[BioProject]
+```
+
+The expected output is a set of run accessions and technical metadata.
+
+For the prioritized case study, the primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+These accessions provide a small test set for validating the downstream acquisition workflow before scaling to the full BioProject.
+
+## ENA Search Strategy
+
+ENA is useful for validating file-level availability.
+
+For a candidate BioProject or run accession list, ENA can be used to check:
+
+- FASTQ file links
+- file sizes
+- checksums
+- library layout
+- sequencing platform
+- study and sample accessions
+
+The ENA validation step helps determine whether a candidate study can be acquired efficiently through direct FASTQ download.
+
+For CDI-DAS, ENA is especially useful when FASTQ links and checksums are available.
+
+## Recording and Running the Search Strategy
+
+Every search strategy should be documented before candidate studies are screened.
+
+At minimum, the workflow should record:
+
+- source searched
+- search date
+- search query
+- search purpose
+- expected output
+- notes
+- number of records found, when available
+
+A search log allows the discovery workflow to be reviewed and repeated.
+
+The main search record for this chapter is:
+
+```text
+outputs/search-strategy.tsv
+```
+
+This file becomes part of the discovery audit trail.
+
+The search workflow is implemented through three scripts:
+
+```bash
+bash scripts/bash/04a-search-bioprojects.sh
+bash scripts/bash/04b-search-literature.sh
+bash scripts/bash/04c-create-candidate-studies-template.sh
+```
+
+The expected outputs are:
+
+```text
+outputs/search-strategy.tsv
+outputs/bioproject-search-results.tsv
+outputs/literature-search-results.tsv
+outputs/candidate-studies.tsv
+```
+
+The BioProject search identifies candidate project-level accessions.
+
+The literature search identifies candidate publications, study context, data availability statements, and possible accession-linked records.
+
+The candidate study template provides a consistent table structure for recording and screening candidate studies.
+
+Together, these outputs provide the starting evidence base for dataset screening.
+
+```text
+Search Strategy
+        ↓
+BioProject Search
+        ↓
+Literature Search
+        ↓
+Candidate Study Template
+        ↓
+Candidate Study Evidence
+        ↓
+Dataset Screening
+```
+
+## Candidate Study Capture
+
+Search results should be captured into a candidate study table.
+
+A candidate study table may include:
+
+- candidate ID
+- source
+- title or record name
+- accession
+- publication identifier
+- organism
+- sample context
+- data type
+- repository link or accession
+- notes
+- screening status
+
+The candidate study table is not yet the included study list.
+
+It is the working list of records that will be screened in later chapters.
+
+The expected output is:
+
+```text
+outputs/candidate-studies.tsv
+```
+
+The candidate study template is generated as part of the Chapter 04 script sequence:
+
+```bash
+bash scripts/bash/04c-create-candidate-studies-template.sh
+```
+
+This template provides a consistent structure for recording candidate studies identified during the BioProject and literature searches.
+
+## Search Strategy for the Case Study
+
+For the healthy human gut microbiome case study, the search strategy focuses on identifying public studies that contain human gut or stool microbiome sequencing data with enough metadata and accession clarity for reuse.
+
+The prioritized case-study accession is:
+
+```text
+PRJNA802976
+```
+
+The primary test subset is:
+
+```text
+SRR17868090
+SRR17868091
+SRR17868092
+```
+
+A secondary comparison BioProject may be retained for technical contrast:
+
+```text
+PRJNA322554
+```
+
+This secondary accession can help demonstrate why sequencing layout, platform, metadata completeness, and acquisition readiness matter during prioritization.
+
+## Search Strategy Boundaries
+
+The search strategy should also define boundaries.
+
+For this guide, the initial search focuses on:
+
+- human samples
+- gut, stool, fecal, or intestinal microbiome context
+- public sequence data
+- accession-linked studies
+- records that can support CDI-DAS handoff
+
+The search does not aim to capture every possible microbiome publication. It focuses on studies that can move from discovery into acquisition and validation.
+
+## Avoiding Overly Narrow Searches
+
+A search that is too narrow may miss relevant datasets.
+
+For example, searching only for:
+
+```text
+healthy human gut microbiome
+```
+
+may miss records described as:
+
+```text
+control stool microbiota
+```
+
+or:
+
+```text
+intestinal microbial communities in adults
+```
+
+This is why search term expansion is important.
+
+A broad initial search can be followed by structured screening.
+
+## Avoiding Overly Broad Searches
+
+A search that is too broad can produce too many irrelevant records.
+
+For example:
+
+```text
+microbiome
+```
+
+may return studies from soil, plants, animals, oral samples, disease cohorts, and environmental samples.
+
+The search strategy should balance sensitivity and specificity.
+
+For systematic discovery, the goal is not simply to maximize search results. The goal is to identify a manageable and relevant candidate set that can be screened transparently.
+
+## Updating the Search Strategy
+
+Search strategies may be refined during early exploration.
+
+For example, the analyst may discover that relevant records use “fecal microbiota” more often than “gut microbiome,” or that a repository uses different metadata fields than expected.
+
+When changes are made, they should be documented.
+
+A reproducible workflow should preserve:
+
+- original search terms
+- revised search terms
+- reason for revision
+- date of revision
+- effect on candidate records, when known
+
+This prevents silent changes from weakening the audit trail.
+
+## Summary
+
+Search strategy development translates the research question into a reproducible discovery plan.
+
+It defines the concepts, search terms, sources, queries, and candidate capture process used to identify public omics studies.
+
+For the healthy human gut microbiome case study, the search strategy prioritizes accession-linked public studies that can be screened, evaluated, and handed off to the CDI Data Acquisition System.
+
+The prioritized case-study BioProject is **PRJNA802976**, with **SRR17868090**, **SRR17868091**, and **SRR17868092** used as the primary test subset.
+
+## Looking Ahead
+
+In the next chapter, we define eligibility criteria for deciding which candidate studies should be included, excluded, or set aside for later review.

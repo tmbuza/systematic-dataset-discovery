@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>why-dataset-discovery-matters – CDI Systematic Dataset Discovery</title>
+<title>Why Dataset Discovery Matters – CDI Systematic Dataset Discovery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-why-dataset-discovery-matters.html"><span class="chapter-title">01-why-dataset-discovery-matters.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundation</a></li><li class="breadcrumb-item"><a href="./01-why-dataset-discovery-matters.html"><span class="chapter-title">Why Dataset Discovery Matters</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,65 +149,109 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-preface-and-overview.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">01-why-dataset-discovery-matters.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">02-research-questions-and-objectives.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">03-data-sources-and-repositories.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">04-search-strategy-development.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">05-eligibility-criteria.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">06-dataset-screening.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">07-study-prioritization.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">08-included-study-assembly.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">09-case-study-healthy-human-gut-microbiome.html</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Reference</span></a>
+ <span class="menu-text">Foundation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Why Dataset Discovery Matters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Questions and Objectives</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Discovery System</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Sources and Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Search Strategy Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eligibility Criteria</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Screening and Prioritization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dataset Screening</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Prioritization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Included Study Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Case Study: Healthy Human Gut Microbiome</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references.html</span></a>
@@ -185,14 +264,33 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#public-data-reuse-begins-before-download" id="toc-public-data-reuse-begins-before-download" class="nav-link active" data-scroll-target="#public-data-reuse-begins-before-download">Public Data Reuse Begins Before Download</a></li>
+  <li><a href="#finding-is-not-the-same-as-selecting" id="toc-finding-is-not-the-same-as-selecting" class="nav-link" data-scroll-target="#finding-is-not-the-same-as-selecting">Finding Is Not the Same as Selecting</a></li>
+  <li><a href="#why-informal-dataset-selection-is-risky" id="toc-why-informal-dataset-selection-is-risky" class="nav-link" data-scroll-target="#why-informal-dataset-selection-is-risky">Why Informal Dataset Selection Is Risky</a></li>
+  <li><a href="#dataset-discovery-shapes-the-final-dataset" id="toc-dataset-discovery-shapes-the-final-dataset" class="nav-link" data-scroll-target="#dataset-discovery-shapes-the-final-dataset">Dataset Discovery Shapes the Final Dataset</a></li>
+  <li><a href="#metadata-matters-as-much-as-data-availability" id="toc-metadata-matters-as-much-as-data-availability" class="nav-link" data-scroll-target="#metadata-matters-as-much-as-data-availability">Metadata Matters as Much as Data Availability</a></li>
+  <li><a href="#discovery-supports-reproducibility" id="toc-discovery-supports-reproducibility" class="nav-link" data-scroll-target="#discovery-supports-reproducibility">Discovery Supports Reproducibility</a></li>
+  <li><a href="#reproducible-discovery-outputs" id="toc-reproducible-discovery-outputs" class="nav-link" data-scroll-target="#reproducible-discovery-outputs">Reproducible Discovery Outputs</a></li>
+  <li><a href="#discovery-improves-communication" id="toc-discovery-improves-communication" class="nav-link" data-scroll-target="#discovery-improves-communication">Discovery Improves Communication</a></li>
+  <li><a href="#discovery-reduces-downstream-waste" id="toc-discovery-reduces-downstream-waste" class="nav-link" data-scroll-target="#discovery-reduces-downstream-waste">Discovery Reduces Downstream Waste</a></li>
+  <li><a href="#discovery-is-especially-important-in-omics" id="toc-discovery-is-especially-important-in-omics" class="nav-link" data-scroll-target="#discovery-is-especially-important-in-omics">Discovery Is Especially Important in Omics</a></li>
+  <li><a href="#from-discovery-to-acquisition" id="toc-from-discovery-to-acquisition" class="nav-link" data-scroll-target="#from-discovery-to-acquisition">From Discovery to Acquisition</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundation</a></li><li class="breadcrumb-item"><a href="./01-why-dataset-discovery-matters.html"><span class="chapter-title">Why Dataset Discovery Matters</span></a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Why Dataset Discovery Matters</span></h1>
 </div>
 
 
@@ -215,8 +313,199 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="public-data-reuse-begins-before-download" class="level2">
+<h2 class="anchored" data-anchor-id="public-data-reuse-begins-before-download">Public Data Reuse Begins Before Download</h2>
+<p>Public omics repositories have made it possible to reuse biological datasets generated by research groups around the world. These datasets can support secondary analysis, comparative studies, benchmarking, training materials, method development, and reference dataset construction.</p>
+<p>However, public data reuse does not begin at the download step.</p>
+<p>It begins with discovery.</p>
+<p>Before sequencing files are retrieved, before metadata tables are assembled, and before quality control begins, the analyst must first decide which public studies are relevant, eligible, and usable for the intended purpose.</p>
+<p>This makes dataset discovery a critical part of any reproducible public-data workflow.</p>
+<p>A weak discovery process can lead to weak downstream analysis, even if the data download and processing steps are technically correct.</p>
+</section>
+<section id="finding-is-not-the-same-as-selecting" class="level2">
+<h2 class="anchored" data-anchor-id="finding-is-not-the-same-as-selecting">Finding Is Not the Same as Selecting</h2>
+<p>It is easy to find public datasets.</p>
+<p>It is harder to select the right datasets.</p>
+<p>A repository search may return many studies related to a topic, but not all of them are suitable for reuse. Some studies may focus on the wrong population, sample type, disease state, organism, sequencing method, or experimental design. Others may have incomplete metadata, unclear accessions, unavailable files, or insufficient documentation.</p>
+<p>For example, a search for human gut microbiome data may return studies involving healthy adults, infants, patients with gastrointestinal disease, antibiotic-treated individuals, animal models, fecal transplant studies, and dietary interventions.</p>
+<p>All of these may involve the gut microbiome, but they do not all answer the same research question.</p>
+<p>Systematic dataset discovery helps separate general relevance from true eligibility.</p>
+<pre class="text"><code>Search Result
+      ↓
+Candidate Study
+      ↓
+Screened Study
+      ↓
+Eligible Study
+      ↓
+Included Study</code></pre>
+</section>
+<section id="why-informal-dataset-selection-is-risky" class="level2">
+<h2 class="anchored" data-anchor-id="why-informal-dataset-selection-is-risky">Why Informal Dataset Selection Is Risky</h2>
+<p>Informal dataset selection often depends on convenience.</p>
+<p>An analyst may choose the first dataset that appears in a search result, a study that is easy to download, a dataset mentioned in a familiar paper, or a BioProject that appears to contain many samples.</p>
+<p>This may be acceptable for quick exploration, but it is not enough for reproducible research, client-facing work, benchmarking, or reference dataset assembly.</p>
+<p>Informal selection creates several risks:</p>
+<ul>
+<li>important eligible studies may be missed</li>
+<li>unsuitable studies may be included</li>
+<li>exclusion decisions may not be documented</li>
+<li>the final dataset may be biased toward convenience</li>
+<li>downstream results may be difficult to interpret</li>
+<li>collaborators may not understand why specific studies were selected</li>
+<li>the workflow may be difficult to reproduce later</li>
+</ul>
+<p>A structured discovery process reduces these risks by making study selection transparent and traceable.</p>
+</section>
+<section id="dataset-discovery-shapes-the-final-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-discovery-shapes-the-final-dataset">Dataset Discovery Shapes the Final Dataset</h2>
+<p>Every decision made during discovery affects the final dataset.</p>
+<p>The search terms used determine which studies are found. The repositories searched determine which records are visible. The eligibility criteria determine which studies remain. The screening process determines which datasets are excluded. The prioritization process determines which studies are used first.</p>
+<p>By the time data acquisition begins, many important decisions have already been made.</p>
+<pre class="text"><code>Research Question
+      ↓
+Search Terms
+      ↓
+Candidate Studies
+      ↓
+Eligibility Criteria
+      ↓
+Screening Decisions
+      ↓
+Included Studies
+      ↓
+Final Dataset</code></pre>
+<p>This means that dataset discovery is not a minor administrative step. It is part of the scientific and analytical design of the project.</p>
+</section>
+<section id="metadata-matters-as-much-as-data-availability" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-matters-as-much-as-data-availability">Metadata Matters as Much as Data Availability</h2>
+<p>A dataset may be public and downloadable, but still not usable.</p>
+<p>For public omics studies, metadata are often as important as the sequence files themselves. Without adequate metadata, it may be difficult to interpret samples, define groups, identify controls, compare studies, or reproduce analysis decisions.</p>
+<p>Important metadata may include:</p>
+<ul>
+<li>organism</li>
+<li>sample source</li>
+<li>tissue or body site</li>
+<li>disease status</li>
+<li>treatment or exposure</li>
+<li>age group</li>
+<li>sex</li>
+<li>geographic location</li>
+<li>sequencing platform</li>
+<li>library strategy</li>
+<li>study design</li>
+<li>accession identifiers</li>
+<li>file availability</li>
+</ul>
+<p>A study with many sequencing files but poor metadata may be less useful than a smaller study with clear, complete, and well-structured metadata.</p>
+<p>Systematic dataset discovery therefore evaluates both scientific relevance and practical usability.</p>
+</section>
+<section id="discovery-supports-reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="discovery-supports-reproducibility">Discovery Supports Reproducibility</h2>
+<p>Reproducibility is not only about code.</p>
+<p>It also depends on whether the input data were selected in a transparent and repeatable way.</p>
+<p>A reproducible dataset discovery process should make it possible to answer:</p>
+<ul>
+<li>where the studies were searched</li>
+<li>which search terms were used</li>
+<li>when the search was performed</li>
+<li>how many candidate studies were found</li>
+<li>which studies were screened</li>
+<li>which studies were excluded</li>
+<li>why each study was excluded</li>
+<li>which studies were included</li>
+<li>which accessions were selected for acquisition</li>
+</ul>
+<p>These details create an audit trail.</p>
+<p>They allow another analyst, collaborator, reviewer, or future version of the same project to understand how the dataset was assembled.</p>
+</section>
+<section id="reproducible-discovery-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="reproducible-discovery-outputs">Reproducible Discovery Outputs</h2>
+<p>A systematic discovery workflow should produce structured outputs that record how studies were found, screened, excluded, prioritized, and prepared for acquisition.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: create-discovery-outputs</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/01-create-discovery-outputs.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="discovery-improves-communication" class="level2">
+<h2 class="anchored" data-anchor-id="discovery-improves-communication">Discovery Improves Communication</h2>
+<p>Public dataset selection often involves communication with collaborators, clients, supervisors, students, or research teams.</p>
+<p>A systematic discovery workflow makes this communication easier.</p>
+<p>Instead of saying:</p>
+<blockquote class="blockquote">
+<p>We found some datasets online.</p>
+</blockquote>
+<p>The analyst can say:</p>
+<blockquote class="blockquote">
+<p>We searched defined repositories using documented search terms, screened candidate studies using predefined eligibility criteria, excluded unsuitable studies with reasons, and assembled a prioritized list of eligible public omics studies for acquisition.</p>
+</blockquote>
+<p>This changes dataset selection from an informal search activity into a clear, explainable decision process.</p>
+</section>
+<section id="discovery-reduces-downstream-waste" class="level2">
+<h2 class="anchored" data-anchor-id="discovery-reduces-downstream-waste">Discovery Reduces Downstream Waste</h2>
+<p>Poor dataset selection can create unnecessary downstream work.</p>
+<p>If unsuitable studies are downloaded, the analyst may spend time validating files, troubleshooting metadata, processing samples, and generating outputs from data that should never have been included.</p>
+<p>This can waste storage, compute time, and analyst effort.</p>
+<p>A strong discovery process reduces this waste by identifying problems earlier.</p>
+<pre class="text"><code>Better Discovery
+      ↓
+Better Screening
+      ↓
+Better Inclusion Decisions
+      ↓
+Less Downstream Waste
+      ↓
+More Reliable Analysis</code></pre>
+</section>
+<section id="discovery-is-especially-important-in-omics" class="level2">
+<h2 class="anchored" data-anchor-id="discovery-is-especially-important-in-omics">Discovery Is Especially Important in Omics</h2>
+<p>Omics datasets are complex because they combine biological, technical, and metadata dimensions.</p>
+<p>Two studies may appear similar at the title level but differ in important ways, such as:</p>
+<ul>
+<li>sample type</li>
+<li>sequencing platform</li>
+<li>library preparation</li>
+<li>target region</li>
+<li>read layout</li>
+<li>population characteristics</li>
+<li>disease or exposure status</li>
+<li>metadata completeness</li>
+<li>accession structure</li>
+<li>repository availability</li>
+</ul>
+<p>For microbiome studies, for example, one dataset may contain 16S rRNA amplicon sequencing from healthy adult stool samples, while another may contain shotgun metagenomic data from patients with disease. Both may be described as human gut microbiome studies, but they are not interchangeable.</p>
+<p>Systematic discovery helps capture these differences before data acquisition begins.</p>
+</section>
+<section id="from-discovery-to-acquisition" class="level2">
+<h2 class="anchored" data-anchor-id="from-discovery-to-acquisition">From Discovery to Acquisition</h2>
+<p>The purpose of dataset discovery is not only to identify interesting studies.</p>
+<p>The purpose is to prepare a structured set of eligible studies that can move into data acquisition.</p>
+<p>In the CDI workflow, this means that systematic dataset discovery produces a documented input package for the CDI Data Acquisition System.</p>
+<pre class="text"><code>Systematic Dataset Discovery
+      ↓
+Included Studies
+      ↓
+Curated Accessions
+      ↓
+CDI-DAS Input Package
+      ↓
+Data Acquisition</code></pre>
+<p>This separation keeps the workflow clean.</p>
+<p>Dataset discovery focuses on study selection.</p>
+<p>Data acquisition focuses on retrieving, validating, and organizing files.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Dataset discovery matters because it determines which public omics studies enter the downstream workflow.</p>
+<p>A systematic discovery process helps ensure that public datasets are not selected only because they are easy to find or easy to download. Instead, studies are evaluated based on relevance, eligibility, metadata quality, accession clarity, and suitability for the research question.</p>
+<p>By making dataset selection transparent and reproducible, systematic discovery strengthens public data reuse and prepares better inputs for the CDI Data Acquisition System.</p>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>In the next chapter, we translate the need for systematic dataset discovery into clear research questions and discovery objectives.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -622,13 +911,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./00-preface-and-overview.html" class="pagination-link" aria-label="00-preface-and-overview.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">00-preface-and-overview.html</span></span>
+      <a href="./00-preface-and-overview.html" class="pagination-link" aria-label="Preface and Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preface and Overview</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-research-questions-and-objectives.html" class="pagination-link" aria-label="02-research-questions-and-objectives.html">
-        <span class="nav-page-text"><span class="chapter-title">02-research-questions-and-objectives.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-research-questions-and-objectives.html" class="pagination-link" aria-label="Research Questions and Objectives">
+        <span class="nav-page-text"><span class="chapter-title">Research Questions and Objectives</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

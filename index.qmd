@@ -9,7 +9,8 @@ format:
 # {-}
 
 <div style="text-align: center; margin-top: 1.5em;">
-  <img src="assets/images/cover/systematic-dataset-discovery-cover.png" width="75%" />
+  <!-- <img src="assets/images/cover/systematic-dataset-discovery-cover.png" width="75%" /> -->
+  <img src="assets/images/cover/systematic_dataset_discovery_with_border.jpeg" width="75%" />
 </div>
 
 <div style="text-align: center; font-style: normal; margin-top: 1em;">

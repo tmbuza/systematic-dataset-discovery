@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>preface-and-overview – CDI Systematic Dataset Discovery</title>
+<title>Preface and Overview – CDI Systematic Dataset Discovery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,6 +105,10 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="assets/css/cdi.css">
@@ -84,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html"><span class="chapter-title">00-preface-and-overview.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundation</a></li><li class="breadcrumb-item"><a href="./00-preface-and-overview.html"><span class="chapter-title">Preface and Overview</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,65 +153,109 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">00-preface-and-overview.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">01-why-dataset-discovery-matters.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">02-research-questions-and-objectives.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">03-data-sources-and-repositories.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">04-search-strategy-development.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">05-eligibility-criteria.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">06-dataset-screening.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">07-study-prioritization.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">08-included-study-assembly.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">09-case-study-healthy-human-gut-microbiome.html</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Reference</span></a>
+ <span class="menu-text">Foundation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Preface and Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Why Dataset Discovery Matters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Questions and Objectives</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Discovery System</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Sources and Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Search Strategy Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eligibility Criteria</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Screening and Prioritization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dataset Screening</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Prioritization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Included Study Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Case Study: Healthy Human Gut Microbiome</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references.html</span></a>
@@ -185,14 +268,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-this-guide-exists" id="toc-why-this-guide-exists" class="nav-link active" data-scroll-target="#why-this-guide-exists">Why This Guide Exists</a></li>
+  <li><a href="#purpose-of-the-workflow" id="toc-purpose-of-the-workflow" class="nav-link" data-scroll-target="#purpose-of-the-workflow">Purpose of the Workflow</a></li>
+  <li><a href="#relationship-to-cdi-data-acquisition-system" id="toc-relationship-to-cdi-data-acquisition-system" class="nav-link" data-scroll-target="#relationship-to-cdi-data-acquisition-system">Relationship to CDI Data Acquisition System</a></li>
+  <li><a href="#a-reproducible-but-human-guided-workflow" id="toc-a-reproducible-but-human-guided-workflow" class="nav-link" data-scroll-target="#a-reproducible-but-human-guided-workflow">A Reproducible but Human-Guided Workflow</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundation</a></li><li class="breadcrumb-item"><a href="./00-preface-and-overview.html"><span class="chapter-title">Preface and Overview</span></a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Preface and Overview</span></h1>
 </div>
 
 
@@ -215,8 +310,108 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="why-this-guide-exists" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-guide-exists">Why This Guide Exists</h2>
+<p>Public omics repositories contain an enormous amount of reusable biological data. These datasets can support new research questions, strengthen reference resources, enable benchmarking, and reduce the need to generate new data when suitable public data already exist.</p>
+<p>However, public data reuse is only reliable when dataset discovery is performed systematically.</p>
+<p>Finding a dataset is not the same as selecting a dataset.</p>
+<p>A dataset may be publicly available, but still unsuitable for a specific analysis because of missing metadata, unclear sample descriptions, incompatible study design, limited accessions, incomplete files, or poor alignment with the research question.</p>
+<p>This guide introduces the <strong>CDI Systematic Dataset Discovery</strong> workflow: a structured approach for identifying, screening, evaluating, and prioritizing public omics studies before data acquisition.</p>
+</section>
+<section id="purpose-of-the-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="purpose-of-the-workflow">Purpose of the Workflow</h2>
+<p>The purpose of this workflow is to move from a biological or biomedical question to a transparent set of eligible public omics studies.</p>
+<p>The workflow helps answer questions such as:</p>
+<ul>
+<li>What public studies are available for this topic?</li>
+<li>Which repositories should be searched?</li>
+<li>What search terms should be used?</li>
+<li>Which studies meet the inclusion criteria?</li>
+<li>Which studies should be excluded, and why?</li>
+<li>Which studies are most suitable for downstream data acquisition?</li>
+<li>What accession list should be handed off to the CDI Data Acquisition System?</li>
+</ul>
+<p>The goal is not simply to collect as many studies as possible. The goal is to produce a defensible, reproducible, and well-documented dataset selection process.</p>
+</section>
+<section id="relationship-to-cdi-data-acquisition-system" class="level2">
+<h2 class="anchored" data-anchor-id="relationship-to-cdi-data-acquisition-system">Relationship to CDI Data Acquisition System</h2>
+<p>This guide is designed as the upstream companion to the <strong>CDI Data Acquisition System</strong>.</p>
+<p>The discovery workflow identifies eligible public studies. The data acquisition system then retrieves, validates, and organizes the corresponding public data files.</p>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    A[Research Question] --&gt; B[Systematic Dataset Discovery]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    B --&gt; C[Eligible Public Omics Studies]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    C --&gt; D[CDI Data Acquisition System]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    D --&gt; E[Reference Dataset Package]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    classDef question fill:#eaf4ff,stroke:#0b3c5d,stroke-width:1.5px,color:#0b1f3a;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    classDef discovery fill:#eaf7ef,stroke:#0b6b3a,stroke-width:1.5px,color:#0b1f3a;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    classDef output fill:#fff8e6,stroke:#b7791f,stroke-width:1.5px,color:#0b1f3a;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    classDef system fill:#eef2ff,stroke:#1e3a8a,stroke-width:1.5px,color:#0b1f3a;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    classDef package fill:#f0fdf4,stroke:#166534,stroke-width:1.5px,color:#0b1f3a;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    class A question;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    class B discovery;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    class C output;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    class D system;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    class E package;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Research Question] --&gt; B[Systematic Dataset Discovery]
+    B --&gt; C[Eligible Public Omics Studies]
+    C --&gt; D[CDI Data Acquisition System]
+    D --&gt; E[Reference Dataset Package]
+
+    classDef question fill:#eaf4ff,stroke:#0b3c5d,stroke-width:1.5px,color:#0b1f3a;
+    classDef discovery fill:#eaf7ef,stroke:#0b6b3a,stroke-width:1.5px,color:#0b1f3a;
+    classDef output fill:#fff8e6,stroke:#b7791f,stroke-width:1.5px,color:#0b1f3a;
+    classDef system fill:#eef2ff,stroke:#1e3a8a,stroke-width:1.5px,color:#0b1f3a;
+    classDef package fill:#f0fdf4,stroke:#166534,stroke-width:1.5px,color:#0b1f3a;
+
+    class A question;
+    class B discovery;
+    class C output;
+    class D system;
+    class E package;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="a-reproducible-but-human-guided-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="a-reproducible-but-human-guided-workflow">A Reproducible but Human-Guided Workflow</h2>
+<p>This workflow is reproducible, but it is not fully automatic.</p>
+<p>Manual input is required at stages where scientific judgment is needed. These include defining the research question, refining search terms, reviewing candidate studies, developing eligibility criteria, resolving ambiguous records, prioritizing studies, and approving the final handoff to the CDI Data Acquisition System.</p>
+<p>The purpose of the scripts is not to remove human judgment.</p>
+<p>The purpose is to make human judgment structured, documented, and reproducible.</p>
+<pre class="text"><code>Human Judgment
+        ↓
+Structured Decision
+        ↓
+Documented Output
+        ↓
+Reproducible Workflow</code></pre>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The CDI Systematic Dataset Discovery workflow provides a structured bridge between biological research questions and reusable public omics datasets.</p>
+<p>It helps transform public data reuse from an informal search activity into a transparent, reproducible, and decision-ready process.</p>
+<p>By separating dataset discovery from data acquisition, the workflow ensures that only eligible, well-documented, and relevant public studies are handed off to the CDI Data Acquisition System.</p>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>In the next chapter, we discuss why dataset discovery matters and why systematic study selection is essential for reliable public omics data reuse.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -627,8 +822,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-why-dataset-discovery-matters.html" class="pagination-link" aria-label="01-why-dataset-discovery-matters.html">
-        <span class="nav-page-text"><span class="chapter-title">01-why-dataset-discovery-matters.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-why-dataset-discovery-matters.html" class="pagination-link" aria-label="Why Dataset Discovery Matters">
+        <span class="nav-page-text"><span class="chapter-title">Why Dataset Discovery Matters</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

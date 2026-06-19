@@ -1,0 +1,9 @@
+source_name	source_type	main_use	search_role	expected_output	notes
+PubMed	Literature database	Identify candidate publications and study context	Search titles, abstracts, and linked publication records	Candidate publications and study leads	Useful for discovering studies before accession validation
+NCBI BioProject	Project-level repository	Identify public project accessions	Search or validate BioProject records	BioProject accessions such as PRJNA802976	Useful handoff unit for CDI-DAS
+NCBI SRA	Sequence read archive	Retrieve run-level sequencing metadata	Validate run accessions, library layout, platform, and file availability	SRR run accessions and run metadata	Important for metadata acquisition and manifest preparation
+NCBI BioSample	Sample metadata repository	Evaluate sample-level biological metadata	Check organism, body site, health status, and sample attributes	Sample metadata and BioSample accessions	Metadata completeness varies across studies
+ENA	Sequence archive	Validate downloadable FASTQ files and checksums	Check FASTQ links, file sizes, library layout, and checksums	FASTQ URLs and checksum metadata	Preferred source for direct FASTQ download when available
+Supplementary materials	Publication-linked files	Confirm sample annotations and accession mappings	Review sample tables, phenotype metadata, and study documentation	Metadata tables and accession-to-sample mappings	May be required to interpret public sequence data
+DDBJ	Sequence archive	Provide additional INSDC sequence archive coverage	Validate records when relevant	DDBJ-linked study or run records	Useful for broader international archive awareness
+Domain-specific portals	Curated database or portal	Identify curated studies or processed datasets	Search domain-specific resources for additional candidate studies	Curated study records or processed data links	Original raw-data accessions should still be recorded when CDI-DAS acquisition is needed

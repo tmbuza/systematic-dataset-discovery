@@ -11,21 +11,33 @@ book:
   subtitle: "From Research Questions to Eligible Public Omics Studies"
 
   chapters:
-    - index.qmd
-    - 00-preface-and-overview.qmd
-    - 01-why-dataset-discovery-matters.qmd
-    - 02-research-questions-and-objectives.qmd
-    - 03-data-sources-and-repositories.qmd
-    - 04-search-strategy-development.qmd
-    - 05-eligibility-criteria.qmd
-    - 06-dataset-screening.qmd
-    - 07-study-prioritization.qmd
-    - 08-included-study-assembly.qmd
-    - 09-case-study-healthy-human-gut-microbiome.qmd
+  - index.qmd
 
-    - part: "Reference"
-      chapters:
-        - 999-references.qmd
+  - part: "Foundation"
+    chapters:
+      - 00-preface-and-overview.qmd
+      - 01-why-dataset-discovery-matters.qmd
+      - 02-research-questions-and-objectives.qmd
+
+  - part: "Discovery System"
+    chapters:
+      - 03-data-sources-and-repositories.qmd
+      - 04-search-strategy-development.qmd
+      - 05-eligibility-criteria.qmd
+
+  - part: "Screening and Prioritization"
+    chapters:
+      - 06-dataset-screening.qmd
+      - 07-study-prioritization.qmd
+      - 08-included-study-assembly.qmd
+
+  - part: "Case Study"
+    chapters:
+      - 09-case-study-healthy-human-gut-microbiome.qmd
+
+  - part: "Reference"
+    chapters:
+      - 999-references.qmd
 
 format:
   html:

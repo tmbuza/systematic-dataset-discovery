@@ -1,0 +1,12 @@
+field	value
+research_topic	Healthy human gut microbiome
+discovery_question	Which public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?
+discovery_objective	Identify, screen, and prioritize public studies containing healthy human gut microbiome sequencing data, and assemble a curated accession list for CDI-DAS data acquisition.
+organism	Human
+body_site	Gut or stool
+health_status	Healthy or non-diseased
+data_type	Microbiome sequencing
+unit_of_inclusion	Public study or BioProject
+repository_scope	NCBI BioProject, SRA, ENA, PubMed, linked publications
+downstream_system	CDI Data Acquisition System
+expected_handoff	Curated accession list for CDI-DAS

@@ -1,0 +1,372 @@
+# Data Sources and Repositories
+
+## Why Data Sources Matter
+
+Systematic dataset discovery depends on knowing where public omics studies are described, indexed, and stored.
+
+A public dataset may appear in more than one place. It may be described in a journal article, indexed in PubMed, registered under an NCBI BioProject, linked to SRA sequencing runs, mirrored through ENA, and supported by supplementary tables from the publication.
+
+Because of this, dataset discovery should not rely on a single source.
+
+Different sources provide different types of information.
+
+Some sources help identify studies. Some provide accession identifiers. Some provide sample-level metadata. Some provide sequencing files. Others provide study context, methods, inclusion criteria, or phenotype descriptions.
+
+A systematic discovery workflow uses these sources together.
+
+## Repository Versus Publication
+
+Public omics studies are usually represented through both publications and repository records.
+
+A publication explains the scientific question, study design, sample context, methods, and interpretation.
+
+A repository record provides structured access to public data, metadata, and accession identifiers.
+
+Both are important.
+
+```text
+Publication
+      ↓
+Study Context and Methods
+      ↓
+Repository Record
+      ↓
+Accessions and Metadata
+      ↓
+Downloadable Data Files
+```
+
+A publication may describe why the data were generated, while the repository record allows the data to be located and acquired.
+
+For reproducible dataset discovery, both types of sources should be checked whenever possible.
+
+## Major Sources for Omics Dataset Discovery
+
+Public omics data can be discovered through several source types:
+
+- literature databases
+- project-level repositories
+- sequence read repositories
+- experiment-level repositories
+- archive mirrors
+- supplementary materials
+- curated portals
+- domain-specific databases
+
+Each source plays a different role in the discovery workflow.
+
+## Literature Databases
+
+Literature databases are useful for identifying studies and understanding the research context.
+
+For biomedical and life sciences studies, PubMed is often the starting point. It allows analysts to search publications using keywords related to organism, disease status, sample type, sequencing technology, and study design.
+
+Literature records may provide:
+
+- study title
+- abstract
+- authors
+- journal
+- publication date
+- study objective
+- population description
+- methods summary
+- repository accession links
+- supplementary material links
+
+However, literature databases do not always provide complete accession information. Sometimes the accession is in the full text, data availability statement, supplementary file, or repository record rather than the abstract.
+
+Literature searching is therefore useful for study discovery, but it must be connected to repository validation.
+
+## NCBI BioProject
+
+NCBI BioProject provides project-level records that group related biological data.
+
+A BioProject accession often serves as a high-level identifier for a public study or data-generation project.
+
+BioProject records may link to:
+
+- SRA sequencing data
+- BioSample records
+- publications
+- organism information
+- project description
+- submitter information
+- related accessions
+
+For CDI workflows, BioProject accessions are especially useful because they can serve as entry points into the CDI Data Acquisition System.
+
+Example BioProject-style accessions include:
+
+```text
+PRJNA802976
+PRJNA322554
+```
+
+In this guide, **PRJNA802976** is prioritized as the main case-study BioProject because it represents a human gut microbiome study with paired-end sequencing data suitable for demonstrating systematic discovery, repository validation, and downstream CDI-DAS acquisition.
+
+**PRJNA322554** may still be used as a secondary comparison example because it demonstrates a different sequencing layout and helps show why repository metadata and technical characteristics matter during screening.
+
+A BioProject is often a practical unit for discovery and handoff because it can be used to retrieve run-level metadata and sequencing accessions.
+
+## NCBI SRA
+
+The Sequence Read Archive stores sequencing run information and links to raw sequencing data.
+
+SRA is important because it connects project-level accessions to run-level records.
+
+SRA records may provide:
+
+- run accession
+- experiment accession
+- sample accession
+- library strategy
+- library source
+- library layout
+- platform
+- instrument
+- read length
+- file size
+- release date
+
+For downstream acquisition, SRA run accessions are often essential because they identify the individual sequencing runs to retrieve.
+
+Examples of SRA run accessions include:
+
+```text
+SRR10245277
+SRR10245280
+SRR10245281
+```
+
+In systematic discovery, SRA helps determine whether a study has accessible sequencing data and whether the technical metadata match the intended workflow.
+
+## NCBI BioSample
+
+BioSample records describe biological source materials.
+
+For omics dataset discovery, BioSample metadata are often critical because they describe the samples represented by sequencing runs.
+
+BioSample records may include:
+
+- organism
+- tissue or body site
+- host information
+- disease status
+- collection date
+- geographic location
+- treatment
+- phenotype
+- sample attributes
+- linked SRA records
+
+BioSample quality varies across studies. Some records contain rich metadata, while others contain only minimal descriptions.
+
+This variability is one reason why dataset discovery must evaluate metadata completeness before data acquisition.
+
+## ENA
+
+The European Nucleotide Archive provides access to nucleotide sequence data and metadata.
+
+ENA is part of the International Nucleotide Sequence Database Collaboration and often mirrors or synchronizes records with other major sequence archives.
+
+For CDI workflows, ENA is useful because it often provides direct FASTQ file links and checksum information.
+
+ENA records may provide:
+
+- study accession
+- sample accession
+- experiment accession
+- run accession
+- FASTQ file links
+- file sizes
+- checksums
+- library layout
+- sequencing platform
+- sample metadata fields
+
+In CDI-DAS, ENA can be used as a preferred FASTQ download source when direct file links are available.
+
+In systematic discovery, ENA can help validate whether candidate studies have downloadable sequencing files and useful metadata.
+
+## DDBJ
+
+The DNA Data Bank of Japan is another major nucleotide sequence archive.
+
+Together, DDBJ, ENA, and NCBI participate in coordinated international data sharing.
+
+DDBJ may be especially relevant when studies are submitted through Japanese or regional data submission routes.
+
+For many CDI discovery workflows, DDBJ may not be the first search interface used, but it remains part of the broader public sequence data landscape.
+
+## PubMed Central and Full-Text Sources
+
+Some accession identifiers are not visible in abstracts.
+
+They may appear in:
+
+- data availability statements
+- methods sections
+- supplementary tables
+- figure legends
+- appendices
+- full-text repository links
+
+Full-text sources such as PubMed Central can therefore be useful when candidate publications do not clearly expose accession identifiers in the abstract record.
+
+When available, full text helps confirm whether a study contains public data and how those data were generated.
+
+## Supplementary Materials
+
+Supplementary files are often important in omics studies.
+
+They may contain sample metadata, phenotype tables, accession mappings, inclusion criteria, batch information, sequencing details, or additional study documentation.
+
+Supplementary materials may include:
+
+- sample metadata tables
+- subject metadata
+- accession-to-sample mappings
+- clinical or phenotype descriptions
+- methods extensions
+- quality control summaries
+- processed feature tables
+
+A public dataset may be technically downloadable but difficult to reuse if supplementary metadata are missing or inaccessible.
+
+Systematic discovery should therefore record whether supplementary materials are available and whether they are needed for interpretation.
+
+## Domain-Specific Databases
+
+Some omics domains have specialized databases or portals.
+
+Examples include microbiome portals, cancer genomics resources, single-cell atlases, genome-wide association databases, and curated expression repositories.
+
+These resources may provide additional context, processed data, curated annotations, or study-level summaries.
+
+Domain-specific sources can be useful, but they should be used carefully.
+
+A curated portal may improve discoverability, but the original repository accessions should still be recorded whenever raw data acquisition is required.
+
+## Processed Data Repositories
+
+Not all public omics data are raw sequence reads.
+
+Some repositories provide processed matrices, count tables, abundance tables, variant summaries, or analysis-ready objects.
+
+Processed repositories may be useful for some research questions, teaching workflows, or exploratory analyses.
+
+However, for workflows that require reproducible acquisition and validation of raw data, processed-only records may not be sufficient.
+
+The discovery workflow should therefore distinguish between:
+
+```text
+Raw Data Available
+      ↓
+Can be acquired and validated through CDI-DAS
+
+Processed Data Only
+      ↓
+May support interpretation or teaching, but may not support raw-data workflows
+```
+
+## Accession Types Across Sources
+
+Different repositories use different accession systems.
+
+Common accession types include:
+
+| Accession Type | Example | Meaning |
+|---|---|---|
+| BioProject | PRJNA802976 | Project-level record |
+| BioSample | SAMN... | Biological sample record |
+| SRA Run | SRR... | Sequencing run record |
+| SRA Study | SRP... | Study-level SRA record |
+| SRA Experiment | SRX... | Experiment-level record |
+| ENA Study | PRJEB... or ERP... | ENA study-level record |
+| ENA Run | ERR... or SRR... | Run-level record |
+| PubMed ID | PMID... | Literature record |
+
+Understanding accession types helps prevent confusion during screening and handoff.
+
+For CDI-DAS, BioProject and run-level accessions are especially useful because they support metadata retrieval, manifest generation, and file acquisition.
+
+## Choosing Sources for the Discovery Workflow
+
+The choice of data sources depends on the research question and omics domain.
+
+For the healthy human gut microbiome case study, useful sources include:
+
+| Source | Role in Discovery |
+|---|---|
+| PubMed | Identify candidate publications |
+| NCBI BioProject | Identify project-level public datasets |
+| NCBI SRA | Retrieve run-level sequencing metadata |
+| NCBI BioSample | Evaluate sample-level metadata |
+| ENA | Validate downloadable FASTQ links and checksums |
+| Supplementary materials | Confirm sample attributes and study context |
+
+This combination supports both study discovery and downstream acquisition readiness.
+
+## Repository Source Table
+
+A systematic workflow should document which sources will be searched and why.
+
+A simple source table may include:
+
+```text
+outputs/repository-sources.tsv
+```
+
+This table can record:
+
+- source name
+- source type
+- purpose
+- URL or access route
+- search role
+- expected output
+- notes
+
+This makes the discovery process more transparent and helps future users understand where candidate studies came from.
+
+## Creating a Repository Source Table
+
+The repository source table can be generated with a small script.
+
+```bash
+bash scripts/bash/03-create-repository-sources.sh
+```
+
+The resulting file documents the major data sources used during discovery and prepares the workflow for search strategy development.
+
+## Example Repository Source Plan
+
+For the healthy human gut microbiome case study, the repository source plan may include:
+
+| Source | Source Type | Main Use |
+|---|---|---|
+| PubMed | Literature database | Identify candidate studies and publications |
+| NCBI BioProject | Project repository | Identify public omics project accessions |
+| NCBI SRA | Sequence read archive | Retrieve run-level metadata |
+| NCBI BioSample | Sample metadata repository | Evaluate sample attributes |
+| ENA | Sequence archive | Validate FASTQ links and checksums |
+| Supplementary files | Publication-linked material | Confirm metadata and accession mapping |
+
+This source plan does not yet define the exact search terms. It defines where the search will happen.
+
+Search terms are developed in the next chapter.
+
+## Summary
+
+Data sources and repositories define the discovery landscape.
+
+A systematic workflow should search and validate information across literature databases, project-level repositories, sequence archives, sample metadata records, and supplementary materials.
+
+Each source contributes a different part of the discovery process. Publications provide context. BioProject records provide study-level accessions. SRA and ENA provide run-level metadata and file access. BioSample records provide sample descriptions. Supplementary materials may provide the metadata needed for interpretation.
+
+Together, these sources help transform a broad research question into a set of candidate studies that can be screened and prioritized.
+
+## Looking Ahead
+
+In the next chapter, we develop a structured search strategy for identifying candidate studies across the selected sources and repositories.

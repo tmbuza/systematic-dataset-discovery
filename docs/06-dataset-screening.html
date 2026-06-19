@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dataset-screening – CDI Systematic Dataset Discovery</title>
+<title>Dataset Screening – CDI Systematic Dataset Discovery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-dataset-screening.html"><span class="chapter-title">06-dataset-screening.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-dataset-screening.html">Screening and Prioritization</a></li><li class="breadcrumb-item"><a href="./06-dataset-screening.html"><span class="chapter-title">Dataset Screening</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,65 +149,109 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-preface-and-overview.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">01-why-dataset-discovery-matters.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">02-research-questions-and-objectives.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">03-data-sources-and-repositories.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">04-search-strategy-development.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">05-eligibility-criteria.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">06-dataset-screening.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">07-study-prioritization.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">08-included-study-assembly.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">09-case-study-healthy-human-gut-microbiome.html</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Reference</span></a>
+ <span class="menu-text">Foundation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Why Dataset Discovery Matters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Questions and Objectives</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Discovery System</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Sources and Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Search Strategy Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eligibility Criteria</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Screening and Prioritization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Dataset Screening</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Prioritization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Included Study Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Case Study: Healthy Human Gut Microbiome</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references.html</span></a>
@@ -185,14 +264,36 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-dataset-screening-matters" id="toc-why-dataset-screening-matters" class="nav-link active" data-scroll-target="#why-dataset-screening-matters">Why Dataset Screening Matters</a></li>
+  <li><a href="#screening-is-a-decision-process" id="toc-screening-is-a-decision-process" class="nav-link" data-scroll-target="#screening-is-a-decision-process">Screening Is a Decision Process</a></li>
+  <li><a href="#inputs-to-dataset-screening" id="toc-inputs-to-dataset-screening" class="nav-link" data-scroll-target="#inputs-to-dataset-screening">Inputs to Dataset Screening</a></li>
+  <li><a href="#screening-decision-labels" id="toc-screening-decision-labels" class="nav-link" data-scroll-target="#screening-decision-labels">Screening Decision Labels</a></li>
+  <li><a href="#screening-the-candidate-studies" id="toc-screening-the-candidate-studies" class="nav-link" data-scroll-target="#screening-the-candidate-studies">Screening the Candidate Studies</a></li>
+  <li><a href="#screening-output-structure" id="toc-screening-output-structure" class="nav-link" data-scroll-target="#screening-output-structure">Screening Output Structure</a></li>
+  <li><a href="#included-studies" id="toc-included-studies" class="nav-link" data-scroll-target="#included-studies">Included Studies</a></li>
+  <li><a href="#excluded-studies" id="toc-excluded-studies" class="nav-link" data-scroll-target="#excluded-studies">Excluded Studies</a></li>
+  <li><a href="#review-studies" id="toc-review-studies" class="nav-link" data-scroll-target="#review-studies">Review Studies</a></li>
+  <li><a href="#screening-the-primary-case-study" id="toc-screening-the-primary-case-study" class="nav-link" data-scroll-target="#screening-the-primary-case-study">Screening the Primary Case Study</a></li>
+  <li><a href="#screening-flow" id="toc-screening-flow" class="nav-link" data-scroll-target="#screening-flow">Screening Flow</a></li>
+  <li><a href="#why-screening-reasons-matter" id="toc-why-screening-reasons-matter" class="nav-link" data-scroll-target="#why-screening-reasons-matter">Why Screening Reasons Matter</a></li>
+  <li><a href="#manual-review-and-iteration" id="toc-manual-review-and-iteration" class="nav-link" data-scroll-target="#manual-review-and-iteration">Manual Review and Iteration</a></li>
+  <li><a href="#relationship-to-study-prioritization" id="toc-relationship-to-study-prioritization" class="nav-link" data-scroll-target="#relationship-to-study-prioritization">Relationship to Study Prioritization</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-dataset-screening.html">Screening and Prioritization</a></li><li class="breadcrumb-item"><a href="./06-dataset-screening.html"><span class="chapter-title">Dataset Screening</span></a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Dataset Screening</span></h1>
 </div>
 
 
@@ -215,8 +316,329 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="why-dataset-screening-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-dataset-screening-matters">Why Dataset Screening Matters</h2>
+<p>After candidate studies have been identified and eligibility criteria have been defined, the next step is dataset screening.</p>
+<p>Dataset screening is the process of applying inclusion and exclusion criteria to candidate studies in a structured way.</p>
+<p>The goal is to decide whether each candidate record should be:</p>
+<ul>
+<li>included</li>
+<li>excluded</li>
+<li>reviewed further</li>
+<li>deferred for later use</li>
+</ul>
+<p>Screening turns a broad candidate list into a smaller, better-documented set of studies that are suitable for downstream prioritization and data acquisition.</p>
+<pre class="text"><code>Candidate Studies
+        ↓
+Eligibility Criteria
+        ↓
+Dataset Screening
+        ↓
+Screened Studies
+        ↓
+Included / Excluded / Review</code></pre>
+<p>Dataset screening is not only a filtering step. It is also a documentation step.</p>
+<p>Every screening decision should be traceable.</p>
+</section>
+<section id="screening-is-a-decision-process" class="level2">
+<h2 class="anchored" data-anchor-id="screening-is-a-decision-process">Screening Is a Decision Process</h2>
+<p>A candidate study may look relevant at first, but screening determines whether it actually meets the discovery objective.</p>
+<p>For the healthy human gut microbiome case study, screening asks:</p>
+<ul>
+<li>Is the study based on human samples?</li>
+<li>Does it include gut, stool, fecal, or intestinal microbiome data?</li>
+<li>Does it include healthy, non-diseased, control, or baseline samples?</li>
+<li>Are public accessions available?</li>
+<li>Is the data type suitable for CDI-DAS handoff?</li>
+<li>Are metadata sufficient for interpretation?</li>
+<li>Can a test subset be prepared for acquisition validation?</li>
+</ul>
+<p>These questions help move from general relevance to actual eligibility.</p>
+</section>
+<section id="inputs-to-dataset-screening" class="level2">
+<h2 class="anchored" data-anchor-id="inputs-to-dataset-screening">Inputs to Dataset Screening</h2>
+<p>The screening step uses outputs from earlier chapters.</p>
+<p>Expected inputs include:</p>
+<pre class="text"><code>outputs/candidate-studies.tsv
+outputs/inclusion-criteria.tsv
+outputs/exclusion-criteria.tsv</code></pre>
+<p>The candidate study table provides the records to be screened.</p>
+<p>The inclusion criteria table defines what a study must contain to move forward.</p>
+<p>The exclusion criteria table defines the conditions that remove a study from the main workflow.</p>
+<p>Together, these files support consistent screening decisions.</p>
+</section>
+<section id="screening-decision-labels" class="level2">
+<h2 class="anchored" data-anchor-id="screening-decision-labels">Screening Decision Labels</h2>
+<p>A simple decision system is used during screening.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Decision</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>include</td>
+<td>The candidate meets the criteria and should move forward</td>
+</tr>
+<tr class="even">
+<td>exclude</td>
+<td>The candidate does not meet the criteria</td>
+</tr>
+<tr class="odd">
+<td>review</td>
+<td>More information is needed before a final decision</td>
+</tr>
+<tr class="even">
+<td>defer</td>
+<td>The candidate may be useful later but is not prioritized now</td>
+</tr>
+</tbody>
+</table>
+<p>These labels should be used consistently across the screened study table.</p>
+</section>
+<section id="screening-the-candidate-studies" class="level2">
+<h2 class="anchored" data-anchor-id="screening-the-candidate-studies">Screening the Candidate Studies</h2>
+<p>The screening workflow can be run with:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/06a-screen-candidate-studies.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The expected outputs are:</p>
+<pre class="text"><code>outputs/screened-studies.tsv
+outputs/included-studies.tsv
+outputs/excluded-studies.tsv
+outputs/review-studies.tsv</code></pre>
+<p>The script applies structured screening decisions to the candidate study records and separates them into included, excluded, and review tables.</p>
+</section>
+<section id="screening-output-structure" class="level2">
+<h2 class="anchored" data-anchor-id="screening-output-structure">Screening Output Structure</h2>
+<p>The main screening output is:</p>
+<pre class="text"><code>outputs/screened-studies.tsv</code></pre>
+<p>This table records the screening decision for each candidate record.</p>
+<p>A useful screened study table may include:</p>
+<ul>
+<li>candidate ID</li>
+<li>source</li>
+<li>title or record name</li>
+<li>accession</li>
+<li>publication ID</li>
+<li>organism</li>
+<li>sample context</li>
+<li>data type</li>
+<li>repository link or accession</li>
+<li>screening decision</li>
+<li>screening reason</li>
+<li>priority level</li>
+<li>notes</li>
+</ul>
+<p>This table becomes part of the discovery audit trail.</p>
+</section>
+<section id="included-studies" class="level2">
+<h2 class="anchored" data-anchor-id="included-studies">Included Studies</h2>
+<p>Included studies are candidate records that meet the eligibility criteria.</p>
+<p>For the primary case study, the prioritized BioProject is:</p>
+<pre class="text"><code>PRJNA802976</code></pre>
+<p>The primary test subset is:</p>
+<pre class="text"><code>SRR17868090
+SRR17868091
+SRR17868092</code></pre>
+<p>These records are included because they match the case-study direction and provide a practical starting point for CDI-DAS acquisition validation.</p>
+<p>The included study output is:</p>
+<pre class="text"><code>outputs/included-studies.tsv</code></pre>
+</section>
+<section id="excluded-studies" class="level2">
+<h2 class="anchored" data-anchor-id="excluded-studies">Excluded Studies</h2>
+<p>Excluded studies are candidate records that do not meet the criteria for this workflow.</p>
+<p>A study may be excluded because it has:</p>
+<ul>
+<li>the wrong organism</li>
+<li>the wrong sample context</li>
+<li>no usable public accession</li>
+<li>insufficient metadata</li>
+<li>incompatible data type</li>
+<li>unavailable public sequence files</li>
+<li>no clear sample-to-run mapping</li>
+</ul>
+<p>Exclusion should always be documented with a reason.</p>
+<p>The excluded study output is:</p>
+<pre class="text"><code>outputs/excluded-studies.tsv</code></pre>
+<p>In the early case-study template, there may be no excluded records yet. That is acceptable. The exclusion table still exists so that future screening decisions can be recorded consistently.</p>
+</section>
+<section id="review-studies" class="level2">
+<h2 class="anchored" data-anchor-id="review-studies">Review Studies</h2>
+<p>Some studies may not be clearly eligible or clearly ineligible.</p>
+<p>These records should be marked for review rather than forced into an include or exclude decision.</p>
+<p>A study may require review if:</p>
+<ul>
+<li>the accession is unclear</li>
+<li>supplementary metadata must be checked</li>
+<li>the sample context is ambiguous</li>
+<li>the study contains mixed sample types</li>
+<li>only part of the study may be eligible</li>
+<li>the publication and repository records need reconciliation</li>
+</ul>
+<p>The review output is:</p>
+<pre class="text"><code>outputs/review-studies.tsv</code></pre>
+<p>For this guide, <strong>PRJNA322554</strong> may be retained as a secondary comparison record for review.</p>
+<pre class="text"><code>PRJNA322554</code></pre>
+<p>This BioProject can help demonstrate technical contrast, metadata review, and prioritization decisions, but it is not the primary case-study accession.</p>
+</section>
+<section id="screening-the-primary-case-study" class="level2">
+<h2 class="anchored" data-anchor-id="screening-the-primary-case-study">Screening the Primary Case Study</h2>
+<p>For the healthy human gut microbiome case study, the primary screening decision is:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BioProject</td>
+<td>PRJNA802976</td>
+</tr>
+<tr class="even">
+<td>Decision</td>
+<td>include</td>
+</tr>
+<tr class="odd">
+<td>Priority</td>
+<td>primary</td>
+</tr>
+<tr class="even">
+<td>Reason</td>
+<td>Matches organism, sample context, data type, public accession, and CDI-DAS readiness</td>
+</tr>
+<tr class="odd">
+<td>Test subset</td>
+<td>SRR17868090, SRR17868091, SRR17868092</td>
+</tr>
+</tbody>
+</table>
+<p>The test runs are included as acquisition validation records:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Run</th>
+<th>Decision</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SRR17868090</td>
+<td>include</td>
+<td>Primary test subset run</td>
+</tr>
+<tr class="even">
+<td>SRR17868091</td>
+<td>include</td>
+<td>Primary test subset run</td>
+</tr>
+<tr class="odd">
+<td>SRR17868092</td>
+<td>include</td>
+<td>Primary test subset run</td>
+</tr>
+</tbody>
+</table>
+<p>This creates a small but practical screened dataset for downstream acquisition testing.</p>
+</section>
+<section id="screening-flow" class="level2">
+<h2 class="anchored" data-anchor-id="screening-flow">Screening Flow</h2>
+<p>The screening process can be summarized as:</p>
+<pre class="text"><code>Candidate Studies
+        ↓
+Apply Inclusion Criteria
+        ↓
+Apply Exclusion Criteria
+        ↓
+Assign Decision Label
+        ↓
+Record Screening Reason
+        ↓
+Create Screening Outputs</code></pre>
+<p>The screening outputs then support study prioritization.</p>
+</section>
+<section id="why-screening-reasons-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-screening-reasons-matter">Why Screening Reasons Matter</h2>
+<p>A screening decision without a reason is difficult to interpret later.</p>
+<p>For every included, excluded, or review record, the workflow should record why the decision was made.</p>
+<p>Examples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Decision</th>
+<th>Example Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>include</td>
+<td>Human gut microbiome study with public accession and CDI-DAS-ready run metadata</td>
+</tr>
+<tr class="even">
+<td>exclude</td>
+<td>Non-human study only</td>
+</tr>
+<tr class="odd">
+<td>exclude</td>
+<td>No usable public accession found</td>
+</tr>
+<tr class="even">
+<td>review</td>
+<td>Sample context unclear; supplementary metadata needed</td>
+</tr>
+<tr class="odd">
+<td>defer</td>
+<td>Relevant but not needed for primary case study</td>
+</tr>
+</tbody>
+</table>
+<p>These reasons make the workflow auditable.</p>
+</section>
+<section id="manual-review-and-iteration" class="level2">
+<h2 class="anchored" data-anchor-id="manual-review-and-iteration">Manual Review and Iteration</h2>
+<p>Dataset screening may require manual review.</p>
+<p>Some repository records are incomplete. Some publications use unclear terminology. Some BioProjects contain mixed samples or multiple experiments. Some accessions are only visible in supplementary files.</p>
+<p>When this happens, the study should be marked as review until the missing information is resolved.</p>
+<p>Screening can be updated later as new information becomes available, but changes should be documented.</p>
+</section>
+<section id="relationship-to-study-prioritization" class="level2">
+<h2 class="anchored" data-anchor-id="relationship-to-study-prioritization">Relationship to Study Prioritization</h2>
+<p>Screening determines whether a study is eligible.</p>
+<p>Prioritization determines which eligible studies should be used first.</p>
+<p>These are related but separate steps.</p>
+<pre class="text"><code>Screening
+        ↓
+Is the study eligible?
+
+Prioritization
+        ↓
+How important or useful is the eligible study?</code></pre>
+<p>For example, both PRJNA802976 and PRJNA322554 may be relevant human gut microbiome BioProjects, but PRJNA802976 is prioritized as the main case-study accession because it better supports the current CDI-DAS demonstration.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Dataset screening applies eligibility criteria to candidate studies and records structured decisions.</p>
+<p>The screening workflow produces included, excluded, and review tables that document which records move forward and why.</p>
+<p>For the healthy human gut microbiome case study, <strong>PRJNA802976</strong> is included as the primary BioProject, with <strong>SRR17868090</strong>, <strong>SRR17868091</strong>, and <strong>SRR17868092</strong> used as the primary test subset.</p>
+<p><strong>PRJNA322554</strong> can remain available as a secondary comparison record for review or technical contrast.</p>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>In the next chapter, we prioritize screened studies and decide which eligible records should be used first for downstream acquisition and reference dataset assembly.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -622,13 +1044,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05-eligibility-criteria.html" class="pagination-link" aria-label="05-eligibility-criteria.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">05-eligibility-criteria.html</span></span>
+      <a href="./05-eligibility-criteria.html" class="pagination-link" aria-label="Eligibility Criteria">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Eligibility Criteria</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07-study-prioritization.html" class="pagination-link" aria-label="07-study-prioritization.html">
-        <span class="nav-page-text"><span class="chapter-title">07-study-prioritization.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-study-prioritization.html" class="pagination-link" aria-label="Study Prioritization">
+        <span class="nav-page-text"><span class="chapter-title">Study Prioritization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

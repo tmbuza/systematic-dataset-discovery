@@ -1,0 +1,362 @@
+# Research Questions and Objectives
+
+## Start With the Question
+
+Systematic dataset discovery should begin with a clear research question.
+
+A research question defines what the dataset discovery process is trying to support. It helps determine which studies are relevant, which studies should be excluded, which metadata fields are important, and which accessions should eventually be passed to the CDI Data Acquisition System.
+
+Without a clear research question, dataset discovery can become too broad, inconsistent, or difficult to justify.
+
+For example, the phrase “human gut microbiome datasets” is useful as a topic, but it is not yet a discovery question.
+
+A stronger question would be:
+
+> Which public studies contain healthy human gut microbiome sequencing data suitable for building a reference dataset?
+
+This question gives the discovery process a clearer direction. It identifies the domain, population, sample context, and intended use.
+
+## From Topic to Discovery Question
+
+A topic is a broad area of interest.
+
+A discovery question is a focused question that guides dataset selection.
+
+```text
+Topic
+      ↓
+Research Area
+      ↓
+Discovery Question
+      ↓
+Eligibility Criteria
+      ↓
+Dataset Selection
+```
+
+For example:
+
+| Broad Topic | More Focused Discovery Question |
+|---|---|
+| Human microbiome | Which public studies contain healthy human gut microbiome sequencing data? |
+| Cancer RNA-seq | Which public RNA-seq studies include tumor and matched normal samples? |
+| Antimicrobial resistance | Which public metagenomic studies include antibiotic exposure metadata? |
+| Plant genomics | Which public sequencing studies include drought-stress experiments in maize? |
+| Single-cell biology | Which public single-cell studies include annotated immune cell populations? |
+
+The discovery question does not need to be perfect at the beginning. It can be refined as the analyst learns more about the available data landscape. However, it should be clear enough to guide the first search strategy.
+
+## Why the Question Matters
+
+The research question influences every downstream decision.
+
+It affects:
+
+- which repositories are searched
+- which search terms are used
+- which metadata fields are required
+- which studies are considered eligible
+- which studies are excluded
+- which datasets are prioritized
+- which accessions are prepared for acquisition
+
+A vague question produces vague selection decisions.
+
+A clear question makes screening and prioritization more consistent.
+
+For example, if the question focuses on healthy adult gut microbiome studies, then studies involving disease cohorts, animal models, infants, or intervention-only designs may need to be excluded or handled separately.
+
+If the question focuses on benchmarking, then platform consistency and technical metadata may be especially important.
+
+If the question focuses on biological interpretation, then phenotype and sample metadata may be more important.
+
+## Define the Purpose of Discovery
+
+A dataset discovery workflow should also define the purpose of the dataset search.
+
+Different purposes may require different selection decisions.
+
+Common purposes include:
+
+| Purpose | Discovery Focus |
+|---|---|
+| Reference dataset assembly | Well-described studies with clear metadata and reusable accessions |
+| Benchmarking | Comparable studies with consistent technologies or known expected results |
+| Method development | Datasets with enough complexity to test analysis methods |
+| Training or teaching | Small, accessible datasets with clear documentation |
+| Comparative analysis | Studies with compatible groups, metadata, and biological context |
+| Evidence mapping | Broad coverage of available studies in a topic area |
+| Client-facing work | Transparent, defensible, and auditable study selection |
+
+The same public study may be suitable for one purpose but unsuitable for another.
+
+For example, a small microbiome study with clear metadata may be excellent for teaching but insufficient for a large reference dataset. A large study may be useful for benchmarking but difficult to interpret if metadata are incomplete.
+
+## Define the Discovery Objective
+
+A discovery objective translates the research question into an operational goal.
+
+The research question asks what the analyst wants to know.
+
+The discovery objective defines what the discovery workflow should produce.
+
+Example research question:
+
+> Which public studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?
+
+Example discovery objective:
+
+> Identify, screen, and prioritize public omics studies containing healthy human gut microbiome sequencing data, and produce a curated accession list suitable for CDI-DAS data acquisition.
+
+The objective is important because it connects the discovery workflow to a concrete output.
+
+```text
+Research Question
+      ↓
+Discovery Objective
+      ↓
+Search Strategy
+      ↓
+Screening Criteria
+      ↓
+Included Study List
+      ↓
+CDI-DAS Input Accessions
+```
+
+## Define the Population or Biological Context
+
+Many omics topics are broad. The biological context should be defined early.
+
+Depending on the domain, this may include:
+
+- organism
+- tissue or body site
+- population group
+- disease status
+- exposure or treatment
+- developmental stage
+- environmental condition
+- phenotype or clinical status
+
+For the healthy human gut microbiome case study, the biological context may be defined as:
+
+| Component | Example Definition |
+|---|---|
+| Organism | Human |
+| Body site | Gut or stool |
+| Health status | Healthy or non-diseased |
+| Data type | Microbiome sequencing |
+| Intended use | Reference dataset assembly |
+
+This definition helps separate eligible studies from studies that are only loosely related.
+
+## Define the Data Type
+
+The discovery question should also define the type of omics data required.
+
+Examples include:
+
+- 16S rRNA amplicon sequencing
+- shotgun metagenomic sequencing
+- bulk RNA-seq
+- single-cell RNA-seq
+- whole-genome sequencing
+- genotyping array data
+- ATAC-seq
+- proteomics
+- metabolomics
+
+Data type matters because it affects repository choice, metadata expectations, file types, and downstream analysis workflows.
+
+For microbiome studies, 16S rRNA amplicon data and shotgun metagenomic data are both useful, but they support different types of analysis. They may need separate eligibility criteria, separate acquisition workflows, or separate reference dataset packages.
+
+## Define the Unit of Inclusion
+
+A systematic discovery workflow should define what is being included.
+
+The unit of inclusion may be:
+
+- publication
+- study
+- BioProject
+- dataset
+- experiment
+- sample
+- run accession
+- repository record
+
+This distinction matters because one publication may describe multiple datasets, one BioProject may contain multiple experiments, and one study may include both eligible and ineligible samples.
+
+For CDI workflows, the practical unit often becomes the public study or BioProject, with run-level accessions used later for acquisition.
+
+```text
+Publication
+      ↓
+Study Record
+      ↓
+BioProject / Repository Accession
+      ↓
+Sample Metadata
+      ↓
+Run Accessions
+      ↓
+Download Manifest
+```
+
+Defining the unit of inclusion prevents confusion during screening and documentation.
+
+## Define the Scope
+
+The discovery scope sets boundaries around the search.
+
+Scope may include:
+
+- time period
+- species
+- population
+- sample type
+- disease status
+- sequencing technology
+- repository coverage
+- language or publication type
+- metadata requirements
+- file availability
+
+For example, a healthy human gut microbiome discovery workflow may choose to include only human stool studies with public sequence data and basic sample-level metadata.
+
+The scope should be broad enough to find relevant studies, but narrow enough to support consistent screening.
+
+## Define Inclusion and Exclusion Direction Early
+
+Detailed eligibility criteria are developed in a later chapter, but the general direction should be clear from the beginning.
+
+For example:
+
+Potential inclusion direction:
+
+- human samples
+- gut or stool microbiome
+- healthy or non-diseased participants
+- public accession available
+- sequencing data available from public repositories
+- sufficient metadata for reuse
+
+Potential exclusion direction:
+
+- animal studies
+- disease-only cohorts
+- intervention-only studies without baseline healthy controls
+- unclear sample source
+- missing accession information
+- unavailable sequence files
+- insufficient metadata
+
+These early boundaries help make the search strategy more focused and reduce ambiguity during screening.
+
+## Define Required Outputs
+
+The discovery workflow should define its expected outputs before the search begins.
+
+For CDI Systematic Dataset Discovery, expected outputs may include:
+
+```text
+outputs/
+├── candidate-studies.tsv
+├── screened-studies.tsv
+├── included-studies.tsv
+├── excluded-studies.tsv
+├── prioritization-table.tsv
+└── cdi-das-input-accessions.txt
+```
+
+These outputs turn the discovery question into a reproducible workflow.
+
+They also prepare the selected studies for the CDI Data Acquisition System.
+
+## Creating a Discovery Planning Template
+
+Before searching repositories, it is useful to document the research question, discovery objective, scope, and expected outputs.
+
+```bash
+#| label: create-discovery-plan
+#| eval: false
+
+bash scripts/bash/02-create-discovery-plan.sh
+```
+
+The resulting file captures the starting assumptions for the discovery workflow and provides a documented foundation for search strategy development.
+
+## Example: Healthy Human Gut Microbiome
+
+For the case study in this guide, the discovery question can be framed as:
+
+> Which public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?
+
+The discovery objective can be framed as:
+
+> Identify, screen, and prioritize public studies containing healthy human gut microbiome sequencing data, and assemble a curated accession list for CDI-DAS data acquisition.
+
+The scope may include:
+
+| Discovery Element | Case Study Definition |
+|---|---|
+| Domain | Microbiome |
+| Organism | Human |
+| Body site | Gut or stool |
+| Health status | Healthy or non-diseased |
+| Data source | Public omics repositories and linked publications |
+| Output | Eligible studies and accession list |
+| Downstream system | CDI Data Acquisition System |
+
+This case study will be used later to demonstrate how a research question becomes a set of eligible public studies.
+
+## Common Problems When Questions Are Unclear
+
+Unclear research questions can create several problems:
+
+- search results become too broad
+- unrelated studies enter the candidate list
+- screening decisions become inconsistent
+- eligibility criteria are difficult to apply
+- studies are excluded without clear justification
+- downstream datasets become difficult to interpret
+- accession lists become disconnected from the original purpose
+
+These problems can usually be reduced by defining the research question, objective, scope, and expected outputs before searching.
+
+## Practical Checklist
+
+Before developing the search strategy, confirm that the following items are clear:
+
+```text
+Research topic defined
+        ↓
+Discovery question written
+        ↓
+Discovery objective stated
+        ↓
+Biological context defined
+        ↓
+Data type identified
+        ↓
+Unit of inclusion clarified
+        ↓
+Scope boundaries described
+        ↓
+Expected outputs listed
+```
+
+This checklist helps ensure that the dataset discovery workflow begins with a clear direction.
+
+## Summary
+
+Systematic dataset discovery begins with a clear research question and a practical discovery objective.
+
+The research question defines what the workflow is trying to support. The objective defines what the workflow should produce. Together, they guide repository selection, search strategy development, eligibility criteria, screening decisions, study prioritization, and the final CDI-DAS input package.
+
+A well-defined discovery question helps transform a broad topic into a reproducible dataset selection workflow.
+
+## Looking Ahead
+
+In the next chapter, we examine the public data sources and repositories that can be used to identify candidate omics studies.

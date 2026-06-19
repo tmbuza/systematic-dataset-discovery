@@ -1,21 +1,3 @@
-#!/bin/bash
-
-##############################################################################
-# Build Inclusion Criteria Table
-##############################################################################
-# Purpose:
-#   Create a structured inclusion criteria table for the CDI Systematic
-#   Dataset Discovery workflow.
-#
-# Output:
-#   outputs/inclusion-criteria.tsv
-##############################################################################
-
-set -euo pipefail
-
-mkdir -p outputs
-
-cat > outputs/inclusion-criteria.tsv << 'EOF'
 criterion_id	domain	criterion_name	inclusion_rule	notes
 INC001	Biological relevance	Organism	Study includes human samples	Required for the healthy human gut microbiome case study
 INC002	Biological relevance	Sample context	Study includes gut, stool, fecal, faecal, intestinal, or gastrointestinal microbiome samples	Terms may vary across publications and repository records
@@ -26,10 +8,3 @@ INC006	Metadata completeness	Sample metadata	Study provides enough metadata to i
 INC007	CDI-DAS readiness	Acquisition readiness	Study can be prepared for CDI Data Acquisition System handoff	Public run metadata and downloadable files should be available
 INC008	Case-study priority	Primary BioProject	PRJNA802976 is prioritized as the main healthy human gut microbiome case-study BioProject	Used for downstream CDI-DAS demonstration
 INC009	Case-study test subset	Test runs	SRR17868090, SRR17868091, and SRR17868092 are available as the primary test subset	Used to validate the acquisition workflow before scaling
-EOF
-
-echo "Inclusion criteria table created:"
-echo "outputs/inclusion-criteria.tsv"
-echo
-echo "Preview:"
-column -t -s $'\t' outputs/inclusion-criteria.tsv

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>eligibility-criteria – CDI Systematic Dataset Discovery</title>
+<title>Eligibility Criteria – CDI Systematic Dataset Discovery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-eligibility-criteria.html"><span class="chapter-title">05-eligibility-criteria.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-data-sources-and-repositories.html">Discovery System</a></li><li class="breadcrumb-item"><a href="./05-eligibility-criteria.html"><span class="chapter-title">Eligibility Criteria</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,65 +149,109 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-preface-and-overview.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">01-why-dataset-discovery-matters.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">02-research-questions-and-objectives.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">03-data-sources-and-repositories.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">04-search-strategy-development.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">05-eligibility-criteria.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">06-dataset-screening.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">07-study-prioritization.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">08-included-study-assembly.html</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">09-case-study-healthy-human-gut-microbiome.html</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Reference</span></a>
+ <span class="menu-text">Foundation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Why Dataset Discovery Matters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Questions and Objectives</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Discovery System</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Sources and Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Search Strategy Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Eligibility Criteria</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Screening and Prioritization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dataset Screening</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Prioritization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Included Study Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Case Study: Healthy Human Gut Microbiome</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references.html</span></a>
@@ -185,14 +264,38 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-eligibility-criteria-matter" id="toc-why-eligibility-criteria-matter" class="nav-link active" data-scroll-target="#why-eligibility-criteria-matter">Why Eligibility Criteria Matter</a></li>
+  <li><a href="#from-search-results-to-screening-rules" id="toc-from-search-results-to-screening-rules" class="nav-link" data-scroll-target="#from-search-results-to-screening-rules">From Search Results to Screening Rules</a></li>
+  <li><a href="#core-eligibility-domains" id="toc-core-eligibility-domains" class="nav-link" data-scroll-target="#core-eligibility-domains">Core Eligibility Domains</a></li>
+  <li><a href="#biological-eligibility" id="toc-biological-eligibility" class="nav-link" data-scroll-target="#biological-eligibility">Biological Eligibility</a></li>
+  <li><a href="#technical-eligibility" id="toc-technical-eligibility" class="nav-link" data-scroll-target="#technical-eligibility">Technical Eligibility</a></li>
+  <li><a href="#metadata-eligibility" id="toc-metadata-eligibility" class="nav-link" data-scroll-target="#metadata-eligibility">Metadata Eligibility</a></li>
+  <li><a href="#repository-accessibility" id="toc-repository-accessibility" class="nav-link" data-scroll-target="#repository-accessibility">Repository Accessibility</a></li>
+  <li><a href="#cdi-das-readiness" id="toc-cdi-das-readiness" class="nav-link" data-scroll-target="#cdi-das-readiness">CDI-DAS Readiness</a></li>
+  <li><a href="#inclusion-criteria" id="toc-inclusion-criteria" class="nav-link" data-scroll-target="#inclusion-criteria">Inclusion Criteria</a></li>
+  <li><a href="#exclusion-criteria" id="toc-exclusion-criteria" class="nav-link" data-scroll-target="#exclusion-criteria">Exclusion Criteria</a></li>
+  <li><a href="#review-or-unclear-studies" id="toc-review-or-unclear-studies" class="nav-link" data-scroll-target="#review-or-unclear-studies">Review or Unclear Studies</a></li>
+  <li><a href="#eligibility-decision-labels" id="toc-eligibility-decision-labels" class="nav-link" data-scroll-target="#eligibility-decision-labels">Eligibility Decision Labels</a></li>
+  <li><a href="#creating-inclusion-and-exclusion-criteria-tables" id="toc-creating-inclusion-and-exclusion-criteria-tables" class="nav-link" data-scroll-target="#creating-inclusion-and-exclusion-criteria-tables">Creating Inclusion and Exclusion Criteria Tables</a></li>
+  <li><a href="#example-eligibility-table-structure" id="toc-example-eligibility-table-structure" class="nav-link" data-scroll-target="#example-eligibility-table-structure">Example Eligibility Table Structure</a></li>
+  <li><a href="#applying-criteria-to-the-case-study" id="toc-applying-criteria-to-the-case-study" class="nav-link" data-scroll-target="#applying-criteria-to-the-case-study">Applying Criteria to the Case Study</a></li>
+  <li><a href="#common-eligibility-problems" id="toc-common-eligibility-problems" class="nav-link" data-scroll-target="#common-eligibility-problems">Common Eligibility Problems</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-data-sources-and-repositories.html">Discovery System</a></li><li class="breadcrumb-item"><a href="./05-eligibility-criteria.html"><span class="chapter-title">Eligibility Criteria</span></a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Eligibility Criteria</span></h1>
 </div>
 
 
@@ -215,8 +318,485 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="why-eligibility-criteria-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-eligibility-criteria-matter">Why Eligibility Criteria Matter</h2>
+<p>After candidate studies have been identified, the next step is to decide which studies are suitable for inclusion.</p>
+<p>This decision should not be made informally.</p>
+<p>Eligibility criteria provide the rules used to include, exclude, or set aside candidate studies. They help ensure that screening decisions are consistent, transparent, and aligned with the research question.</p>
+<p>Without eligibility criteria, study selection can become subjective. One analyst may include a study because it appears relevant, while another may exclude it because the metadata are incomplete or the sample context is unclear.</p>
+<p>A systematic dataset discovery workflow avoids this problem by defining eligibility criteria before screening begins.</p>
+</section>
+<section id="from-search-results-to-screening-rules" class="level2">
+<h2 class="anchored" data-anchor-id="from-search-results-to-screening-rules">From Search Results to Screening Rules</h2>
+<p>Search results are broad by design.</p>
+<p>They may include relevant studies, partially relevant studies, unrelated studies, duplicate records, secondary publications, studies without public accessions, and datasets that cannot support downstream acquisition.</p>
+<p>Eligibility criteria help convert this broad search output into a structured screening process.</p>
+<pre class="text"><code>Candidate Studies
+        ↓
+Eligibility Criteria
+        ↓
+Screening Decisions
+        ↓
+Included / Excluded / Review</code></pre>
+<p>The purpose of eligibility criteria is not to make the final dataset as large as possible.</p>
+<p>The purpose is to make the final dataset appropriate for the research question and usable for downstream workflows.</p>
+</section>
+<section id="core-eligibility-domains" class="level2">
+<h2 class="anchored" data-anchor-id="core-eligibility-domains">Core Eligibility Domains</h2>
+<p>For CDI Systematic Dataset Discovery, eligibility criteria should usually cover five domains:</p>
+<pre class="text"><code>Biological Relevance
+        ↓
+Technical Suitability
+        ↓
+Metadata Completeness
+        ↓
+Repository Accessibility
+        ↓
+CDI-DAS Readiness</code></pre>
+<p>Each domain helps answer a different question.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Domain</th>
+<th>Main Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Biological relevance</td>
+<td>Does the study match the biological question?</td>
+</tr>
+<tr class="even">
+<td>Technical suitability</td>
+<td>Does the data type match the intended workflow?</td>
+</tr>
+<tr class="odd">
+<td>Metadata completeness</td>
+<td>Are the samples sufficiently described?</td>
+</tr>
+<tr class="even">
+<td>Repository accessibility</td>
+<td>Are public accessions and files available?</td>
+</tr>
+<tr class="odd">
+<td>CDI-DAS readiness</td>
+<td>Can the study move into reproducible acquisition?</td>
+</tr>
+</tbody>
+</table>
+<p>Together, these domains provide a structured basis for deciding whether a candidate study should continue in the workflow.</p>
+</section>
+<section id="biological-eligibility" class="level2">
+<h2 class="anchored" data-anchor-id="biological-eligibility">Biological Eligibility</h2>
+<p>Biological eligibility checks whether the study matches the research question.</p>
+<p>For the healthy human gut microbiome case study, biological eligibility may include:</p>
+<ul>
+<li>human samples</li>
+<li>gut, stool, fecal, or intestinal sample context</li>
+<li>healthy, non-diseased, control, or baseline participants</li>
+<li>microbiome-related biological material</li>
+<li>study context relevant to reference dataset assembly</li>
+</ul>
+<p>A study may mention the gut microbiome but still fail biological eligibility if it focuses only on animals, disease-only cohorts, environmental samples, or unrelated body sites.</p>
+<p>For example, these studies may be excluded from the main healthy human gut microbiome reference workflow:</p>
+<ul>
+<li>mouse gut microbiome studies</li>
+<li>oral microbiome studies</li>
+<li>skin microbiome studies</li>
+<li>disease-only patient cohorts without healthy controls</li>
+<li>intervention-only studies without usable baseline samples</li>
+<li>studies with unclear host or sample source</li>
+</ul>
+</section>
+<section id="technical-eligibility" class="level2">
+<h2 class="anchored" data-anchor-id="technical-eligibility">Technical Eligibility</h2>
+<p>Technical eligibility checks whether the data type is suitable for the intended analysis or acquisition workflow.</p>
+<p>For microbiome discovery, this may include:</p>
+<ul>
+<li>sequencing data are available</li>
+<li>library strategy is relevant</li>
+<li>platform information is available</li>
+<li>read layout is documented</li>
+<li>data type is compatible with the planned workflow</li>
+<li>run-level accessions can be retrieved</li>
+</ul>
+<p>For the prioritized case study, <strong>PRJNA802976</strong> is treated as the primary BioProject because it supports a practical CDI-DAS handoff and includes run-level accessions that can be used for acquisition testing.</p>
+<p>The primary test subset is:</p>
+<pre class="text"><code>SRR17868090
+SRR17868091
+SRR17868092</code></pre>
+<p>These accessions allow the workflow to test acquisition and validation before scaling to the full BioProject.</p>
+</section>
+<section id="metadata-eligibility" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-eligibility">Metadata Eligibility</h2>
+<p>Metadata eligibility checks whether the study has enough information to interpret the samples.</p>
+<p>A dataset may be public and downloadable, but still difficult to reuse if the metadata are incomplete.</p>
+<p>Important metadata may include:</p>
+<ul>
+<li>organism</li>
+<li>sample source</li>
+<li>body site</li>
+<li>health status</li>
+<li>disease or control status</li>
+<li>treatment or exposure</li>
+<li>age group</li>
+<li>sex</li>
+<li>geographic location</li>
+<li>sequencing platform</li>
+<li>library strategy</li>
+<li>sample accession</li>
+<li>run accession</li>
+</ul>
+<p>Not every study will contain every metadata field. However, the minimum required metadata should be defined before screening.</p>
+<p>For the healthy human gut microbiome case study, minimum metadata should support identification of human gut or stool samples and their relevance to healthy or non-diseased microbiome analysis.</p>
+</section>
+<section id="repository-accessibility" class="level2">
+<h2 class="anchored" data-anchor-id="repository-accessibility">Repository Accessibility</h2>
+<p>Repository accessibility checks whether the public data can actually be located and acquired.</p>
+<p>A study should provide enough accession information to connect the publication or repository record to public data files.</p>
+<p>Useful accession types include:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Accession Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BioProject</td>
+<td>PRJNA802976</td>
+</tr>
+<tr class="even">
+<td>SRA Run</td>
+<td>SRR17868090</td>
+</tr>
+<tr class="odd">
+<td>BioSample</td>
+<td>SAMN…</td>
+</tr>
+<tr class="even">
+<td>ENA Run</td>
+<td>ERR… or SRR…</td>
+</tr>
+<tr class="odd">
+<td>PubMed ID</td>
+<td>PMID…</td>
+</tr>
+</tbody>
+</table>
+<p>A candidate study may be excluded or set aside if:</p>
+<ul>
+<li>no public accession is provided</li>
+<li>accessions are unclear</li>
+<li>repository records cannot be resolved</li>
+<li>sequence files are unavailable</li>
+<li>files require controlled access</li>
+<li>sample-to-run mapping is missing</li>
+</ul>
+<p>For CDI-DAS handoff, BioProject and run-level accessions are especially important.</p>
+</section>
+<section id="cdi-das-readiness" class="level2">
+<h2 class="anchored" data-anchor-id="cdi-das-readiness">CDI-DAS Readiness</h2>
+<p>CDI-DAS readiness checks whether the study can be passed into the CDI Data Acquisition System.</p>
+<p>This does not require downloading the full dataset during eligibility assessment. It only requires enough confidence that the study can move into acquisition.</p>
+<p>A study is more CDI-DAS-ready when it has:</p>
+<ul>
+<li>clear BioProject or study accession</li>
+<li>retrievable run-level metadata</li>
+<li>public sequence files</li>
+<li>usable sample metadata</li>
+<li>clear repository mapping</li>
+<li>compatible data type</li>
+<li>manageable test subset</li>
+</ul>
+<p>For the primary case study, the CDI-DAS-ready starting point is:</p>
+<pre class="text"><code>BioProject: PRJNA802976
+
+Test runs:
+SRR17868090
+SRR17868091
+SRR17868092</code></pre>
+</section>
+<section id="inclusion-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="inclusion-criteria">Inclusion Criteria</h2>
+<p>Inclusion criteria define what a study must have to be considered eligible.</p>
+<p>For the healthy human gut microbiome case study, inclusion criteria may include:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Inclusion Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Organism</td>
+<td>Human samples</td>
+</tr>
+<tr class="even">
+<td>Sample context</td>
+<td>Gut, stool, fecal, or intestinal microbiome</td>
+</tr>
+<tr class="odd">
+<td>Health context</td>
+<td>Healthy, non-diseased, control, or baseline samples</td>
+</tr>
+<tr class="even">
+<td>Data type</td>
+<td>Public microbiome sequencing data</td>
+</tr>
+<tr class="odd">
+<td>Repository record</td>
+<td>BioProject, SRA, ENA, or equivalent accession available</td>
+</tr>
+<tr class="even">
+<td>Metadata</td>
+<td>Sufficient sample and technical metadata for reuse</td>
+</tr>
+<tr class="odd">
+<td>Acquisition readiness</td>
+<td>Data can be prepared for CDI-DAS handoff</td>
+</tr>
+</tbody>
+</table>
+<p>These criteria can be refined as the workflow matures, but they should remain explicit and documented.</p>
+</section>
+<section id="exclusion-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="exclusion-criteria">Exclusion Criteria</h2>
+<p>Exclusion criteria define which studies should not be included in the main workflow.</p>
+<p>For the case study, exclusion criteria may include:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Exclusion Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wrong organism</td>
+<td>Non-human samples only</td>
+</tr>
+<tr class="even">
+<td>Wrong sample context</td>
+<td>Non-gut body site only</td>
+</tr>
+<tr class="odd">
+<td>Disease-only cohort</td>
+<td>No healthy, control, or baseline group available</td>
+</tr>
+<tr class="even">
+<td>No public data</td>
+<td>No accessible public sequencing data</td>
+</tr>
+<tr class="odd">
+<td>Missing accessions</td>
+<td>No usable BioProject, SRA, ENA, or equivalent accession</td>
+</tr>
+<tr class="even">
+<td>Insufficient metadata</td>
+<td>Sample context cannot be interpreted</td>
+</tr>
+<tr class="odd">
+<td>Incompatible data</td>
+<td>Data type does not match the intended workflow</td>
+</tr>
+<tr class="even">
+<td>Controlled access only</td>
+<td>Data cannot be acquired through the public CDI-DAS workflow</td>
+</tr>
+</tbody>
+</table>
+<p>Exclusion does not mean a study has no scientific value.</p>
+<p>It only means the study does not meet the criteria for this specific discovery workflow.</p>
+</section>
+<section id="review-or-unclear-studies" class="level2">
+<h2 class="anchored" data-anchor-id="review-or-unclear-studies">Review or Unclear Studies</h2>
+<p>Not every candidate study will be clearly eligible or clearly ineligible.</p>
+<p>Some studies may require manual review.</p>
+<p>A study can be marked as <strong>review</strong> when:</p>
+<ul>
+<li>the accession is present but unclear</li>
+<li>the study appears relevant but metadata are incomplete</li>
+<li>the publication and repository record do not match clearly</li>
+<li>the health status is ambiguous</li>
+<li>the study includes mixed sample types</li>
+<li>only part of the dataset may be eligible</li>
+<li>supplementary files must be checked before a decision</li>
+</ul>
+<p>Using a review category prevents premature inclusion or exclusion.</p>
+<pre class="text"><code>Include
+        Study meets criteria
+
+Exclude
+        Study does not meet criteria
+
+Review
+        More information is needed</code></pre>
+</section>
+<section id="eligibility-decision-labels" class="level2">
+<h2 class="anchored" data-anchor-id="eligibility-decision-labels">Eligibility Decision Labels</h2>
+<p>A simple decision system can be used during screening:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Decision</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>include</td>
+<td>Study meets the criteria</td>
+</tr>
+<tr class="even">
+<td>exclude</td>
+<td>Study does not meet the criteria</td>
+</tr>
+<tr class="odd">
+<td>review</td>
+<td>Study requires additional checking</td>
+</tr>
+<tr class="even">
+<td>defer</td>
+<td>Study may be useful later but is not prioritized now</td>
+</tr>
+</tbody>
+</table>
+<p>These labels should be used consistently across the screening table.</p>
+</section>
+<section id="creating-inclusion-and-exclusion-criteria-tables" class="level2">
+<h2 class="anchored" data-anchor-id="creating-inclusion-and-exclusion-criteria-tables">Creating Inclusion and Exclusion Criteria Tables</h2>
+<p>Eligibility criteria are stored in two structured tables: one for inclusion rules and one for exclusion rules.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05a-build-inclusion-criteria.sh</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05b-build-exclusion-criteria.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The expected outputs are:</p>
+<pre class="text"><code>outputs/inclusion-criteria.tsv
+outputs/exclusion-criteria.tsv</code></pre>
+<p>The inclusion criteria table defines what a candidate study must contain to move forward.</p>
+<p>The exclusion criteria table defines the conditions that remove a candidate study from the main workflow.</p>
+<p>Together, these files document the screening rules used in the next chapter.</p>
+</section>
+<section id="example-eligibility-table-structure" class="level2">
+<h2 class="anchored" data-anchor-id="example-eligibility-table-structure">Example Eligibility Table Structure</h2>
+<p>A useful eligibility criteria table may include:</p>
+<ul>
+<li>criterion ID</li>
+<li>criterion domain</li>
+<li>criterion name</li>
+<li>inclusion rule or exclusion rule</li>
+<li>review condition, when applicable</li>
+<li>notes</li>
+</ul>
+<p>Example inclusion table:</p>
+<pre class="text"><code>criterion_id    domain                  criterion_name       inclusion_rule
+INC001          Biological relevance    Organism             Study includes human samples
+INC002          Biological relevance    Sample context       Study includes gut or stool microbiome samples
+INC005          Repository access       Public accession     Study provides a usable public accession</code></pre>
+<p>Example exclusion table:</p>
+<pre class="text"><code>criterion_id    domain                  criterion_name       exclusion_rule
+EXC001          Biological relevance    Wrong organism       Exclude studies containing non-human samples only
+EXC002          Biological relevance    Wrong sample context Exclude studies that do not include gut or stool samples
+EXC005          Repository access       No public accession  Exclude studies with no usable public accession</code></pre>
+<p>The full criteria tables are created by the Chapter 05 scripts.</p>
+</section>
+<section id="applying-criteria-to-the-case-study" class="level2">
+<h2 class="anchored" data-anchor-id="applying-criteria-to-the-case-study">Applying Criteria to the Case Study</h2>
+<p>For the primary case-study BioProject:</p>
+<pre class="text"><code>PRJNA802976</code></pre>
+<p>the eligibility decision should focus on whether it meets the discovery question:</p>
+<blockquote class="blockquote">
+<p>Which public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?</p>
+</blockquote>
+<p>The initial screening decision may be:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BioProject</td>
+<td>PRJNA802976</td>
+</tr>
+<tr class="even">
+<td>Priority</td>
+<td>Primary case-study accession</td>
+</tr>
+<tr class="odd">
+<td>Organism</td>
+<td>Human</td>
+</tr>
+<tr class="even">
+<td>Sample context</td>
+<td>Gut or stool microbiome</td>
+</tr>
+<tr class="odd">
+<td>Data type</td>
+<td>Microbiome sequencing</td>
+</tr>
+<tr class="even">
+<td>CDI-DAS readiness</td>
+<td>Suitable for test acquisition</td>
+</tr>
+<tr class="odd">
+<td>Test subset</td>
+<td>SRR17868090, SRR17868091, SRR17868092</td>
+</tr>
+<tr class="even">
+<td>Initial decision</td>
+<td>include</td>
+</tr>
+</tbody>
+</table>
+<p>A secondary comparison BioProject can remain available for contrast:</p>
+<pre class="text"><code>PRJNA322554</code></pre>
+<p>This comparison helps demonstrate why eligibility and prioritization should consider technical characteristics, metadata completeness, and acquisition readiness.</p>
+</section>
+<section id="common-eligibility-problems" class="level2">
+<h2 class="anchored" data-anchor-id="common-eligibility-problems">Common Eligibility Problems</h2>
+<p>Candidate studies may fail eligibility for several reasons:</p>
+<ul>
+<li>title appears relevant but sample type is wrong</li>
+<li>publication describes microbiome data but accessions are missing</li>
+<li>repository record exists but sample metadata are unclear</li>
+<li>BioProject contains mixed sample types</li>
+<li>disease and healthy samples are not clearly separated</li>
+<li>run-level metadata are incomplete</li>
+<li>files are not publicly downloadable</li>
+<li>study is relevant but not compatible with the intended analysis</li>
+</ul>
+<p>These problems should be recorded rather than handled silently.</p>
+<p>A transparent exclusion reason is part of the discovery audit trail.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Eligibility criteria define the rules used to move from candidate studies to screened studies.</p>
+<p>They help ensure that study selection is transparent, consistent, and aligned with the research question.</p>
+<p>For the healthy human gut microbiome case study, eligibility focuses on human gut or stool microbiome studies with public sequencing accessions, interpretable metadata, and readiness for CDI-DAS handoff.</p>
+<p>The prioritized case-study BioProject is <strong>PRJNA802976</strong>, with <strong>SRR17868090</strong>, <strong>SRR17868091</strong>, and <strong>SRR17868092</strong> used as the primary test subset.</p>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>In the next chapter, we apply the eligibility criteria to candidate studies through a structured dataset screening workflow.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -622,13 +1202,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-search-strategy-development.html" class="pagination-link" aria-label="04-search-strategy-development.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">04-search-strategy-development.html</span></span>
+      <a href="./04-search-strategy-development.html" class="pagination-link" aria-label="Search Strategy Development">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Search Strategy Development</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-dataset-screening.html" class="pagination-link" aria-label="06-dataset-screening.html">
-        <span class="nav-page-text"><span class="chapter-title">06-dataset-screening.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-dataset-screening.html" class="pagination-link" aria-label="Dataset Screening">
+        <span class="nav-page-text"><span class="chapter-title">Dataset Screening</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
