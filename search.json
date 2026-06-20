@@ -1,0 +1,1849 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CDI Systematic Dataset Discovery",
+    "section": "",
+    "text": "Dataset Discovery · Updated Jun 2026",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index.html</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html",
+    "href": "00-preface-and-overview.html",
+    "title": "Preface and Overview",
+    "section": "",
+    "text": "Why This Guide Exists\nPublic omics repositories contain an enormous amount of reusable biological data. These datasets can support new research questions, strengthen reference resources, enable benchmarking, and reduce the need to generate new data when suitable public data already exist.\nHowever, public data reuse is only reliable when dataset discovery is performed systematically.\nFinding a dataset is not the same as selecting a dataset.\nA dataset may be publicly available, but still unsuitable for a specific analysis because of missing metadata, unclear sample descriptions, incompatible study design, limited accessions, incomplete files, or poor alignment with the research question.\nThis guide introduces the CDI Systematic Dataset Discovery workflow: a structured approach for identifying, screening, evaluating, and prioritizing public omics studies before data acquisition.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preface and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html#purpose-of-the-workflow",
+    "href": "00-preface-and-overview.html#purpose-of-the-workflow",
+    "title": "Preface and Overview",
+    "section": "Purpose of the Workflow",
+    "text": "Purpose of the Workflow\nThe purpose of this workflow is to move from a biological or biomedical question to a transparent set of eligible public omics studies.\nThe workflow helps answer questions such as:\n\nWhat public studies are available for this topic?\nWhich repositories should be searched?\nWhat search terms should be used?\nWhich studies meet the inclusion criteria?\nWhich studies should be excluded, and why?\nWhich studies are most suitable for downstream data acquisition?\nWhat accession list should be handed off to the CDI Data Acquisition System?\n\nThe goal is not simply to collect as many studies as possible. The goal is to produce a defensible, reproducible, and well-documented dataset selection process.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preface and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html#relationship-to-cdi-data-acquisition-system",
+    "href": "00-preface-and-overview.html#relationship-to-cdi-data-acquisition-system",
+    "title": "Preface and Overview",
+    "section": "Relationship to CDI Data Acquisition System",
+    "text": "Relationship to CDI Data Acquisition System\nThis guide is designed as the upstream companion to the CDI Data Acquisition System.\nThe discovery workflow identifies eligible public studies. The data acquisition system then retrieves, validates, and organizes the corresponding public data files.\n\n\nCode\nflowchart TD\n    A[Research Question] --&gt; B[Systematic Dataset Discovery]\n    B --&gt; C[Eligible Public Omics Studies]\n    C --&gt; D[CDI Data Acquisition System]\n    D --&gt; E[Reference Dataset Package]\n\n    classDef question fill:#eaf4ff,stroke:#0b3c5d,stroke-width:1.5px,color:#0b1f3a;\n    classDef discovery fill:#eaf7ef,stroke:#0b6b3a,stroke-width:1.5px,color:#0b1f3a;\n    classDef output fill:#fff8e6,stroke:#b7791f,stroke-width:1.5px,color:#0b1f3a;\n    classDef system fill:#eef2ff,stroke:#1e3a8a,stroke-width:1.5px,color:#0b1f3a;\n    classDef package fill:#f0fdf4,stroke:#166534,stroke-width:1.5px,color:#0b1f3a;\n\n    class A question;\n    class B discovery;\n    class C output;\n    class D system;\n    class E package;\n\n\n\n\n\nflowchart TD\n    A[Research Question] --&gt; B[Systematic Dataset Discovery]\n    B --&gt; C[Eligible Public Omics Studies]\n    C --&gt; D[CDI Data Acquisition System]\n    D --&gt; E[Reference Dataset Package]\n\n    classDef question fill:#eaf4ff,stroke:#0b3c5d,stroke-width:1.5px,color:#0b1f3a;\n    classDef discovery fill:#eaf7ef,stroke:#0b6b3a,stroke-width:1.5px,color:#0b1f3a;\n    classDef output fill:#fff8e6,stroke:#b7791f,stroke-width:1.5px,color:#0b1f3a;\n    classDef system fill:#eef2ff,stroke:#1e3a8a,stroke-width:1.5px,color:#0b1f3a;\n    classDef package fill:#f0fdf4,stroke:#166534,stroke-width:1.5px,color:#0b1f3a;\n\n    class A question;\n    class B discovery;\n    class C output;\n    class D system;\n    class E package;",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preface and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html#a-reproducible-but-human-guided-workflow",
+    "href": "00-preface-and-overview.html#a-reproducible-but-human-guided-workflow",
+    "title": "Preface and Overview",
+    "section": "A Reproducible but Human-Guided Workflow",
+    "text": "A Reproducible but Human-Guided Workflow\nThis workflow is reproducible, but it is not fully automatic.\nManual input is required at stages where scientific judgment is needed. These include defining the research question, refining search terms, reviewing candidate studies, developing eligibility criteria, resolving ambiguous records, prioritizing studies, and approving the final handoff to the CDI Data Acquisition System.\nThe purpose of the scripts is not to remove human judgment.\nThe purpose is to make human judgment structured, documented, and reproducible.\nHuman Judgment\n        ↓\nStructured Decision\n        ↓\nDocumented Output\n        ↓\nReproducible Workflow",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preface and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html#summary",
+    "href": "00-preface-and-overview.html#summary",
+    "title": "Preface and Overview",
+    "section": "Summary",
+    "text": "Summary\nThe CDI Systematic Dataset Discovery workflow provides a structured bridge between biological research questions and reusable public omics datasets.\nIt helps transform public data reuse from an informal search activity into a transparent, reproducible, and decision-ready process.\nBy separating dataset discovery from data acquisition, the workflow ensures that only eligible, well-documented, and relevant public studies are handed off to the CDI Data Acquisition System.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preface and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html#looking-ahead",
+    "href": "00-preface-and-overview.html#looking-ahead",
+    "title": "Preface and Overview",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we discuss why dataset discovery matters and why systematic study selection is essential for reliable public omics data reuse.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preface and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html",
+    "href": "01-why-dataset-discovery-matters.html",
+    "title": "Why Dataset Discovery Matters",
+    "section": "",
+    "text": "Public Data Reuse Begins Before Download\nPublic omics repositories have made it possible to reuse biological datasets generated by research groups around the world. These datasets can support secondary analysis, comparative studies, benchmarking, training materials, method development, and reference dataset construction.\nHowever, public data reuse does not begin at the download step.\nIt begins with discovery.\nBefore sequencing files are retrieved, before metadata tables are assembled, and before quality control begins, the analyst must first decide which public studies are relevant, eligible, and usable for the intended purpose.\nThis makes dataset discovery a critical part of any reproducible public-data workflow.\nA weak discovery process can lead to weak downstream analysis, even if the data download and processing steps are technically correct.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#finding-is-not-the-same-as-selecting",
+    "href": "01-why-dataset-discovery-matters.html#finding-is-not-the-same-as-selecting",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Finding Is Not the Same as Selecting",
+    "text": "Finding Is Not the Same as Selecting\nIt is easy to find public datasets.\nIt is harder to select the right datasets.\nA repository search may return many studies related to a topic, but not all of them are suitable for reuse. Some studies may focus on the wrong population, sample type, disease state, organism, sequencing method, or experimental design. Others may have incomplete metadata, unclear accessions, unavailable files, or insufficient documentation.\nFor example, a search for human gut microbiome data may return studies involving healthy adults, infants, patients with gastrointestinal disease, antibiotic-treated individuals, animal models, fecal transplant studies, and dietary interventions.\nAll of these may involve the gut microbiome, but they do not all answer the same research question.\nSystematic dataset discovery helps separate general relevance from true eligibility.\nSearch Result\n      ↓\nCandidate Study\n      ↓\nScreened Study\n      ↓\nEligible Study\n      ↓\nIncluded Study",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#why-informal-dataset-selection-is-risky",
+    "href": "01-why-dataset-discovery-matters.html#why-informal-dataset-selection-is-risky",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Why Informal Dataset Selection Is Risky",
+    "text": "Why Informal Dataset Selection Is Risky\nInformal dataset selection often depends on convenience.\nAn analyst may choose the first dataset that appears in a search result, a study that is easy to download, a dataset mentioned in a familiar paper, or a BioProject that appears to contain many samples.\nThis may be acceptable for quick exploration, but it is not enough for reproducible research, client-facing work, benchmarking, or reference dataset assembly.\nInformal selection creates several risks:\n\nimportant eligible studies may be missed\nunsuitable studies may be included\nexclusion decisions may not be documented\nthe final dataset may be biased toward convenience\ndownstream results may be difficult to interpret\ncollaborators may not understand why specific studies were selected\nthe workflow may be difficult to reproduce later\n\nA structured discovery process reduces these risks by making study selection transparent and traceable.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#dataset-discovery-shapes-the-final-dataset",
+    "href": "01-why-dataset-discovery-matters.html#dataset-discovery-shapes-the-final-dataset",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Dataset Discovery Shapes the Final Dataset",
+    "text": "Dataset Discovery Shapes the Final Dataset\nEvery decision made during discovery affects the final dataset.\nThe search terms used determine which studies are found. The repositories searched determine which records are visible. The eligibility criteria determine which studies remain. The screening process determines which datasets are excluded. The prioritization process determines which studies are used first.\nBy the time data acquisition begins, many important decisions have already been made.\nResearch Question\n      ↓\nSearch Terms\n      ↓\nCandidate Studies\n      ↓\nEligibility Criteria\n      ↓\nScreening Decisions\n      ↓\nIncluded Studies\n      ↓\nFinal Dataset\nThis means that dataset discovery is not a minor administrative step. It is part of the scientific and analytical design of the project.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#metadata-matters-as-much-as-data-availability",
+    "href": "01-why-dataset-discovery-matters.html#metadata-matters-as-much-as-data-availability",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Metadata Matters as Much as Data Availability",
+    "text": "Metadata Matters as Much as Data Availability\nA dataset may be public and downloadable, but still not usable.\nFor public omics studies, metadata are often as important as the sequence files themselves. Without adequate metadata, it may be difficult to interpret samples, define groups, identify controls, compare studies, or reproduce analysis decisions.\nImportant metadata may include:\n\norganism\nsample source\ntissue or body site\ndisease status\ntreatment or exposure\nage group\nsex\ngeographic location\nsequencing platform\nlibrary strategy\nstudy design\naccession identifiers\nfile availability\n\nA study with many sequencing files but poor metadata may be less useful than a smaller study with clear, complete, and well-structured metadata.\nSystematic dataset discovery therefore evaluates both scientific relevance and practical usability.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#discovery-supports-reproducibility",
+    "href": "01-why-dataset-discovery-matters.html#discovery-supports-reproducibility",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Discovery Supports Reproducibility",
+    "text": "Discovery Supports Reproducibility\nReproducibility is not only about code.\nIt also depends on whether the input data were selected in a transparent and repeatable way.\nA reproducible dataset discovery process should make it possible to answer:\n\nwhere the studies were searched\nwhich search terms were used\nwhen the search was performed\nhow many candidate studies were found\nwhich studies were screened\nwhich studies were excluded\nwhy each study was excluded\nwhich studies were included\nwhich accessions were selected for acquisition\n\nThese details create an audit trail.\nThey allow another analyst, collaborator, reviewer, or future version of the same project to understand how the dataset was assembled.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#reproducible-discovery-outputs",
+    "href": "01-why-dataset-discovery-matters.html#reproducible-discovery-outputs",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Reproducible Discovery Outputs",
+    "text": "Reproducible Discovery Outputs\nA systematic discovery workflow should produce structured outputs that record how studies were found, screened, excluded, prioritized, and prepared for acquisition.\n#| label: create-discovery-outputs\n#| eval: false\n\nbash scripts/bash/01-create-discovery-outputs.sh",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#discovery-improves-communication",
+    "href": "01-why-dataset-discovery-matters.html#discovery-improves-communication",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Discovery Improves Communication",
+    "text": "Discovery Improves Communication\nPublic dataset selection often involves communication with collaborators, clients, supervisors, students, or research teams.\nA systematic discovery workflow makes this communication easier.\nInstead of saying:\n\nWe found some datasets online.\n\nThe analyst can say:\n\nWe searched defined repositories using documented search terms, screened candidate studies using predefined eligibility criteria, excluded unsuitable studies with reasons, and assembled a prioritized list of eligible public omics studies for acquisition.\n\nThis changes dataset selection from an informal search activity into a clear, explainable decision process.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#discovery-reduces-downstream-waste",
+    "href": "01-why-dataset-discovery-matters.html#discovery-reduces-downstream-waste",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Discovery Reduces Downstream Waste",
+    "text": "Discovery Reduces Downstream Waste\nPoor dataset selection can create unnecessary downstream work.\nIf unsuitable studies are downloaded, the analyst may spend time validating files, troubleshooting metadata, processing samples, and generating outputs from data that should never have been included.\nThis can waste storage, compute time, and analyst effort.\nA strong discovery process reduces this waste by identifying problems earlier.\nBetter Discovery\n      ↓\nBetter Screening\n      ↓\nBetter Inclusion Decisions\n      ↓\nLess Downstream Waste\n      ↓\nMore Reliable Analysis",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#discovery-is-especially-important-in-omics",
+    "href": "01-why-dataset-discovery-matters.html#discovery-is-especially-important-in-omics",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Discovery Is Especially Important in Omics",
+    "text": "Discovery Is Especially Important in Omics\nOmics datasets are complex because they combine biological, technical, and metadata dimensions.\nTwo studies may appear similar at the title level but differ in important ways, such as:\n\nsample type\nsequencing platform\nlibrary preparation\ntarget region\nread layout\npopulation characteristics\ndisease or exposure status\nmetadata completeness\naccession structure\nrepository availability\n\nFor microbiome studies, for example, one dataset may contain 16S rRNA amplicon sequencing from healthy adult stool samples, while another may contain shotgun metagenomic data from patients with disease. Both may be described as human gut microbiome studies, but they are not interchangeable.\nSystematic discovery helps capture these differences before data acquisition begins.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#from-discovery-to-acquisition",
+    "href": "01-why-dataset-discovery-matters.html#from-discovery-to-acquisition",
+    "title": "Why Dataset Discovery Matters",
+    "section": "From Discovery to Acquisition",
+    "text": "From Discovery to Acquisition\nThe purpose of dataset discovery is not only to identify interesting studies.\nThe purpose is to prepare a structured set of eligible studies that can move into data acquisition.\nIn the CDI workflow, this means that systematic dataset discovery produces a documented input package for the CDI Data Acquisition System.\nSystematic Dataset Discovery\n      ↓\nIncluded Studies\n      ↓\nCurated Accessions\n      ↓\nCDI-DAS Input Package\n      ↓\nData Acquisition\nThis separation keeps the workflow clean.\nDataset discovery focuses on study selection.\nData acquisition focuses on retrieving, validating, and organizing files.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#summary",
+    "href": "01-why-dataset-discovery-matters.html#summary",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Summary",
+    "text": "Summary\nDataset discovery matters because it determines which public omics studies enter the downstream workflow.\nA systematic discovery process helps ensure that public datasets are not selected only because they are easy to find or easy to download. Instead, studies are evaluated based on relevance, eligibility, metadata quality, accession clarity, and suitability for the research question.\nBy making dataset selection transparent and reproducible, systematic discovery strengthens public data reuse and prepares better inputs for the CDI Data Acquisition System.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "01-why-dataset-discovery-matters.html#looking-ahead",
+    "href": "01-why-dataset-discovery-matters.html#looking-ahead",
+    "title": "Why Dataset Discovery Matters",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we translate the need for systematic dataset discovery into clear research questions and discovery objectives.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Why Dataset Discovery Matters</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html",
+    "href": "02-research-questions-and-objectives.html",
+    "title": "Research Questions and Objectives",
+    "section": "",
+    "text": "Start With the Question\nSystematic dataset discovery should begin with a clear research question.\nA research question defines what the dataset discovery process is trying to support. It helps determine which studies are relevant, which studies should be excluded, which metadata fields are important, and which accessions should eventually be passed to the CDI Data Acquisition System.\nWithout a clear research question, dataset discovery can become too broad, inconsistent, or difficult to justify.\nFor example, the phrase “human gut microbiome datasets” is useful as a topic, but it is not yet a discovery question.\nA stronger question would be:\nThis question gives the discovery process a clearer direction. It identifies the domain, population, sample context, and intended use.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#start-with-the-question",
+    "href": "02-research-questions-and-objectives.html#start-with-the-question",
+    "title": "Research Questions and Objectives",
+    "section": "",
+    "text": "Which public studies contain healthy human gut microbiome sequencing data suitable for building a reference dataset?",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#from-topic-to-discovery-question",
+    "href": "02-research-questions-and-objectives.html#from-topic-to-discovery-question",
+    "title": "Research Questions and Objectives",
+    "section": "From Topic to Discovery Question",
+    "text": "From Topic to Discovery Question\nA topic is a broad area of interest.\nA discovery question is a focused question that guides dataset selection.\nTopic\n      ↓\nResearch Area\n      ↓\nDiscovery Question\n      ↓\nEligibility Criteria\n      ↓\nDataset Selection\nFor example:\n\n\n\n\n\n\n\nBroad Topic\nMore Focused Discovery Question\n\n\n\n\nHuman microbiome\nWhich public studies contain healthy human gut microbiome sequencing data?\n\n\nCancer RNA-seq\nWhich public RNA-seq studies include tumor and matched normal samples?\n\n\nAntimicrobial resistance\nWhich public metagenomic studies include antibiotic exposure metadata?\n\n\nPlant genomics\nWhich public sequencing studies include drought-stress experiments in maize?\n\n\nSingle-cell biology\nWhich public single-cell studies include annotated immune cell populations?\n\n\n\nThe discovery question does not need to be perfect at the beginning. It can be refined as the analyst learns more about the available data landscape. However, it should be clear enough to guide the first search strategy.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#why-the-question-matters",
+    "href": "02-research-questions-and-objectives.html#why-the-question-matters",
+    "title": "Research Questions and Objectives",
+    "section": "Why the Question Matters",
+    "text": "Why the Question Matters\nThe research question influences every downstream decision.\nIt affects:\n\nwhich repositories are searched\nwhich search terms are used\nwhich metadata fields are required\nwhich studies are considered eligible\nwhich studies are excluded\nwhich datasets are prioritized\nwhich accessions are prepared for acquisition\n\nA vague question produces vague selection decisions.\nA clear question makes screening and prioritization more consistent.\nFor example, if the question focuses on healthy adult gut microbiome studies, then studies involving disease cohorts, animal models, infants, or intervention-only designs may need to be excluded or handled separately.\nIf the question focuses on benchmarking, then platform consistency and technical metadata may be especially important.\nIf the question focuses on biological interpretation, then phenotype and sample metadata may be more important.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-the-purpose-of-discovery",
+    "href": "02-research-questions-and-objectives.html#define-the-purpose-of-discovery",
+    "title": "Research Questions and Objectives",
+    "section": "Define the Purpose of Discovery",
+    "text": "Define the Purpose of Discovery\nA dataset discovery workflow should also define the purpose of the dataset search.\nDifferent purposes may require different selection decisions.\nCommon purposes include:\n\n\n\n\n\n\n\nPurpose\nDiscovery Focus\n\n\n\n\nReference dataset assembly\nWell-described studies with clear metadata and reusable accessions\n\n\nBenchmarking\nComparable studies with consistent technologies or known expected results\n\n\nMethod development\nDatasets with enough complexity to test analysis methods\n\n\nTraining or teaching\nSmall, accessible datasets with clear documentation\n\n\nComparative analysis\nStudies with compatible groups, metadata, and biological context\n\n\nEvidence mapping\nBroad coverage of available studies in a topic area\n\n\nClient-facing work\nTransparent, defensible, and auditable study selection\n\n\n\nThe same public study may be suitable for one purpose but unsuitable for another.\nFor example, a small microbiome study with clear metadata may be excellent for teaching but insufficient for a large reference dataset. A large study may be useful for benchmarking but difficult to interpret if metadata are incomplete.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-the-discovery-objective",
+    "href": "02-research-questions-and-objectives.html#define-the-discovery-objective",
+    "title": "Research Questions and Objectives",
+    "section": "Define the Discovery Objective",
+    "text": "Define the Discovery Objective\nA discovery objective translates the research question into an operational goal.\nThe research question asks what the analyst wants to know.\nThe discovery objective defines what the discovery workflow should produce.\nExample research question:\n\nWhich public studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?\n\nExample discovery objective:\n\nIdentify, screen, and prioritize public omics studies containing healthy human gut microbiome sequencing data, and produce a curated accession list suitable for CDI-DAS data acquisition.\n\nThe objective is important because it connects the discovery workflow to a concrete output.\nResearch Question\n      ↓\nDiscovery Objective\n      ↓\nSearch Strategy\n      ↓\nScreening Criteria\n      ↓\nIncluded Study List\n      ↓\nCDI-DAS Input Accessions",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-the-population-or-biological-context",
+    "href": "02-research-questions-and-objectives.html#define-the-population-or-biological-context",
+    "title": "Research Questions and Objectives",
+    "section": "Define the Population or Biological Context",
+    "text": "Define the Population or Biological Context\nMany omics topics are broad. The biological context should be defined early.\nDepending on the domain, this may include:\n\norganism\ntissue or body site\npopulation group\ndisease status\nexposure or treatment\ndevelopmental stage\nenvironmental condition\nphenotype or clinical status\n\nFor the healthy human gut microbiome case study, the biological context may be defined as:\n\n\n\nComponent\nExample Definition\n\n\n\n\nOrganism\nHuman\n\n\nBody site\nGut or stool\n\n\nHealth status\nHealthy or non-diseased\n\n\nData type\nMicrobiome sequencing\n\n\nIntended use\nReference dataset assembly\n\n\n\nThis definition helps separate eligible studies from studies that are only loosely related.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-the-data-type",
+    "href": "02-research-questions-and-objectives.html#define-the-data-type",
+    "title": "Research Questions and Objectives",
+    "section": "Define the Data Type",
+    "text": "Define the Data Type\nThe discovery question should also define the type of omics data required.\nExamples include:\n\n16S rRNA amplicon sequencing\nshotgun metagenomic sequencing\nbulk RNA-seq\nsingle-cell RNA-seq\nwhole-genome sequencing\ngenotyping array data\nATAC-seq\nproteomics\nmetabolomics\n\nData type matters because it affects repository choice, metadata expectations, file types, and downstream analysis workflows.\nFor microbiome studies, 16S rRNA amplicon data and shotgun metagenomic data are both useful, but they support different types of analysis. They may need separate eligibility criteria, separate acquisition workflows, or separate reference dataset packages.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-the-unit-of-inclusion",
+    "href": "02-research-questions-and-objectives.html#define-the-unit-of-inclusion",
+    "title": "Research Questions and Objectives",
+    "section": "Define the Unit of Inclusion",
+    "text": "Define the Unit of Inclusion\nA systematic discovery workflow should define what is being included.\nThe unit of inclusion may be:\n\npublication\nstudy\nBioProject\ndataset\nexperiment\nsample\nrun accession\nrepository record\n\nThis distinction matters because one publication may describe multiple datasets, one BioProject may contain multiple experiments, and one study may include both eligible and ineligible samples.\nFor CDI workflows, the practical unit often becomes the public study or BioProject, with run-level accessions used later for acquisition.\nPublication\n      ↓\nStudy Record\n      ↓\nBioProject / Repository Accession\n      ↓\nSample Metadata\n      ↓\nRun Accessions\n      ↓\nDownload Manifest\nDefining the unit of inclusion prevents confusion during screening and documentation.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-the-scope",
+    "href": "02-research-questions-and-objectives.html#define-the-scope",
+    "title": "Research Questions and Objectives",
+    "section": "Define the Scope",
+    "text": "Define the Scope\nThe discovery scope sets boundaries around the search.\nScope may include:\n\ntime period\nspecies\npopulation\nsample type\ndisease status\nsequencing technology\nrepository coverage\nlanguage or publication type\nmetadata requirements\nfile availability\n\nFor example, a healthy human gut microbiome discovery workflow may choose to include only human stool studies with public sequence data and basic sample-level metadata.\nThe scope should be broad enough to find relevant studies, but narrow enough to support consistent screening.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-inclusion-and-exclusion-direction-early",
+    "href": "02-research-questions-and-objectives.html#define-inclusion-and-exclusion-direction-early",
+    "title": "Research Questions and Objectives",
+    "section": "Define Inclusion and Exclusion Direction Early",
+    "text": "Define Inclusion and Exclusion Direction Early\nDetailed eligibility criteria are developed in a later chapter, but the general direction should be clear from the beginning.\nFor example:\nPotential inclusion direction:\n\nhuman samples\ngut or stool microbiome\nhealthy or non-diseased participants\npublic accession available\nsequencing data available from public repositories\nsufficient metadata for reuse\n\nPotential exclusion direction:\n\nanimal studies\ndisease-only cohorts\nintervention-only studies without baseline healthy controls\nunclear sample source\nmissing accession information\nunavailable sequence files\ninsufficient metadata\n\nThese early boundaries help make the search strategy more focused and reduce ambiguity during screening.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#define-required-outputs",
+    "href": "02-research-questions-and-objectives.html#define-required-outputs",
+    "title": "Research Questions and Objectives",
+    "section": "Define Required Outputs",
+    "text": "Define Required Outputs\nThe discovery workflow should define its expected outputs before the search begins.\nFor CDI Systematic Dataset Discovery, expected outputs may include:\noutputs/\n├── candidate-studies.tsv\n├── screened-studies.tsv\n├── included-studies.tsv\n├── excluded-studies.tsv\n├── prioritization-table.tsv\n└── cdi-das-input-accessions.txt\nThese outputs turn the discovery question into a reproducible workflow.\nThey also prepare the selected studies for the CDI Data Acquisition System.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#creating-a-discovery-planning-template",
+    "href": "02-research-questions-and-objectives.html#creating-a-discovery-planning-template",
+    "title": "Research Questions and Objectives",
+    "section": "Creating a Discovery Planning Template",
+    "text": "Creating a Discovery Planning Template\nBefore searching repositories, it is useful to document the research question, discovery objective, scope, and expected outputs.\n#| label: create-discovery-plan\n#| eval: false\n\nbash scripts/bash/02-create-discovery-plan.sh\nThe resulting file captures the starting assumptions for the discovery workflow and provides a documented foundation for search strategy development.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#example-healthy-human-gut-microbiome",
+    "href": "02-research-questions-and-objectives.html#example-healthy-human-gut-microbiome",
+    "title": "Research Questions and Objectives",
+    "section": "Example: Healthy Human Gut Microbiome",
+    "text": "Example: Healthy Human Gut Microbiome\nFor the case study in this guide, the discovery question can be framed as:\n\nWhich public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?\n\nThe discovery objective can be framed as:\n\nIdentify, screen, and prioritize public studies containing healthy human gut microbiome sequencing data, and assemble a curated accession list for CDI-DAS data acquisition.\n\nThe scope may include:\n\n\n\nDiscovery Element\nCase Study Definition\n\n\n\n\nDomain\nMicrobiome\n\n\nOrganism\nHuman\n\n\nBody site\nGut or stool\n\n\nHealth status\nHealthy or non-diseased\n\n\nData source\nPublic omics repositories and linked publications\n\n\nOutput\nEligible studies and accession list\n\n\nDownstream system\nCDI Data Acquisition System\n\n\n\nThis case study will be used later to demonstrate how a research question becomes a set of eligible public studies.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#common-problems-when-questions-are-unclear",
+    "href": "02-research-questions-and-objectives.html#common-problems-when-questions-are-unclear",
+    "title": "Research Questions and Objectives",
+    "section": "Common Problems When Questions Are Unclear",
+    "text": "Common Problems When Questions Are Unclear\nUnclear research questions can create several problems:\n\nsearch results become too broad\nunrelated studies enter the candidate list\nscreening decisions become inconsistent\neligibility criteria are difficult to apply\nstudies are excluded without clear justification\ndownstream datasets become difficult to interpret\naccession lists become disconnected from the original purpose\n\nThese problems can usually be reduced by defining the research question, objective, scope, and expected outputs before searching.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#practical-checklist",
+    "href": "02-research-questions-and-objectives.html#practical-checklist",
+    "title": "Research Questions and Objectives",
+    "section": "Practical Checklist",
+    "text": "Practical Checklist\nBefore developing the search strategy, confirm that the following items are clear:\nResearch topic defined\n        ↓\nDiscovery question written\n        ↓\nDiscovery objective stated\n        ↓\nBiological context defined\n        ↓\nData type identified\n        ↓\nUnit of inclusion clarified\n        ↓\nScope boundaries described\n        ↓\nExpected outputs listed\nThis checklist helps ensure that the dataset discovery workflow begins with a clear direction.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#summary",
+    "href": "02-research-questions-and-objectives.html#summary",
+    "title": "Research Questions and Objectives",
+    "section": "Summary",
+    "text": "Summary\nSystematic dataset discovery begins with a clear research question and a practical discovery objective.\nThe research question defines what the workflow is trying to support. The objective defines what the workflow should produce. Together, they guide repository selection, search strategy development, eligibility criteria, screening decisions, study prioritization, and the final CDI-DAS input package.\nA well-defined discovery question helps transform a broad topic into a reproducible dataset selection workflow.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "02-research-questions-and-objectives.html#looking-ahead",
+    "href": "02-research-questions-and-objectives.html#looking-ahead",
+    "title": "Research Questions and Objectives",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we examine the public data sources and repositories that can be used to identify candidate omics studies.",
+    "crumbs": [
+      "Foundation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research Questions and Objectives</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html",
+    "href": "03-data-sources-and-repositories.html",
+    "title": "Data Sources and Repositories",
+    "section": "",
+    "text": "Why Data Sources Matter\nSystematic dataset discovery depends on knowing where public omics studies are described, indexed, and stored.\nA public dataset may appear in more than one place. It may be described in a journal article, indexed in PubMed, registered under an NCBI BioProject, linked to SRA sequencing runs, mirrored through ENA, and supported by supplementary tables from the publication.\nBecause of this, dataset discovery should not rely on a single source.\nDifferent sources provide different types of information.\nSome sources help identify studies. Some provide accession identifiers. Some provide sample-level metadata. Some provide sequencing files. Others provide study context, methods, inclusion criteria, or phenotype descriptions.\nA systematic discovery workflow uses these sources together.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#repository-versus-publication",
+    "href": "03-data-sources-and-repositories.html#repository-versus-publication",
+    "title": "Data Sources and Repositories",
+    "section": "Repository Versus Publication",
+    "text": "Repository Versus Publication\nPublic omics studies are usually represented through both publications and repository records.\nA publication explains the scientific question, study design, sample context, methods, and interpretation.\nA repository record provides structured access to public data, metadata, and accession identifiers.\nBoth are important.\nPublication\n      ↓\nStudy Context and Methods\n      ↓\nRepository Record\n      ↓\nAccessions and Metadata\n      ↓\nDownloadable Data Files\nA publication may describe why the data were generated, while the repository record allows the data to be located and acquired.\nFor reproducible dataset discovery, both types of sources should be checked whenever possible.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#major-sources-for-omics-dataset-discovery",
+    "href": "03-data-sources-and-repositories.html#major-sources-for-omics-dataset-discovery",
+    "title": "Data Sources and Repositories",
+    "section": "Major Sources for Omics Dataset Discovery",
+    "text": "Major Sources for Omics Dataset Discovery\nPublic omics data can be discovered through several source types:\n\nliterature databases\nproject-level repositories\nsequence read repositories\nexperiment-level repositories\narchive mirrors\nsupplementary materials\ncurated portals\ndomain-specific databases\n\nEach source plays a different role in the discovery workflow.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#literature-databases",
+    "href": "03-data-sources-and-repositories.html#literature-databases",
+    "title": "Data Sources and Repositories",
+    "section": "Literature Databases",
+    "text": "Literature Databases\nLiterature databases are useful for identifying studies and understanding the research context.\nFor biomedical and life sciences studies, PubMed is often the starting point. It allows analysts to search publications using keywords related to organism, disease status, sample type, sequencing technology, and study design.\nLiterature records may provide:\n\nstudy title\nabstract\nauthors\njournal\npublication date\nstudy objective\npopulation description\nmethods summary\nrepository accession links\nsupplementary material links\n\nHowever, literature databases do not always provide complete accession information. Sometimes the accession is in the full text, data availability statement, supplementary file, or repository record rather than the abstract.\nLiterature searching is therefore useful for study discovery, but it must be connected to repository validation.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#ncbi-bioproject",
+    "href": "03-data-sources-and-repositories.html#ncbi-bioproject",
+    "title": "Data Sources and Repositories",
+    "section": "NCBI BioProject",
+    "text": "NCBI BioProject\nNCBI BioProject provides project-level records that group related biological data.\nA BioProject accession often serves as a high-level identifier for a public study or data-generation project.\nBioProject records may link to:\n\nSRA sequencing data\nBioSample records\npublications\norganism information\nproject description\nsubmitter information\nrelated accessions\n\nFor CDI workflows, BioProject accessions are especially useful because they can serve as entry points into the CDI Data Acquisition System.\nExample BioProject-style accessions include:\nPRJNA802976\nPRJNA322554\nIn this guide, PRJNA802976 is prioritized as the main case-study BioProject because it represents a human gut microbiome study with paired-end sequencing data suitable for demonstrating systematic discovery, repository validation, and downstream CDI-DAS acquisition.\nPRJNA322554 may still be used as a secondary comparison example because it demonstrates a different sequencing layout and helps show why repository metadata and technical characteristics matter during screening.\nA BioProject is often a practical unit for discovery and handoff because it can be used to retrieve run-level metadata and sequencing accessions.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#ncbi-sra",
+    "href": "03-data-sources-and-repositories.html#ncbi-sra",
+    "title": "Data Sources and Repositories",
+    "section": "NCBI SRA",
+    "text": "NCBI SRA\nThe Sequence Read Archive stores sequencing run information and links to raw sequencing data.\nSRA is important because it connects project-level accessions to run-level records.\nSRA records may provide:\n\nrun accession\nexperiment accession\nsample accession\nlibrary strategy\nlibrary source\nlibrary layout\nplatform\ninstrument\nread length\nfile size\nrelease date\n\nFor downstream acquisition, SRA run accessions are often essential because they identify the individual sequencing runs to retrieve.\nExamples of SRA run accessions include:\nSRR10245277\nSRR10245280\nSRR10245281\nIn systematic discovery, SRA helps determine whether a study has accessible sequencing data and whether the technical metadata match the intended workflow.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#ncbi-biosample",
+    "href": "03-data-sources-and-repositories.html#ncbi-biosample",
+    "title": "Data Sources and Repositories",
+    "section": "NCBI BioSample",
+    "text": "NCBI BioSample\nBioSample records describe biological source materials.\nFor omics dataset discovery, BioSample metadata are often critical because they describe the samples represented by sequencing runs.\nBioSample records may include:\n\norganism\ntissue or body site\nhost information\ndisease status\ncollection date\ngeographic location\ntreatment\nphenotype\nsample attributes\nlinked SRA records\n\nBioSample quality varies across studies. Some records contain rich metadata, while others contain only minimal descriptions.\nThis variability is one reason why dataset discovery must evaluate metadata completeness before data acquisition.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#ena",
+    "href": "03-data-sources-and-repositories.html#ena",
+    "title": "Data Sources and Repositories",
+    "section": "ENA",
+    "text": "ENA\nThe European Nucleotide Archive provides access to nucleotide sequence data and metadata.\nENA is part of the International Nucleotide Sequence Database Collaboration and often mirrors or synchronizes records with other major sequence archives.\nFor CDI workflows, ENA is useful because it often provides direct FASTQ file links and checksum information.\nENA records may provide:\n\nstudy accession\nsample accession\nexperiment accession\nrun accession\nFASTQ file links\nfile sizes\nchecksums\nlibrary layout\nsequencing platform\nsample metadata fields\n\nIn CDI-DAS, ENA can be used as a preferred FASTQ download source when direct file links are available.\nIn systematic discovery, ENA can help validate whether candidate studies have downloadable sequencing files and useful metadata.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#ddbj",
+    "href": "03-data-sources-and-repositories.html#ddbj",
+    "title": "Data Sources and Repositories",
+    "section": "DDBJ",
+    "text": "DDBJ\nThe DNA Data Bank of Japan is another major nucleotide sequence archive.\nTogether, DDBJ, ENA, and NCBI participate in coordinated international data sharing.\nDDBJ may be especially relevant when studies are submitted through Japanese or regional data submission routes.\nFor many CDI discovery workflows, DDBJ may not be the first search interface used, but it remains part of the broader public sequence data landscape.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#pubmed-central-and-full-text-sources",
+    "href": "03-data-sources-and-repositories.html#pubmed-central-and-full-text-sources",
+    "title": "Data Sources and Repositories",
+    "section": "PubMed Central and Full-Text Sources",
+    "text": "PubMed Central and Full-Text Sources\nSome accession identifiers are not visible in abstracts.\nThey may appear in:\n\ndata availability statements\nmethods sections\nsupplementary tables\nfigure legends\nappendices\nfull-text repository links\n\nFull-text sources such as PubMed Central can therefore be useful when candidate publications do not clearly expose accession identifiers in the abstract record.\nWhen available, full text helps confirm whether a study contains public data and how those data were generated.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#supplementary-materials",
+    "href": "03-data-sources-and-repositories.html#supplementary-materials",
+    "title": "Data Sources and Repositories",
+    "section": "Supplementary Materials",
+    "text": "Supplementary Materials\nSupplementary files are often important in omics studies.\nThey may contain sample metadata, phenotype tables, accession mappings, inclusion criteria, batch information, sequencing details, or additional study documentation.\nSupplementary materials may include:\n\nsample metadata tables\nsubject metadata\naccession-to-sample mappings\nclinical or phenotype descriptions\nmethods extensions\nquality control summaries\nprocessed feature tables\n\nA public dataset may be technically downloadable but difficult to reuse if supplementary metadata are missing or inaccessible.\nSystematic discovery should therefore record whether supplementary materials are available and whether they are needed for interpretation.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#domain-specific-databases",
+    "href": "03-data-sources-and-repositories.html#domain-specific-databases",
+    "title": "Data Sources and Repositories",
+    "section": "Domain-Specific Databases",
+    "text": "Domain-Specific Databases\nSome omics domains have specialized databases or portals.\nExamples include microbiome portals, cancer genomics resources, single-cell atlases, genome-wide association databases, and curated expression repositories.\nThese resources may provide additional context, processed data, curated annotations, or study-level summaries.\nDomain-specific sources can be useful, but they should be used carefully.\nA curated portal may improve discoverability, but the original repository accessions should still be recorded whenever raw data acquisition is required.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#processed-data-repositories",
+    "href": "03-data-sources-and-repositories.html#processed-data-repositories",
+    "title": "Data Sources and Repositories",
+    "section": "Processed Data Repositories",
+    "text": "Processed Data Repositories\nNot all public omics data are raw sequence reads.\nSome repositories provide processed matrices, count tables, abundance tables, variant summaries, or analysis-ready objects.\nProcessed repositories may be useful for some research questions, teaching workflows, or exploratory analyses.\nHowever, for workflows that require reproducible acquisition and validation of raw data, processed-only records may not be sufficient.\nThe discovery workflow should therefore distinguish between:\nRaw Data Available\n      ↓\nCan be acquired and validated through CDI-DAS\n\nProcessed Data Only\n      ↓\nMay support interpretation or teaching, but may not support raw-data workflows",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#accession-types-across-sources",
+    "href": "03-data-sources-and-repositories.html#accession-types-across-sources",
+    "title": "Data Sources and Repositories",
+    "section": "Accession Types Across Sources",
+    "text": "Accession Types Across Sources\nDifferent repositories use different accession systems.\nCommon accession types include:\n\n\n\nAccession Type\nExample\nMeaning\n\n\n\n\nBioProject\nPRJNA802976\nProject-level record\n\n\nBioSample\nSAMN…\nBiological sample record\n\n\nSRA Run\nSRR…\nSequencing run record\n\n\nSRA Study\nSRP…\nStudy-level SRA record\n\n\nSRA Experiment\nSRX…\nExperiment-level record\n\n\nENA Study\nPRJEB… or ERP…\nENA study-level record\n\n\nENA Run\nERR… or SRR…\nRun-level record\n\n\nPubMed ID\nPMID…\nLiterature record\n\n\n\nUnderstanding accession types helps prevent confusion during screening and handoff.\nFor CDI-DAS, BioProject and run-level accessions are especially useful because they support metadata retrieval, manifest generation, and file acquisition.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#choosing-sources-for-the-discovery-workflow",
+    "href": "03-data-sources-and-repositories.html#choosing-sources-for-the-discovery-workflow",
+    "title": "Data Sources and Repositories",
+    "section": "Choosing Sources for the Discovery Workflow",
+    "text": "Choosing Sources for the Discovery Workflow\nThe choice of data sources depends on the research question and omics domain.\nFor the healthy human gut microbiome case study, useful sources include:\n\n\n\n\n\n\n\nSource\nRole in Discovery\n\n\n\n\nPubMed\nIdentify candidate publications\n\n\nNCBI BioProject\nIdentify project-level public datasets\n\n\nNCBI SRA\nRetrieve run-level sequencing metadata\n\n\nNCBI BioSample\nEvaluate sample-level metadata\n\n\nENA\nValidate downloadable FASTQ links and checksums\n\n\nSupplementary materials\nConfirm sample attributes and study context\n\n\n\nThis combination supports both study discovery and downstream acquisition readiness.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#repository-source-table",
+    "href": "03-data-sources-and-repositories.html#repository-source-table",
+    "title": "Data Sources and Repositories",
+    "section": "Repository Source Table",
+    "text": "Repository Source Table\nA systematic workflow should document which sources will be searched and why.\nA simple source table may include:\noutputs/repository-sources.tsv\nThis table can record:\n\nsource name\nsource type\npurpose\nURL or access route\nsearch role\nexpected output\nnotes\n\nThis makes the discovery process more transparent and helps future users understand where candidate studies came from.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#creating-a-repository-source-table",
+    "href": "03-data-sources-and-repositories.html#creating-a-repository-source-table",
+    "title": "Data Sources and Repositories",
+    "section": "Creating a Repository Source Table",
+    "text": "Creating a Repository Source Table\nThe repository source table can be generated with a small script.\nbash scripts/bash/03-create-repository-sources.sh\nThe resulting file documents the major data sources used during discovery and prepares the workflow for search strategy development.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#example-repository-source-plan",
+    "href": "03-data-sources-and-repositories.html#example-repository-source-plan",
+    "title": "Data Sources and Repositories",
+    "section": "Example Repository Source Plan",
+    "text": "Example Repository Source Plan\nFor the healthy human gut microbiome case study, the repository source plan may include:\n\n\n\n\n\n\n\n\nSource\nSource Type\nMain Use\n\n\n\n\nPubMed\nLiterature database\nIdentify candidate studies and publications\n\n\nNCBI BioProject\nProject repository\nIdentify public omics project accessions\n\n\nNCBI SRA\nSequence read archive\nRetrieve run-level metadata\n\n\nNCBI BioSample\nSample metadata repository\nEvaluate sample attributes\n\n\nENA\nSequence archive\nValidate FASTQ links and checksums\n\n\nSupplementary files\nPublication-linked material\nConfirm metadata and accession mapping\n\n\n\nThis source plan does not yet define the exact search terms. It defines where the search will happen.\nSearch terms are developed in the next chapter.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#summary",
+    "href": "03-data-sources-and-repositories.html#summary",
+    "title": "Data Sources and Repositories",
+    "section": "Summary",
+    "text": "Summary\nData sources and repositories define the discovery landscape.\nA systematic workflow should search and validate information across literature databases, project-level repositories, sequence archives, sample metadata records, and supplementary materials.\nEach source contributes a different part of the discovery process. Publications provide context. BioProject records provide study-level accessions. SRA and ENA provide run-level metadata and file access. BioSample records provide sample descriptions. Supplementary materials may provide the metadata needed for interpretation.\nTogether, these sources help transform a broad research question into a set of candidate studies that can be screened and prioritized.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-sources-and-repositories.html#looking-ahead",
+    "href": "03-data-sources-and-repositories.html#looking-ahead",
+    "title": "Data Sources and Repositories",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we develop a structured search strategy for identifying candidate studies across the selected sources and repositories.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Sources and Repositories</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html",
+    "href": "04-search-strategy-development.html",
+    "title": "Search Strategy Development",
+    "section": "",
+    "text": "Why Search Strategy Matters\nA systematic dataset discovery workflow requires a clear search strategy.\nThe search strategy defines how candidate public studies will be identified across literature databases, project repositories, sequence archives, and linked records.\nWithout a documented search strategy, dataset discovery can become inconsistent and difficult to reproduce. Different analysts may search different sources, use different keywords, apply different assumptions, and produce different candidate study lists.\nA structured search strategy helps make the discovery process transparent.\nIt records:\nThe search strategy does not decide which studies are eligible. That happens later during eligibility assessment and screening.\nThe purpose of the search strategy is to identify candidate records in a reproducible way.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#why-search-strategy-matters",
+    "href": "04-search-strategy-development.html#why-search-strategy-matters",
+    "title": "Search Strategy Development",
+    "section": "",
+    "text": "what was searched\nwhere it was searched\nwhich terms were used\nwhen the search was performed\nwhat types of records were expected\nhow candidate studies were captured\nhow records were prepared for screening",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#from-research-question-to-search-concepts",
+    "href": "04-search-strategy-development.html#from-research-question-to-search-concepts",
+    "title": "Search Strategy Development",
+    "section": "From Research Question to Search Concepts",
+    "text": "From Research Question to Search Concepts\nA search strategy begins by translating the research question into searchable concepts.\nFor the case study in this guide, the discovery question is:\n\nWhich public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?\n\nThis question can be broken into major concepts:\n\n\n\n\n\n\n\nConcept\nMeaning\n\n\n\n\nHuman\nStudies involving human participants or samples\n\n\nGut microbiome\nStudies involving gut, stool, fecal, or intestinal microbiome samples\n\n\nHealthy\nStudies involving healthy, non-diseased, control, or baseline participants\n\n\nSequencing data\nStudies with public omics sequencing accessions\n\n\nReference dataset assembly\nStudies suitable for reuse and downstream CDI-DAS acquisition\n\n\n\nEach concept can then be expanded into search terms.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#search-term-expansion",
+    "href": "04-search-strategy-development.html#search-term-expansion",
+    "title": "Search Strategy Development",
+    "section": "Search Term Expansion",
+    "text": "Search Term Expansion\nPublic records may use different words for similar ideas.\nFor example, a study may refer to “gut microbiome,” “intestinal microbiota,” “fecal microbiome,” or “stool microbial communities.” A strict search for only one phrase may miss relevant studies.\nSearch term expansion helps improve recall.\nFor the healthy human gut microbiome case study, possible terms include:\n\n\n\nConcept\nExample Search Terms\n\n\n\n\nHuman\nhuman, Homo sapiens, adult, participant, subject\n\n\nGut\ngut, intestinal, gastrointestinal, stool, fecal, faecal\n\n\nMicrobiome\nmicrobiome, microbiota, microbial community, metagenome\n\n\nHealthy\nhealthy, control, non-diseased, baseline, normal\n\n\nSequencing\nsequencing, 16S, metagenomic, amplicon, Illumina, MiSeq\n\n\nPublic data\nBioProject, SRA, ENA, accession, public dataset\n\n\n\nSearch terms should be broad enough to find relevant studies but focused enough to avoid overwhelming irrelevant results.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#combining-search-concepts",
+    "href": "04-search-strategy-development.html#combining-search-concepts",
+    "title": "Search Strategy Development",
+    "section": "Combining Search Concepts",
+    "text": "Combining Search Concepts\nSearch concepts can be combined using Boolean logic.\nCommon Boolean operators include:\n\n\n\nOperator\nUse\n\n\n\n\nAND\nRequires both concepts to be present\n\n\nOR\nAllows alternative terms for the same concept\n\n\nNOT\nExcludes unwanted concepts\n\n\n\nFor example:\nhuman AND gut AND microbiome\nis narrower than:\nhuman AND (gut OR stool OR fecal) AND (microbiome OR microbiota)\nA more structured search expression may look like:\n(human OR \"Homo sapiens\")\nAND\n(gut OR intestinal OR stool OR fecal OR faecal)\nAND\n(microbiome OR microbiota OR metagenome)\nAND\n(healthy OR control OR baseline)\nThe exact syntax may differ by source. PubMed, NCBI BioProject, SRA, and ENA may support different search fields and search behavior.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#source-specific-search-strategy",
+    "href": "04-search-strategy-development.html#source-specific-search-strategy",
+    "title": "Search Strategy Development",
+    "section": "Source-Specific Search Strategy",
+    "text": "Source-Specific Search Strategy\nA single search string may not work equally well across all sources.\nEach source should be searched according to its role.\n\n\n\n\n\n\n\nSource\nSearch Strategy Role\n\n\n\n\nPubMed\nFind candidate publications and study context\n\n\nNCBI BioProject\nFind project-level accessions\n\n\nNCBI SRA\nValidate sequencing runs and technical metadata\n\n\nNCBI BioSample\nCheck sample-level metadata\n\n\nENA\nValidate FASTQ links, layout, and checksums\n\n\nSupplementary materials\nConfirm sample annotations and accession mapping\n\n\n\nThis means the search strategy should include both broad discovery searches and targeted validation searches.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#pubmed-search-strategy",
+    "href": "04-search-strategy-development.html#pubmed-search-strategy",
+    "title": "Search Strategy Development",
+    "section": "PubMed Search Strategy",
+    "text": "PubMed Search Strategy\nPubMed is useful for identifying candidate publications.\nA PubMed search may combine biological context, sample type, and sequencing terms.\nExample:\n(human[Title/Abstract] OR \"Homo sapiens\"[Title/Abstract])\nAND\n(gut[Title/Abstract] OR intestinal[Title/Abstract] OR stool[Title/Abstract] OR fecal[Title/Abstract] OR faecal[Title/Abstract])\nAND\n(microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR metagenome[Title/Abstract])\nAND\n(healthy[Title/Abstract] OR control[Title/Abstract] OR baseline[Title/Abstract])\nThis search is used to identify publications that may describe eligible public datasets.\nPublication records should then be checked for repository accessions, data availability statements, and supplementary materials.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#ncbi-bioproject-search-strategy",
+    "href": "04-search-strategy-development.html#ncbi-bioproject-search-strategy",
+    "title": "Search Strategy Development",
+    "section": "NCBI BioProject Search Strategy",
+    "text": "NCBI BioProject Search Strategy\nNCBI BioProject is useful for finding project-level public dataset records.\nA BioProject search may use a simpler query because repository records may contain shorter descriptions than publications.\nExample:\nhuman gut microbiome healthy\nor:\nhuman stool microbiome\nBioProject search results should be reviewed for relevance and accession information.\nFor the case study, the prioritized BioProject is:\nPRJNA802976\nThis BioProject becomes the main case-study accession for downstream validation and CDI-DAS handoff.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#sra-search-strategy",
+    "href": "04-search-strategy-development.html#sra-search-strategy",
+    "title": "Search Strategy Development",
+    "section": "SRA Search Strategy",
+    "text": "SRA Search Strategy\nSRA is useful for validating whether a candidate study contains sequencing runs suitable for acquisition.\nFor a known BioProject, SRA can be queried using the BioProject accession.\nExample:\nPRJNA802976[BioProject]\nThe expected output is a set of run accessions and technical metadata.\nFor the prioritized case study, the primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nThese accessions provide a small test set for validating the downstream acquisition workflow before scaling to the full BioProject.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#ena-search-strategy",
+    "href": "04-search-strategy-development.html#ena-search-strategy",
+    "title": "Search Strategy Development",
+    "section": "ENA Search Strategy",
+    "text": "ENA Search Strategy\nENA is useful for validating file-level availability.\nFor a candidate BioProject or run accession list, ENA can be used to check:\n\nFASTQ file links\nfile sizes\nchecksums\nlibrary layout\nsequencing platform\nstudy and sample accessions\n\nThe ENA validation step helps determine whether a candidate study can be acquired efficiently through direct FASTQ download.\nFor CDI-DAS, ENA is especially useful when FASTQ links and checksums are available.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#recording-and-running-the-search-strategy",
+    "href": "04-search-strategy-development.html#recording-and-running-the-search-strategy",
+    "title": "Search Strategy Development",
+    "section": "Recording and Running the Search Strategy",
+    "text": "Recording and Running the Search Strategy\nEvery search strategy should be documented before candidate studies are screened.\nAt minimum, the workflow should record:\n\nsource searched\nsearch date\nsearch query\nsearch purpose\nexpected output\nnotes\nnumber of records found, when available\n\nA search log allows the discovery workflow to be reviewed and repeated.\nThe main search record for this chapter is:\noutputs/search-strategy.tsv\nThis file becomes part of the discovery audit trail.\nThe search workflow is implemented through three scripts:\nbash scripts/bash/04a-search-bioprojects.sh\nbash scripts/bash/04b-search-literature.sh\nbash scripts/bash/04c-create-candidate-studies-template.sh\nThe expected outputs are:\noutputs/search-strategy.tsv\noutputs/bioproject-search-results.tsv\noutputs/literature-search-results.tsv\noutputs/candidate-studies.tsv\nThe BioProject search identifies candidate project-level accessions.\nThe literature search identifies candidate publications, study context, data availability statements, and possible accession-linked records.\nThe candidate study template provides a consistent table structure for recording and screening candidate studies.\nTogether, these outputs provide the starting evidence base for dataset screening.\nSearch Strategy\n        ↓\nBioProject Search\n        ↓\nLiterature Search\n        ↓\nCandidate Study Template\n        ↓\nCandidate Study Evidence\n        ↓\nDataset Screening",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#candidate-study-capture",
+    "href": "04-search-strategy-development.html#candidate-study-capture",
+    "title": "Search Strategy Development",
+    "section": "Candidate Study Capture",
+    "text": "Candidate Study Capture\nSearch results should be captured into a candidate study table.\nA candidate study table may include:\n\ncandidate ID\nsource\ntitle or record name\naccession\npublication identifier\norganism\nsample context\ndata type\nrepository link or accession\nnotes\nscreening status\n\nThe candidate study table is not yet the included study list.\nIt is the working list of records that will be screened in later chapters.\nThe expected output is:\noutputs/candidate-studies.tsv\nThe candidate study template is generated as part of the Chapter 04 script sequence:\nbash scripts/bash/04c-create-candidate-studies-template.sh\nThis template provides a consistent structure for recording candidate studies identified during the BioProject and literature searches.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#search-strategy-for-the-case-study",
+    "href": "04-search-strategy-development.html#search-strategy-for-the-case-study",
+    "title": "Search Strategy Development",
+    "section": "Search Strategy for the Case Study",
+    "text": "Search Strategy for the Case Study\nFor the healthy human gut microbiome case study, the search strategy focuses on identifying public studies that contain human gut or stool microbiome sequencing data with enough metadata and accession clarity for reuse.\nThe prioritized case-study accession is:\nPRJNA802976\nThe primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nA secondary comparison BioProject may be retained for technical contrast:\nPRJNA322554\nThis secondary accession can help demonstrate why sequencing layout, platform, metadata completeness, and acquisition readiness matter during prioritization.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#search-strategy-boundaries",
+    "href": "04-search-strategy-development.html#search-strategy-boundaries",
+    "title": "Search Strategy Development",
+    "section": "Search Strategy Boundaries",
+    "text": "Search Strategy Boundaries\nThe search strategy should also define boundaries.\nFor this guide, the initial search focuses on:\n\nhuman samples\ngut, stool, fecal, or intestinal microbiome context\npublic sequence data\naccession-linked studies\nrecords that can support CDI-DAS handoff\n\nThe search does not aim to capture every possible microbiome publication. It focuses on studies that can move from discovery into acquisition and validation.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#avoiding-overly-narrow-searches",
+    "href": "04-search-strategy-development.html#avoiding-overly-narrow-searches",
+    "title": "Search Strategy Development",
+    "section": "Avoiding Overly Narrow Searches",
+    "text": "Avoiding Overly Narrow Searches\nA search that is too narrow may miss relevant datasets.\nFor example, searching only for:\nhealthy human gut microbiome\nmay miss records described as:\ncontrol stool microbiota\nor:\nintestinal microbial communities in adults\nThis is why search term expansion is important.\nA broad initial search can be followed by structured screening.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#avoiding-overly-broad-searches",
+    "href": "04-search-strategy-development.html#avoiding-overly-broad-searches",
+    "title": "Search Strategy Development",
+    "section": "Avoiding Overly Broad Searches",
+    "text": "Avoiding Overly Broad Searches\nA search that is too broad can produce too many irrelevant records.\nFor example:\nmicrobiome\nmay return studies from soil, plants, animals, oral samples, disease cohorts, and environmental samples.\nThe search strategy should balance sensitivity and specificity.\nFor systematic discovery, the goal is not simply to maximize search results. The goal is to identify a manageable and relevant candidate set that can be screened transparently.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#updating-the-search-strategy",
+    "href": "04-search-strategy-development.html#updating-the-search-strategy",
+    "title": "Search Strategy Development",
+    "section": "Updating the Search Strategy",
+    "text": "Updating the Search Strategy\nSearch strategies may be refined during early exploration.\nFor example, the analyst may discover that relevant records use “fecal microbiota” more often than “gut microbiome,” or that a repository uses different metadata fields than expected.\nWhen changes are made, they should be documented.\nA reproducible workflow should preserve:\n\noriginal search terms\nrevised search terms\nreason for revision\ndate of revision\neffect on candidate records, when known\n\nThis prevents silent changes from weakening the audit trail.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#summary",
+    "href": "04-search-strategy-development.html#summary",
+    "title": "Search Strategy Development",
+    "section": "Summary",
+    "text": "Summary\nSearch strategy development translates the research question into a reproducible discovery plan.\nIt defines the concepts, search terms, sources, queries, and candidate capture process used to identify public omics studies.\nFor the healthy human gut microbiome case study, the search strategy prioritizes accession-linked public studies that can be screened, evaluated, and handed off to the CDI Data Acquisition System.\nThe prioritized case-study BioProject is PRJNA802976, with SRR17868090, SRR17868091, and SRR17868092 used as the primary test subset.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "04-search-strategy-development.html#looking-ahead",
+    "href": "04-search-strategy-development.html#looking-ahead",
+    "title": "Search Strategy Development",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we define eligibility criteria for deciding which candidate studies should be included, excluded, or set aside for later review.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Search Strategy Development</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html",
+    "href": "05-eligibility-criteria.html",
+    "title": "Eligibility Criteria",
+    "section": "",
+    "text": "Why Eligibility Criteria Matter\nAfter candidate studies have been identified, the next step is to decide which studies are suitable for inclusion.\nThis decision should not be made informally.\nEligibility criteria provide the rules used to include, exclude, or set aside candidate studies. They help ensure that screening decisions are consistent, transparent, and aligned with the research question.\nWithout eligibility criteria, study selection can become subjective. One analyst may include a study because it appears relevant, while another may exclude it because the metadata are incomplete or the sample context is unclear.\nA systematic dataset discovery workflow avoids this problem by defining eligibility criteria before screening begins.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#from-search-results-to-screening-rules",
+    "href": "05-eligibility-criteria.html#from-search-results-to-screening-rules",
+    "title": "Eligibility Criteria",
+    "section": "From Search Results to Screening Rules",
+    "text": "From Search Results to Screening Rules\nSearch results are broad by design.\nThey may include relevant studies, partially relevant studies, unrelated studies, duplicate records, secondary publications, studies without public accessions, and datasets that cannot support downstream acquisition.\nEligibility criteria help convert this broad search output into a structured screening process.\nCandidate Studies\n        ↓\nEligibility Criteria\n        ↓\nScreening Decisions\n        ↓\nIncluded / Excluded / Review\nThe purpose of eligibility criteria is not to make the final dataset as large as possible.\nThe purpose is to make the final dataset appropriate for the research question and usable for downstream workflows.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#core-eligibility-domains",
+    "href": "05-eligibility-criteria.html#core-eligibility-domains",
+    "title": "Eligibility Criteria",
+    "section": "Core Eligibility Domains",
+    "text": "Core Eligibility Domains\nFor CDI Systematic Dataset Discovery, eligibility criteria should usually cover five domains:\nBiological Relevance\n        ↓\nTechnical Suitability\n        ↓\nMetadata Completeness\n        ↓\nRepository Accessibility\n        ↓\nCDI-DAS Readiness\nEach domain helps answer a different question.\n\n\n\n\n\n\n\nDomain\nMain Question\n\n\n\n\nBiological relevance\nDoes the study match the biological question?\n\n\nTechnical suitability\nDoes the data type match the intended workflow?\n\n\nMetadata completeness\nAre the samples sufficiently described?\n\n\nRepository accessibility\nAre public accessions and files available?\n\n\nCDI-DAS readiness\nCan the study move into reproducible acquisition?\n\n\n\nTogether, these domains provide a structured basis for deciding whether a candidate study should continue in the workflow.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#biological-eligibility",
+    "href": "05-eligibility-criteria.html#biological-eligibility",
+    "title": "Eligibility Criteria",
+    "section": "Biological Eligibility",
+    "text": "Biological Eligibility\nBiological eligibility checks whether the study matches the research question.\nFor the healthy human gut microbiome case study, biological eligibility may include:\n\nhuman samples\ngut, stool, fecal, or intestinal sample context\nhealthy, non-diseased, control, or baseline participants\nmicrobiome-related biological material\nstudy context relevant to reference dataset assembly\n\nA study may mention the gut microbiome but still fail biological eligibility if it focuses only on animals, disease-only cohorts, environmental samples, or unrelated body sites.\nFor example, these studies may be excluded from the main healthy human gut microbiome reference workflow:\n\nmouse gut microbiome studies\noral microbiome studies\nskin microbiome studies\ndisease-only patient cohorts without healthy controls\nintervention-only studies without usable baseline samples\nstudies with unclear host or sample source",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#technical-eligibility",
+    "href": "05-eligibility-criteria.html#technical-eligibility",
+    "title": "Eligibility Criteria",
+    "section": "Technical Eligibility",
+    "text": "Technical Eligibility\nTechnical eligibility checks whether the data type is suitable for the intended analysis or acquisition workflow.\nFor microbiome discovery, this may include:\n\nsequencing data are available\nlibrary strategy is relevant\nplatform information is available\nread layout is documented\ndata type is compatible with the planned workflow\nrun-level accessions can be retrieved\n\nFor the prioritized case study, PRJNA802976 is treated as the primary BioProject because it supports a practical CDI-DAS handoff and includes run-level accessions that can be used for acquisition testing.\nThe primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nThese accessions allow the workflow to test acquisition and validation before scaling to the full BioProject.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#metadata-eligibility",
+    "href": "05-eligibility-criteria.html#metadata-eligibility",
+    "title": "Eligibility Criteria",
+    "section": "Metadata Eligibility",
+    "text": "Metadata Eligibility\nMetadata eligibility checks whether the study has enough information to interpret the samples.\nA dataset may be public and downloadable, but still difficult to reuse if the metadata are incomplete.\nImportant metadata may include:\n\norganism\nsample source\nbody site\nhealth status\ndisease or control status\ntreatment or exposure\nage group\nsex\ngeographic location\nsequencing platform\nlibrary strategy\nsample accession\nrun accession\n\nNot every study will contain every metadata field. However, the minimum required metadata should be defined before screening.\nFor the healthy human gut microbiome case study, minimum metadata should support identification of human gut or stool samples and their relevance to healthy or non-diseased microbiome analysis.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#repository-accessibility",
+    "href": "05-eligibility-criteria.html#repository-accessibility",
+    "title": "Eligibility Criteria",
+    "section": "Repository Accessibility",
+    "text": "Repository Accessibility\nRepository accessibility checks whether the public data can actually be located and acquired.\nA study should provide enough accession information to connect the publication or repository record to public data files.\nUseful accession types include:\n\n\n\nAccession Type\nExample\n\n\n\n\nBioProject\nPRJNA802976\n\n\nSRA Run\nSRR17868090\n\n\nBioSample\nSAMN…\n\n\nENA Run\nERR… or SRR…\n\n\nPubMed ID\nPMID…\n\n\n\nA candidate study may be excluded or set aside if:\n\nno public accession is provided\naccessions are unclear\nrepository records cannot be resolved\nsequence files are unavailable\nfiles require controlled access\nsample-to-run mapping is missing\n\nFor CDI-DAS handoff, BioProject and run-level accessions are especially important.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#cdi-das-readiness",
+    "href": "05-eligibility-criteria.html#cdi-das-readiness",
+    "title": "Eligibility Criteria",
+    "section": "CDI-DAS Readiness",
+    "text": "CDI-DAS Readiness\nCDI-DAS readiness checks whether the study can be passed into the CDI Data Acquisition System.\nThis does not require downloading the full dataset during eligibility assessment. It only requires enough confidence that the study can move into acquisition.\nA study is more CDI-DAS-ready when it has:\n\nclear BioProject or study accession\nretrievable run-level metadata\npublic sequence files\nusable sample metadata\nclear repository mapping\ncompatible data type\nmanageable test subset\n\nFor the primary case study, the CDI-DAS-ready starting point is:\nBioProject: PRJNA802976\n\nTest runs:\nSRR17868090\nSRR17868091\nSRR17868092",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#inclusion-criteria",
+    "href": "05-eligibility-criteria.html#inclusion-criteria",
+    "title": "Eligibility Criteria",
+    "section": "Inclusion Criteria",
+    "text": "Inclusion Criteria\nInclusion criteria define what a study must have to be considered eligible.\nFor the healthy human gut microbiome case study, inclusion criteria may include:\n\n\n\n\n\n\n\nCriterion\nInclusion Rule\n\n\n\n\nOrganism\nHuman samples\n\n\nSample context\nGut, stool, fecal, or intestinal microbiome\n\n\nHealth context\nHealthy, non-diseased, control, or baseline samples\n\n\nData type\nPublic microbiome sequencing data\n\n\nRepository record\nBioProject, SRA, ENA, or equivalent accession available\n\n\nMetadata\nSufficient sample and technical metadata for reuse\n\n\nAcquisition readiness\nData can be prepared for CDI-DAS handoff\n\n\n\nThese criteria can be refined as the workflow matures, but they should remain explicit and documented.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#exclusion-criteria",
+    "href": "05-eligibility-criteria.html#exclusion-criteria",
+    "title": "Eligibility Criteria",
+    "section": "Exclusion Criteria",
+    "text": "Exclusion Criteria\nExclusion criteria define which studies should not be included in the main workflow.\nFor the case study, exclusion criteria may include:\n\n\n\n\n\n\n\nCriterion\nExclusion Rule\n\n\n\n\nWrong organism\nNon-human samples only\n\n\nWrong sample context\nNon-gut body site only\n\n\nDisease-only cohort\nNo healthy, control, or baseline group available\n\n\nNo public data\nNo accessible public sequencing data\n\n\nMissing accessions\nNo usable BioProject, SRA, ENA, or equivalent accession\n\n\nInsufficient metadata\nSample context cannot be interpreted\n\n\nIncompatible data\nData type does not match the intended workflow\n\n\nControlled access only\nData cannot be acquired through the public CDI-DAS workflow\n\n\n\nExclusion does not mean a study has no scientific value.\nIt only means the study does not meet the criteria for this specific discovery workflow.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#review-or-unclear-studies",
+    "href": "05-eligibility-criteria.html#review-or-unclear-studies",
+    "title": "Eligibility Criteria",
+    "section": "Review or Unclear Studies",
+    "text": "Review or Unclear Studies\nNot every candidate study will be clearly eligible or clearly ineligible.\nSome studies may require manual review.\nA study can be marked as review when:\n\nthe accession is present but unclear\nthe study appears relevant but metadata are incomplete\nthe publication and repository record do not match clearly\nthe health status is ambiguous\nthe study includes mixed sample types\nonly part of the dataset may be eligible\nsupplementary files must be checked before a decision\n\nUsing a review category prevents premature inclusion or exclusion.\nInclude\n        Study meets criteria\n\nExclude\n        Study does not meet criteria\n\nReview\n        More information is needed",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#eligibility-decision-labels",
+    "href": "05-eligibility-criteria.html#eligibility-decision-labels",
+    "title": "Eligibility Criteria",
+    "section": "Eligibility Decision Labels",
+    "text": "Eligibility Decision Labels\nA simple decision system can be used during screening:\n\n\n\nDecision\nMeaning\n\n\n\n\ninclude\nStudy meets the criteria\n\n\nexclude\nStudy does not meet the criteria\n\n\nreview\nStudy requires additional checking\n\n\ndefer\nStudy may be useful later but is not prioritized now\n\n\n\nThese labels should be used consistently across the screening table.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#creating-inclusion-and-exclusion-criteria-tables",
+    "href": "05-eligibility-criteria.html#creating-inclusion-and-exclusion-criteria-tables",
+    "title": "Eligibility Criteria",
+    "section": "Creating Inclusion and Exclusion Criteria Tables",
+    "text": "Creating Inclusion and Exclusion Criteria Tables\nEligibility criteria are stored in two structured tables: one for inclusion rules and one for exclusion rules.\nbash scripts/bash/05a-build-inclusion-criteria.sh\nbash scripts/bash/05b-build-exclusion-criteria.sh\nThe expected outputs are:\noutputs/inclusion-criteria.tsv\noutputs/exclusion-criteria.tsv\nThe inclusion criteria table defines what a candidate study must contain to move forward.\nThe exclusion criteria table defines the conditions that remove a candidate study from the main workflow.\nTogether, these files document the screening rules used in the next chapter.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#example-eligibility-table-structure",
+    "href": "05-eligibility-criteria.html#example-eligibility-table-structure",
+    "title": "Eligibility Criteria",
+    "section": "Example Eligibility Table Structure",
+    "text": "Example Eligibility Table Structure\nA useful eligibility criteria table may include:\n\ncriterion ID\ncriterion domain\ncriterion name\ninclusion rule or exclusion rule\nreview condition, when applicable\nnotes\n\nExample inclusion table:\ncriterion_id    domain                  criterion_name       inclusion_rule\nINC001          Biological relevance    Organism             Study includes human samples\nINC002          Biological relevance    Sample context       Study includes gut or stool microbiome samples\nINC005          Repository access       Public accession     Study provides a usable public accession\nExample exclusion table:\ncriterion_id    domain                  criterion_name       exclusion_rule\nEXC001          Biological relevance    Wrong organism       Exclude studies containing non-human samples only\nEXC002          Biological relevance    Wrong sample context Exclude studies that do not include gut or stool samples\nEXC005          Repository access       No public accession  Exclude studies with no usable public accession\nThe full criteria tables are created by the Chapter 05 scripts.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#applying-criteria-to-the-case-study",
+    "href": "05-eligibility-criteria.html#applying-criteria-to-the-case-study",
+    "title": "Eligibility Criteria",
+    "section": "Applying Criteria to the Case Study",
+    "text": "Applying Criteria to the Case Study\nFor the primary case-study BioProject:\nPRJNA802976\nthe eligibility decision should focus on whether it meets the discovery question:\n\nWhich public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?\n\nThe initial screening decision may be:\n\n\n\nField\nValue\n\n\n\n\nBioProject\nPRJNA802976\n\n\nPriority\nPrimary case-study accession\n\n\nOrganism\nHuman\n\n\nSample context\nGut or stool microbiome\n\n\nData type\nMicrobiome sequencing\n\n\nCDI-DAS readiness\nSuitable for test acquisition\n\n\nTest subset\nSRR17868090, SRR17868091, SRR17868092\n\n\nInitial decision\ninclude\n\n\n\nA secondary comparison BioProject can remain available for contrast:\nPRJNA322554\nThis comparison helps demonstrate why eligibility and prioritization should consider technical characteristics, metadata completeness, and acquisition readiness.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#common-eligibility-problems",
+    "href": "05-eligibility-criteria.html#common-eligibility-problems",
+    "title": "Eligibility Criteria",
+    "section": "Common Eligibility Problems",
+    "text": "Common Eligibility Problems\nCandidate studies may fail eligibility for several reasons:\n\ntitle appears relevant but sample type is wrong\npublication describes microbiome data but accessions are missing\nrepository record exists but sample metadata are unclear\nBioProject contains mixed sample types\ndisease and healthy samples are not clearly separated\nrun-level metadata are incomplete\nfiles are not publicly downloadable\nstudy is relevant but not compatible with the intended analysis\n\nThese problems should be recorded rather than handled silently.\nA transparent exclusion reason is part of the discovery audit trail.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#summary",
+    "href": "05-eligibility-criteria.html#summary",
+    "title": "Eligibility Criteria",
+    "section": "Summary",
+    "text": "Summary\nEligibility criteria define the rules used to move from candidate studies to screened studies.\nThey help ensure that study selection is transparent, consistent, and aligned with the research question.\nFor the healthy human gut microbiome case study, eligibility focuses on human gut or stool microbiome studies with public sequencing accessions, interpretable metadata, and readiness for CDI-DAS handoff.\nThe prioritized case-study BioProject is PRJNA802976, with SRR17868090, SRR17868091, and SRR17868092 used as the primary test subset.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "05-eligibility-criteria.html#looking-ahead",
+    "href": "05-eligibility-criteria.html#looking-ahead",
+    "title": "Eligibility Criteria",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we apply the eligibility criteria to candidate studies through a structured dataset screening workflow.",
+    "crumbs": [
+      "Discovery System",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Eligibility Criteria</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html",
+    "href": "06-dataset-screening.html",
+    "title": "Dataset Screening",
+    "section": "",
+    "text": "Why Dataset Screening Matters\nAfter candidate studies have been identified and eligibility criteria have been defined, the next step is dataset screening.\nDataset screening is the process of applying inclusion and exclusion criteria to candidate studies in a structured way.\nThe goal is to decide whether each candidate record should be:\nScreening turns a broad candidate list into a smaller, better-documented set of studies that are suitable for downstream prioritization and data acquisition.\nDataset screening is not only a filtering step. It is also a documentation step.\nEvery screening decision should be traceable.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#why-dataset-screening-matters",
+    "href": "06-dataset-screening.html#why-dataset-screening-matters",
+    "title": "Dataset Screening",
+    "section": "",
+    "text": "included\nexcluded\nreviewed further\ndeferred for later use\n\n\nCandidate Studies\n        ↓\nEligibility Criteria\n        ↓\nDataset Screening\n        ↓\nScreened Studies\n        ↓\nIncluded / Excluded / Review",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#screening-is-a-decision-process",
+    "href": "06-dataset-screening.html#screening-is-a-decision-process",
+    "title": "Dataset Screening",
+    "section": "Screening Is a Decision Process",
+    "text": "Screening Is a Decision Process\nA candidate study may look relevant at first, but screening determines whether it actually meets the discovery objective.\nFor the healthy human gut microbiome case study, screening asks:\n\nIs the study based on human samples?\nDoes it include gut, stool, fecal, or intestinal microbiome data?\nDoes it include healthy, non-diseased, control, or baseline samples?\nAre public accessions available?\nIs the data type suitable for CDI-DAS handoff?\nAre metadata sufficient for interpretation?\nCan a test subset be prepared for acquisition validation?\n\nThese questions help move from general relevance to actual eligibility.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#inputs-to-dataset-screening",
+    "href": "06-dataset-screening.html#inputs-to-dataset-screening",
+    "title": "Dataset Screening",
+    "section": "Inputs to Dataset Screening",
+    "text": "Inputs to Dataset Screening\nThe screening step uses outputs from earlier chapters.\nExpected inputs include:\noutputs/candidate-studies.tsv\noutputs/inclusion-criteria.tsv\noutputs/exclusion-criteria.tsv\nThe candidate study table provides the records to be screened.\nThe inclusion criteria table defines what a study must contain to move forward.\nThe exclusion criteria table defines the conditions that remove a study from the main workflow.\nTogether, these files support consistent screening decisions.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#screening-decision-labels",
+    "href": "06-dataset-screening.html#screening-decision-labels",
+    "title": "Dataset Screening",
+    "section": "Screening Decision Labels",
+    "text": "Screening Decision Labels\nA simple decision system is used during screening.\n\n\n\nDecision\nMeaning\n\n\n\n\ninclude\nThe candidate meets the criteria and should move forward\n\n\nexclude\nThe candidate does not meet the criteria\n\n\nreview\nMore information is needed before a final decision\n\n\ndefer\nThe candidate may be useful later but is not prioritized now\n\n\n\nThese labels should be used consistently across the screened study table.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#screening-the-candidate-studies",
+    "href": "06-dataset-screening.html#screening-the-candidate-studies",
+    "title": "Dataset Screening",
+    "section": "Screening the Candidate Studies",
+    "text": "Screening the Candidate Studies\nThe screening workflow can be run with:\nbash scripts/bash/06a-screen-candidate-studies.sh\nThe expected outputs are:\noutputs/screened-studies.tsv\noutputs/included-studies.tsv\noutputs/excluded-studies.tsv\noutputs/review-studies.tsv\nThe script applies structured screening decisions to the candidate study records and separates them into included, excluded, and review tables.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#screening-output-structure",
+    "href": "06-dataset-screening.html#screening-output-structure",
+    "title": "Dataset Screening",
+    "section": "Screening Output Structure",
+    "text": "Screening Output Structure\nThe main screening output is:\noutputs/screened-studies.tsv\nThis table records the screening decision for each candidate record.\nA useful screened study table may include:\n\ncandidate ID\nsource\ntitle or record name\naccession\npublication ID\norganism\nsample context\ndata type\nrepository link or accession\nscreening decision\nscreening reason\npriority level\nnotes\n\nThis table becomes part of the discovery audit trail.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#included-studies",
+    "href": "06-dataset-screening.html#included-studies",
+    "title": "Dataset Screening",
+    "section": "Included Studies",
+    "text": "Included Studies\nIncluded studies are candidate records that meet the eligibility criteria.\nFor the primary case study, the prioritized BioProject is:\nPRJNA802976\nThe primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nThese records are included because they match the case-study direction and provide a practical starting point for CDI-DAS acquisition validation.\nThe included study output is:\noutputs/included-studies.tsv",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#excluded-studies",
+    "href": "06-dataset-screening.html#excluded-studies",
+    "title": "Dataset Screening",
+    "section": "Excluded Studies",
+    "text": "Excluded Studies\nExcluded studies are candidate records that do not meet the criteria for this workflow.\nA study may be excluded because it has:\n\nthe wrong organism\nthe wrong sample context\nno usable public accession\ninsufficient metadata\nincompatible data type\nunavailable public sequence files\nno clear sample-to-run mapping\n\nExclusion should always be documented with a reason.\nThe excluded study output is:\noutputs/excluded-studies.tsv\nIn the early case-study template, there may be no excluded records yet. That is acceptable. The exclusion table still exists so that future screening decisions can be recorded consistently.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#review-studies",
+    "href": "06-dataset-screening.html#review-studies",
+    "title": "Dataset Screening",
+    "section": "Review Studies",
+    "text": "Review Studies\nSome studies may not be clearly eligible or clearly ineligible.\nThese records should be marked for review rather than forced into an include or exclude decision.\nA study may require review if:\n\nthe accession is unclear\nsupplementary metadata must be checked\nthe sample context is ambiguous\nthe study contains mixed sample types\nonly part of the study may be eligible\nthe publication and repository records need reconciliation\n\nThe review output is:\noutputs/review-studies.tsv\nFor this guide, PRJNA322554 may be retained as a secondary comparison record for review.\nPRJNA322554\nThis BioProject can help demonstrate technical contrast, metadata review, and prioritization decisions, but it is not the primary case-study accession.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#screening-the-primary-case-study",
+    "href": "06-dataset-screening.html#screening-the-primary-case-study",
+    "title": "Dataset Screening",
+    "section": "Screening the Primary Case Study",
+    "text": "Screening the Primary Case Study\nFor the healthy human gut microbiome case study, the primary screening decision is:\n\n\n\n\n\n\n\nField\nValue\n\n\n\n\nBioProject\nPRJNA802976\n\n\nDecision\ninclude\n\n\nPriority\nprimary\n\n\nReason\nMatches organism, sample context, data type, public accession, and CDI-DAS readiness\n\n\nTest subset\nSRR17868090, SRR17868091, SRR17868092\n\n\n\nThe test runs are included as acquisition validation records:\n\n\n\nRun\nDecision\nReason\n\n\n\n\nSRR17868090\ninclude\nPrimary test subset run\n\n\nSRR17868091\ninclude\nPrimary test subset run\n\n\nSRR17868092\ninclude\nPrimary test subset run\n\n\n\nThis creates a small but practical screened dataset for downstream acquisition testing.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#screening-flow",
+    "href": "06-dataset-screening.html#screening-flow",
+    "title": "Dataset Screening",
+    "section": "Screening Flow",
+    "text": "Screening Flow\nThe screening process can be summarized as:\nCandidate Studies\n        ↓\nApply Inclusion Criteria\n        ↓\nApply Exclusion Criteria\n        ↓\nAssign Decision Label\n        ↓\nRecord Screening Reason\n        ↓\nCreate Screening Outputs\nThe screening outputs then support study prioritization.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#why-screening-reasons-matter",
+    "href": "06-dataset-screening.html#why-screening-reasons-matter",
+    "title": "Dataset Screening",
+    "section": "Why Screening Reasons Matter",
+    "text": "Why Screening Reasons Matter\nA screening decision without a reason is difficult to interpret later.\nFor every included, excluded, or review record, the workflow should record why the decision was made.\nExamples:\n\n\n\n\n\n\n\nDecision\nExample Reason\n\n\n\n\ninclude\nHuman gut microbiome study with public accession and CDI-DAS-ready run metadata\n\n\nexclude\nNon-human study only\n\n\nexclude\nNo usable public accession found\n\n\nreview\nSample context unclear; supplementary metadata needed\n\n\ndefer\nRelevant but not needed for primary case study\n\n\n\nThese reasons make the workflow auditable.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#manual-review-and-iteration",
+    "href": "06-dataset-screening.html#manual-review-and-iteration",
+    "title": "Dataset Screening",
+    "section": "Manual Review and Iteration",
+    "text": "Manual Review and Iteration\nDataset screening may require manual review.\nSome repository records are incomplete. Some publications use unclear terminology. Some BioProjects contain mixed samples or multiple experiments. Some accessions are only visible in supplementary files.\nWhen this happens, the study should be marked as review until the missing information is resolved.\nScreening can be updated later as new information becomes available, but changes should be documented.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#relationship-to-study-prioritization",
+    "href": "06-dataset-screening.html#relationship-to-study-prioritization",
+    "title": "Dataset Screening",
+    "section": "Relationship to Study Prioritization",
+    "text": "Relationship to Study Prioritization\nScreening determines whether a study is eligible.\nPrioritization determines which eligible studies should be used first.\nThese are related but separate steps.\nScreening\n        ↓\nIs the study eligible?\n\nPrioritization\n        ↓\nHow important or useful is the eligible study?\nFor example, both PRJNA802976 and PRJNA322554 may be relevant human gut microbiome BioProjects, but PRJNA802976 is prioritized as the main case-study accession because it better supports the current CDI-DAS demonstration.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#summary",
+    "href": "06-dataset-screening.html#summary",
+    "title": "Dataset Screening",
+    "section": "Summary",
+    "text": "Summary\nDataset screening applies eligibility criteria to candidate studies and records structured decisions.\nThe screening workflow produces included, excluded, and review tables that document which records move forward and why.\nFor the healthy human gut microbiome case study, PRJNA802976 is included as the primary BioProject, with SRR17868090, SRR17868091, and SRR17868092 used as the primary test subset.\nPRJNA322554 can remain available as a secondary comparison record for review or technical contrast.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "06-dataset-screening.html#looking-ahead",
+    "href": "06-dataset-screening.html#looking-ahead",
+    "title": "Dataset Screening",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we prioritize screened studies and decide which eligible records should be used first for downstream acquisition and reference dataset assembly.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Dataset Screening</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html",
+    "href": "07-study-prioritization.html",
+    "title": "Study Prioritization",
+    "section": "",
+    "text": "Why Study Prioritization Matters\nAfter candidate studies have been screened, the next step is study prioritization.\nScreening determines whether a study is eligible.\nPrioritization determines which eligible studies should be used first.\nThese are related but different decisions.\nA study may meet the eligibility criteria but still not be the best starting point for data acquisition, reference dataset assembly, or case-study demonstration.\nPrioritization helps rank eligible studies based on usefulness, readiness, metadata quality, technical suitability, and alignment with the project objective.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#why-study-prioritization-matters",
+    "href": "07-study-prioritization.html#why-study-prioritization-matters",
+    "title": "Study Prioritization",
+    "section": "",
+    "text": "Dataset Screening\n        ↓\nEligible Studies\n        ↓\nStudy Prioritization\n        ↓\nPriority Study List\n        ↓\nCDI-DAS Input Package",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#screening-versus-prioritization",
+    "href": "07-study-prioritization.html#screening-versus-prioritization",
+    "title": "Study Prioritization",
+    "section": "Screening Versus Prioritization",
+    "text": "Screening Versus Prioritization\nScreening is a yes, no, or review decision.\nPrioritization is a ranking decision.\n\n\n\n\n\n\n\n\nStep\nMain Question\nOutput\n\n\n\n\nScreening\nDoes the study meet the eligibility criteria?\nIncluded, excluded, or review studies\n\n\nPrioritization\nWhich eligible studies should be used first?\nRanked study list\n\n\n\nFor example, two studies may both be eligible human gut microbiome datasets. However, one may have clearer metadata, better file accessibility, paired-end sequencing, and a manageable test subset. That study would be prioritized first.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#inputs-to-study-prioritization",
+    "href": "07-study-prioritization.html#inputs-to-study-prioritization",
+    "title": "Study Prioritization",
+    "section": "Inputs to Study Prioritization",
+    "text": "Inputs to Study Prioritization\nThe prioritization step uses outputs from dataset screening.\nExpected inputs include:\noutputs/screened-studies.tsv\noutputs/included-studies.tsv\noutputs/review-studies.tsv\nThe included studies table contains records that passed eligibility screening.\nThe review studies table contains records that may be useful but need additional checking.\nThe screened studies table preserves all screening decisions and reasons.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#prioritization-criteria",
+    "href": "07-study-prioritization.html#prioritization-criteria",
+    "title": "Study Prioritization",
+    "section": "Prioritization Criteria",
+    "text": "Prioritization Criteria\nPrioritization should be based on practical and scientific considerations.\nFor CDI Systematic Dataset Discovery, useful prioritization criteria include:\n\nrelevance to the research question\nmetadata completeness\naccession clarity\npublic file availability\nrun-level metadata availability\ncompatibility with CDI-DAS\nsequencing layout\nplatform suitability\nmanageable test subset\nusefulness as a reference dataset\nusefulness as a teaching or demonstration case\n\nThe goal is not to rank studies only by size.\nA smaller study with clear metadata and accessible files may be more useful than a larger study with confusing records or incomplete metadata.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#core-prioritization-domains",
+    "href": "07-study-prioritization.html#core-prioritization-domains",
+    "title": "Study Prioritization",
+    "section": "Core Prioritization Domains",
+    "text": "Core Prioritization Domains\nStudy prioritization can be organized into five domains:\nResearch Alignment\n        ↓\nMetadata Quality\n        ↓\nTechnical Suitability\n        ↓\nRepository Readiness\n        ↓\nCDI-DAS Handoff Value\nEach domain contributes to the final priority decision.\n\n\n\n\n\n\n\nDomain\nMain Question\n\n\n\n\nResearch alignment\nDoes the study strongly match the discovery objective?\n\n\nMetadata quality\nAre the sample and technical metadata usable?\n\n\nTechnical suitability\nDoes the sequencing design fit the workflow?\n\n\nRepository readiness\nAre public files and accessions clear?\n\n\nCDI-DAS handoff value\nCan the study move smoothly into acquisition?",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#priority-labels",
+    "href": "07-study-prioritization.html#priority-labels",
+    "title": "Study Prioritization",
+    "section": "Priority Labels",
+    "text": "Priority Labels\nA simple priority label system can be used.\n\n\n\nPriority Label\nMeaning\n\n\n\n\nprimary\nMain study for the current workflow\n\n\nsecondary\nUseful comparison or backup study\n\n\nreview\nPotentially useful but needs more checking\n\n\ndeferred\nRelevant but not needed now\n\n\n\nThese labels help separate the main case-study accession from supporting or future-use records.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#prioritization-scoring",
+    "href": "07-study-prioritization.html#prioritization-scoring",
+    "title": "Study Prioritization",
+    "section": "Prioritization Scoring",
+    "text": "Prioritization Scoring\nA simple scoring system can make prioritization more transparent.\nEach study can be scored across several criteria.\nExample:\n\n\n\nCriterion\nScore Meaning\n\n\n\n\n0\nDoes not meet the criterion\n\n\n1\nPartially meets the criterion\n\n\n2\nStrongly meets the criterion\n\n\n\nA study with higher total score may be prioritized first.\nExample scoring criteria:\n\n\n\n\n\n\n\nCriterion\nDescription\n\n\n\n\nResearch alignment\nMatches the discovery question\n\n\nMetadata completeness\nProvides usable biological and technical metadata\n\n\nAccession clarity\nProvides clear BioProject or run-level accessions\n\n\nFile availability\nPublic sequence files are available\n\n\nCDI-DAS readiness\nCan be handed off to the acquisition system\n\n\nTest subset suitability\nHas a practical subset for validation\n\n\nTechnical suitability\nSequencing layout and platform are useful for the workflow",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#creating-a-prioritization-table",
+    "href": "07-study-prioritization.html#creating-a-prioritization-table",
+    "title": "Study Prioritization",
+    "section": "Creating a Prioritization Table",
+    "text": "Creating a Prioritization Table\nThe prioritization table can be created with a script.\nbash scripts/bash/07a-build-prioritization-table.sh\nThe expected output is:\noutputs/prioritization-table.tsv\nThis table records how screened studies are ranked and why a study is prioritized for downstream acquisition.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#expected-prioritization-table-structure",
+    "href": "07-study-prioritization.html#expected-prioritization-table-structure",
+    "title": "Study Prioritization",
+    "section": "Expected Prioritization Table Structure",
+    "text": "Expected Prioritization Table Structure\nA useful prioritization table may include:\n\ncandidate ID\naccession\nsource\nscreening decision\npriority label\nresearch alignment score\nmetadata score\naccession clarity score\nfile availability score\nCDI-DAS readiness score\ntest subset score\ntotal score\nprioritization reason\nnotes\n\nThis table makes the ranking process more transparent.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#applying-prioritization-to-the-case-study",
+    "href": "07-study-prioritization.html#applying-prioritization-to-the-case-study",
+    "title": "Study Prioritization",
+    "section": "Applying Prioritization to the Case Study",
+    "text": "Applying Prioritization to the Case Study\nFor this guide, the primary BioProject is:\nPRJNA802976\nThe primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nThis BioProject is prioritized because it provides a practical, accession-linked human gut microbiome case study that can be handed off to CDI-DAS.\nA secondary comparison BioProject is:\nPRJNA322554\nThis record may remain useful for technical contrast, but it is not the primary acquisition example.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#priority-decision-for-prjna802976",
+    "href": "07-study-prioritization.html#priority-decision-for-prjna802976",
+    "title": "Study Prioritization",
+    "section": "Priority Decision for PRJNA802976",
+    "text": "Priority Decision for PRJNA802976\nThe priority decision for PRJNA802976 can be summarized as:\n\n\n\n\n\n\n\nField\nValue\n\n\n\n\nBioProject\nPRJNA802976\n\n\nPriority\nprimary\n\n\nScreening decision\ninclude\n\n\nStudy role\nMain healthy human gut microbiome case-study accession\n\n\nTest subset\nSRR17868090, SRR17868091, SRR17868092\n\n\nDownstream use\nCDI-DAS acquisition and validation\n\n\nPrioritization reason\nStrong fit for the discovery objective and practical CDI-DAS handoff\n\n\n\nThis makes PRJNA802976 the main accession carried forward into included study assembly.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#secondary-comparison-record",
+    "href": "07-study-prioritization.html#secondary-comparison-record",
+    "title": "Study Prioritization",
+    "section": "Secondary Comparison Record",
+    "text": "Secondary Comparison Record\nPRJNA322554 can be retained as a secondary comparison record.\nPRJNA322554\nIts role is not to replace the primary case study. Instead, it helps demonstrate that eligible or relevant studies may still differ in technical characteristics, metadata structure, sequencing layout, or acquisition readiness.\nThis supports the teaching point that prioritization is more than inclusion.\nEligible\n        ↓\nUseful\n        ↓\nPrioritized\n        ↓\nReady for handoff",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#why-not-prioritize-everything-equally",
+    "href": "07-study-prioritization.html#why-not-prioritize-everything-equally",
+    "title": "Study Prioritization",
+    "section": "Why Not Prioritize Everything Equally?",
+    "text": "Why Not Prioritize Everything Equally?\nNot all eligible studies should be treated equally.\nSome studies may be eligible but difficult to use immediately.\nReasons include:\n\nmetadata require manual cleaning\nsample groups are difficult to interpret\nrun-level mapping is unclear\nfile access needs additional validation\nstudy contains mixed sample types\ndata are useful but not central to the current objective\n\nPrioritization helps the workflow focus first on the studies that best support the current objective.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#prioritization-and-cdi-das-handoff",
+    "href": "07-study-prioritization.html#prioritization-and-cdi-das-handoff",
+    "title": "Study Prioritization",
+    "section": "Prioritization and CDI-DAS Handoff",
+    "text": "Prioritization and CDI-DAS Handoff\nThe purpose of prioritization is to prepare a clear handoff into CDI-DAS.\nCDI-DAS needs accession inputs that can be used for metadata retrieval, download manifest generation, file acquisition, and validation.\nPrioritized studies should therefore be organized into an input-ready structure.\nPrioritized Study\n        ↓\nBioProject Accession\n        ↓\nRun Accessions\n        ↓\nTest Subset\n        ↓\nCDI-DAS Input Package\nFor this guide, that handoff begins with:\nBioProject: PRJNA802976\n\nTest subset:\nSRR17868090\nSRR17868091\nSRR17868092",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#common-prioritization-problems",
+    "href": "07-study-prioritization.html#common-prioritization-problems",
+    "title": "Study Prioritization",
+    "section": "Common Prioritization Problems",
+    "text": "Common Prioritization Problems\nPrioritization can become unclear when ranking decisions are not documented.\nCommon problems include:\n\nchoosing a study only because it was found first\nprioritizing the largest dataset without checking metadata\nignoring file availability\nmixing primary and secondary examples\nfailing to explain why one eligible study was selected over another\nchanging the priority study without updating documentation\n\nA prioritization table helps prevent these issues.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#summary",
+    "href": "07-study-prioritization.html#summary",
+    "title": "Study Prioritization",
+    "section": "Summary",
+    "text": "Summary\nStudy prioritization ranks screened studies based on their usefulness, readiness, and alignment with the discovery objective.\nScreening determines whether a study is eligible. Prioritization determines which eligible study should be used first.\nFor this guide, PRJNA802976 is prioritized as the primary healthy human gut microbiome BioProject, with SRR17868090, SRR17868091, and SRR17868092 used as the primary test subset.\nPRJNA322554 remains available as a secondary comparison record.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "07-study-prioritization.html#looking-ahead",
+    "href": "07-study-prioritization.html#looking-ahead",
+    "title": "Study Prioritization",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we assemble the included and prioritized studies into a structured output package that can be handed off to the CDI Data Acquisition System.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Study Prioritization</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html",
+    "href": "08-included-study-assembly.html",
+    "title": "Included Study Assembly",
+    "section": "",
+    "text": "Why Included Study Assembly Matters\nAfter studies have been screened and prioritized, the next step is to assemble the final discovery outputs.\nIncluded study assembly is the process of converting screened and prioritized records into a structured package that can be used for downstream data acquisition.\nThis step is important because the output of dataset discovery should not be a vague list of interesting studies.\nIt should be a documented, organized, and acquisition-ready input package.\nIncluded study assembly creates the formal handoff between the CDI Systematic Dataset Discovery workflow and the CDI Data Acquisition System.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#why-included-study-assembly-matters",
+    "href": "08-included-study-assembly.html#why-included-study-assembly-matters",
+    "title": "Included Study Assembly",
+    "section": "",
+    "text": "Screened Studies\n        ↓\nPrioritization Table\n        ↓\nIncluded Study Assembly\n        ↓\nCDI-DAS Input Package\n        ↓\nData Acquisition",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#from-prioritized-studies-to-handoff-package",
+    "href": "08-included-study-assembly.html#from-prioritized-studies-to-handoff-package",
+    "title": "Included Study Assembly",
+    "section": "From Prioritized Studies to Handoff Package",
+    "text": "From Prioritized Studies to Handoff Package\nStudy prioritization identifies which eligible studies should move forward first.\nIncluded study assembly organizes those decisions into files that can be reused by downstream workflows.\nFor CDI workflows, the most important handoff elements are:\n\nincluded BioProject accessions\nselected run accessions\ntest subset accessions\nprioritization notes\nscreening decisions\nacquisition readiness information\n\nThese outputs allow CDI-DAS to begin with clear, documented inputs.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#inputs-to-included-study-assembly",
+    "href": "08-included-study-assembly.html#inputs-to-included-study-assembly",
+    "title": "Included Study Assembly",
+    "section": "Inputs to Included Study Assembly",
+    "text": "Inputs to Included Study Assembly\nThe included study assembly step uses outputs from earlier chapters.\nExpected inputs include:\noutputs/screened-studies.tsv\noutputs/included-studies.tsv\noutputs/review-studies.tsv\noutputs/prioritization-table.tsv\nThe screened studies table preserves all screening decisions.\nThe included studies table records records that passed screening.\nThe review studies table records studies that may need additional checking.\nThe prioritization table records which included records should be used first.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#primary-case-study-accession",
+    "href": "08-included-study-assembly.html#primary-case-study-accession",
+    "title": "Included Study Assembly",
+    "section": "Primary Case-Study Accession",
+    "text": "Primary Case-Study Accession\nFor this guide, the primary BioProject is:\nPRJNA802976\nThis BioProject is prioritized as the main healthy human gut microbiome case-study accession.\nIt is carried forward because it supports a practical CDI-DAS handoff and provides run-level accessions that can be used for acquisition validation.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#primary-test-subset",
+    "href": "08-included-study-assembly.html#primary-test-subset",
+    "title": "Included Study Assembly",
+    "section": "Primary Test Subset",
+    "text": "Primary Test Subset\nThe primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nThese runs provide a small, controlled subset for testing the downstream CDI-DAS acquisition workflow before scaling to the full BioProject.\nUsing a test subset helps confirm that metadata retrieval, manifest creation, download planning, and validation steps work as expected.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#secondary-comparison-record",
+    "href": "08-included-study-assembly.html#secondary-comparison-record",
+    "title": "Included Study Assembly",
+    "section": "Secondary Comparison Record",
+    "text": "Secondary Comparison Record\nA secondary comparison BioProject may be retained:\nPRJNA322554\nThis record is not the primary handoff accession.\nInstead, it can be used as a comparison example when demonstrating technical differences, metadata review, sequencing layout, or acquisition-readiness decisions.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#cdi-das-input-package",
+    "href": "08-included-study-assembly.html#cdi-das-input-package",
+    "title": "Included Study Assembly",
+    "section": "CDI-DAS Input Package",
+    "text": "CDI-DAS Input Package\nThe main output of included study assembly is the CDI-DAS input package.\nThis package should contain the accessions and supporting records needed to begin data acquisition.\nExpected outputs include:\noutputs/cdi-das-input-accessions.txt\noutputs/cdi-das-test-accessions.txt\noutputs/included-study-package.tsv\nThe accession list provides the study-level handoff.\nThe test accession file provides the run-level subset for validation.\nThe included study package provides the documented context for the handoff.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#building-the-included-study-package",
+    "href": "08-included-study-assembly.html#building-the-included-study-package",
+    "title": "Included Study Assembly",
+    "section": "Building the Included Study Package",
+    "text": "Building the Included Study Package\nThe included study package can be created with a script.\nbash scripts/bash/08a-build-included-study-package.sh\nThe expected outputs are:\noutputs/cdi-das-input-accessions.txt\noutputs/cdi-das-test-accessions.txt\noutputs/included-study-package.tsv\nThese files prepare the discovery outputs for downstream use in CDI-DAS.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#expected-package-structure",
+    "href": "08-included-study-assembly.html#expected-package-structure",
+    "title": "Included Study Assembly",
+    "section": "Expected Package Structure",
+    "text": "Expected Package Structure\nThe included study package may contain:\n\npackage ID\naccession\naccession type\nsource\npriority label\nscreening decision\ndownstream role\nCDI-DAS readiness\nnotes\n\nExample:\npackage_id    accession      accession_type    downstream_role\nPKG001        PRJNA802976    BioProject        Primary CDI-DAS input\nPKG002        SRR17868090    SRA Run           Test subset accession\nPKG003        SRR17868091    SRA Run           Test subset accession\nPKG004        SRR17868092    SRA Run           Test subset accession\nThis structure makes the handoff explicit and reproducible.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#handoff-to-cdi-das",
+    "href": "08-included-study-assembly.html#handoff-to-cdi-das",
+    "title": "Included Study Assembly",
+    "section": "Handoff to CDI-DAS",
+    "text": "Handoff to CDI-DAS\nThe CDI Data Acquisition System begins from accessions.\nFor this guide, the systematic discovery workflow hands off:\nPrimary BioProject:\nPRJNA802976\n\nPrimary test subset:\nSRR17868090\nSRR17868091\nSRR17868092\nThis allows CDI-DAS to retrieve metadata, build manifests, download files, validate data, and assemble a reference dataset package.\nCDI Systematic Dataset Discovery\n        ↓\nIncluded Study Package\n        ↓\nCDI-DAS Input Accessions\n        ↓\nMetadata Acquisition\n        ↓\nDownload Manifest\n        ↓\nData Download\n        ↓\nData Validation\n        ↓\nReference Dataset Package",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#why-the-handoff-must-be-explicit",
+    "href": "08-included-study-assembly.html#why-the-handoff-must-be-explicit",
+    "title": "Included Study Assembly",
+    "section": "Why the Handoff Must Be Explicit",
+    "text": "Why the Handoff Must Be Explicit\nA clear handoff prevents confusion between discovery and acquisition.\nDataset discovery answers:\n\nWhich studies should be included, and why?\n\nCDI-DAS answers:\n\nHow do we retrieve, validate, and organize the data reproducibly?\n\nKeeping these systems separate but connected makes the overall workflow easier to explain, test, reuse, and scale.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#included-study-assembly-checklist",
+    "href": "08-included-study-assembly.html#included-study-assembly-checklist",
+    "title": "Included Study Assembly",
+    "section": "Included Study Assembly Checklist",
+    "text": "Included Study Assembly Checklist\nBefore handing off to CDI-DAS, confirm that the following are available:\nIncluded BioProject selected\n        ↓\nPrimary test subset defined\n        ↓\nScreening decision recorded\n        ↓\nPrioritization reason documented\n        ↓\nCDI-DAS input accession file created\n        ↓\nTest accession file created\n        ↓\nIncluded study package assembled\nThis checklist helps ensure that discovery outputs are ready for acquisition.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#applying-the-assembly-to-the-case-study",
+    "href": "08-included-study-assembly.html#applying-the-assembly-to-the-case-study",
+    "title": "Included Study Assembly",
+    "section": "Applying the Assembly to the Case Study",
+    "text": "Applying the Assembly to the Case Study\nFor the healthy human gut microbiome case study, the assembled handoff package should contain:\n\n\n\nField\nValue\n\n\n\n\nPrimary BioProject\nPRJNA802976\n\n\nPrimary test run 1\nSRR17868090\n\n\nPrimary test run 2\nSRR17868091\n\n\nPrimary test run 3\nSRR17868092\n\n\nSecondary comparison\nPRJNA322554\n\n\nDownstream system\nCDI Data Acquisition System\n\n\nHandoff status\nReady for acquisition testing\n\n\n\nThis confirms that the discovery workflow has produced a usable input package.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#relationship-to-the-case-study-chapter",
+    "href": "08-included-study-assembly.html#relationship-to-the-case-study-chapter",
+    "title": "Included Study Assembly",
+    "section": "Relationship to the Case Study Chapter",
+    "text": "Relationship to the Case Study Chapter\nThis chapter assembles the generic handoff outputs.\nThe next chapter applies the full workflow as a case study.\nThe case study will show how the healthy human gut microbiome example moves from research question to prioritized public BioProject and then into CDI-DAS-ready accessions.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#summary",
+    "href": "08-included-study-assembly.html#summary",
+    "title": "Included Study Assembly",
+    "section": "Summary",
+    "text": "Summary\nIncluded study assembly converts screened and prioritized records into a structured CDI-DAS input package.\nFor this guide, PRJNA802976 is assembled as the primary BioProject accession, while SRR17868090, SRR17868091, and SRR17868092 are assembled as the primary test subset.\nPRJNA322554 remains available as a secondary comparison record.\nThis chapter creates the bridge between systematic discovery and reproducible data acquisition.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "08-included-study-assembly.html#looking-ahead",
+    "href": "08-included-study-assembly.html#looking-ahead",
+    "title": "Included Study Assembly",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we apply the complete workflow to the healthy human gut microbiome case study and show how the selected public study becomes ready for CDI-DAS acquisition.",
+    "crumbs": [
+      "Screening and Prioritization",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Included Study Assembly</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html",
+    "href": "09-case-study-healthy-human-gut-microbiome.html",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "",
+    "text": "Why This Case Study\nThis chapter applies the CDI Systematic Dataset Discovery workflow to a practical example: healthy human gut microbiome datasets.\nThe purpose of the case study is to show how a broad biological topic can be converted into a documented, screened, prioritized, and CDI-DAS-ready public dataset package.\nThe case study follows the full discovery workflow:\nThe final output is not only a selected BioProject.\nThe final output is a documented decision trail showing why the BioProject was selected, which accessions are used for testing, and how the result connects to the CDI Data Acquisition System.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#why-this-case-study",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#why-this-case-study",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "",
+    "text": "Research Question\n        ↓\nSearch Strategy\n        ↓\nCandidate Studies\n        ↓\nEligibility Criteria\n        ↓\nDataset Screening\n        ↓\nStudy Prioritization\n        ↓\nIncluded Study Assembly\n        ↓\nCDI-DAS Input Package",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#default-case-study-settings",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#default-case-study-settings",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Default Case Study Settings",
+    "text": "Default Case Study Settings\nThis executable case study uses the default accessions defined in the workflow scripts.\nPrimary BioProject:\nPRJNA802976\n\nPrimary test subset:\nSRR17868090\nSRR17868091\nSRR17868092\n\nSecondary comparison:\nPRJNA322554\nThese settings represent the manual scientific choices for this case study.\nOnce these choices are defined, the workflow can be executed reproducibly.\nManual Case-Study Decision\n        ↓\nScripted Workflow\n        ↓\nStructured Outputs\n        ↓\nCDI-DAS-Ready Handoff",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#case-study-objective",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#case-study-objective",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Case Study Objective",
+    "text": "Case Study Objective\nThe case-study discovery question is:\n\nWhich public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?\n\nThe case-study objective is:\n\nIdentify, screen, and prioritize public studies containing healthy human gut microbiome sequencing data, and assemble a curated accession package suitable for CDI-DAS data acquisition.\n\nThis objective connects the discovery workflow directly to downstream acquisition.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#discovery-scope",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#discovery-scope",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Discovery Scope",
+    "text": "Discovery Scope\nThe discovery scope focuses on public omics studies with:\n\nhuman samples\ngut, stool, fecal, faecal, intestinal, or gastrointestinal sample context\nhealthy, non-diseased, control, or baseline sample relevance\nmicrobiome sequencing data\npublic repository accessions\nsufficient metadata for screening and reuse\nsuitability for CDI-DAS handoff\n\nThe workflow does not attempt to include every microbiome publication.\nIt focuses on accession-linked public studies that can move from discovery into reproducible acquisition.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#primary-case-study-accession",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#primary-case-study-accession",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Primary Case-Study Accession",
+    "text": "Primary Case-Study Accession\nThe prioritized BioProject for this case study is:\nPRJNA802976\nThis BioProject is used as the primary case-study accession because it provides a practical human gut microbiome example for systematic discovery and CDI-DAS handoff.\nIt is treated as the main study carried forward from discovery into data acquisition.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#primary-test-subset",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#primary-test-subset",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Primary Test Subset",
+    "text": "Primary Test Subset\nThe primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nThese three run accessions are used as a small acquisition-testing subset.\nA test subset is useful because it allows the workflow to validate metadata retrieval, manifest generation, download planning, and file validation before scaling to the full BioProject.\nPRJNA802976\n        ↓\nSRR17868090\nSRR17868091\nSRR17868092\n        ↓\nCDI-DAS test acquisition",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#secondary-comparison-accession",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#secondary-comparison-accession",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Secondary Comparison Accession",
+    "text": "Secondary Comparison Accession\nA secondary comparison BioProject is retained:\nPRJNA322554\nThis accession is not the primary case-study handoff.\nIt is retained as a comparison record to demonstrate that relevant public studies may differ in technical characteristics, sequencing layout, metadata completeness, repository structure, or acquisition readiness.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-1-discovery-output-structure",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-1-discovery-output-structure",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 1: Discovery Output Structure",
+    "text": "Step 1: Discovery Output Structure\nThe case study begins by creating the standard discovery output files.\n#| label: case-study-01-create-discovery-outputs\n\nbash scripts/bash/01-create-discovery-outputs.sh\nExpected outputs include:\noutputs/candidate-studies.tsv\noutputs/screened-studies.tsv\noutputs/included-studies.tsv\noutputs/excluded-studies.tsv\noutputs/prioritization-table.tsv\noutputs/cdi-das-input-accessions.txt\nThis step prepares the output structure used by the rest of the workflow.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-2-discovery-planning",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-2-discovery-planning",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 2: Discovery Planning",
+    "text": "Step 2: Discovery Planning\nThe workflow then creates the discovery plan.\n#| label: case-study-02-create-discovery-plan\n\nbash scripts/bash/02-create-discovery-plan.sh\nExpected output:\noutputs/discovery-plan.tsv\nThis file records the research topic, discovery question, objective, scope, unit of inclusion, and downstream system.\nFor this case study, the planning file identifies:\n\n\n\nField\nValue\n\n\n\n\nResearch topic\nHealthy human gut microbiome\n\n\nOrganism\nHuman\n\n\nBody site\nGut or stool\n\n\nHealth status\nHealthy or non-diseased\n\n\nData type\nMicrobiome sequencing\n\n\nDownstream system\nCDI Data Acquisition System",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-3-repository-source-planning",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-3-repository-source-planning",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 3: Repository Source Planning",
+    "text": "Step 3: Repository Source Planning\nThe next step is to define the data sources and repositories used for discovery.\n#| label: case-study-03-create-repository-sources\n\nbash scripts/bash/03-create-repository-sources.sh\nExpected output:\noutputs/repository-sources.tsv\nThe repository source table documents where candidate records may be identified or validated.\nFor this case study, useful sources include:\n\nPubMed\nNCBI BioProject\nNCBI SRA\nNCBI BioSample\nENA\nsupplementary materials",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-4-search-strategy-development",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-4-search-strategy-development",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 4: Search Strategy Development",
+    "text": "Step 4: Search Strategy Development\nThe search strategy identifies candidate records across BioProject and literature sources.\n#| label: case-study-04a-search-bioprojects\n\nbash scripts/bash/04a-search-bioprojects.sh\n#| label: case-study-04b-search-literature\n\nbash scripts/bash/04b-search-literature.sh\n#| label: case-study-04c-create-candidate-studies-template\n\nbash scripts/bash/04c-create-candidate-studies-template.sh\nExpected outputs:\noutputs/search-strategy.tsv\noutputs/bioproject-search-results.tsv\noutputs/literature-search-results.tsv\noutputs/candidate-studies.tsv\nThe BioProject search records the project-level discovery process.\nThe literature search records publication-level discovery and accession-linked study context.\nThe candidate study table provides the working set for screening.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-5-eligibility-criteria",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-5-eligibility-criteria",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 5: Eligibility Criteria",
+    "text": "Step 5: Eligibility Criteria\nBefore screening candidate records, inclusion and exclusion criteria are defined.\n#| label: case-study-05a-build-inclusion-criteria\n\nbash scripts/bash/05a-build-inclusion-criteria.sh\n#| label: case-study-05b-build-exclusion-criteria\n\nbash scripts/bash/05b-build-exclusion-criteria.sh\nExpected outputs:\noutputs/inclusion-criteria.tsv\noutputs/exclusion-criteria.tsv\nThe inclusion criteria define what a study must contain to move forward.\nThe exclusion criteria define what removes a study from the main workflow.\nFor this case study, eligibility focuses on human gut or stool microbiome studies with public sequencing accessions, usable metadata, and readiness for CDI-DAS handoff.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-6-dataset-screening",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-6-dataset-screening",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 6: Dataset Screening",
+    "text": "Step 6: Dataset Screening\nThe candidate studies are screened using the eligibility criteria.\n#| label: case-study-06a-screen-candidate-studies\n\nbash scripts/bash/06a-screen-candidate-studies.sh\nExpected outputs:\noutputs/screened-studies.tsv\noutputs/included-studies.tsv\noutputs/excluded-studies.tsv\noutputs/review-studies.tsv\nThe screening step assigns a decision label to each candidate record.\nFor the primary case study, the key decisions are:\n\n\n\n\n\n\n\n\nAccession\nDecision\nReason\n\n\n\n\nPRJNA802976\ninclude\nPrimary healthy human gut microbiome case-study BioProject\n\n\nSRR17868090\ninclude\nPrimary test subset run\n\n\nSRR17868091\ninclude\nPrimary test subset run\n\n\nSRR17868092\ninclude\nPrimary test subset run\n\n\nPRJNA322554\nreview\nSecondary comparison record",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-7-study-prioritization",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-7-study-prioritization",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 7: Study Prioritization",
+    "text": "Step 7: Study Prioritization\nScreened studies are prioritized to determine which records should be used first.\n#| label: case-study-07a-build-prioritization-table\n\nbash scripts/bash/07a-build-prioritization-table.sh\nExpected output:\noutputs/prioritization-table.tsv\nThe prioritization table ranks records based on research alignment, metadata quality, accession clarity, file availability, CDI-DAS readiness, and test subset suitability.\nFor this case study:\nPrimary:\nPRJNA802976\n\nPrimary test subset:\nSRR17868090\nSRR17868091\nSRR17868092\n\nSecondary comparison:\nPRJNA322554\nThis confirms that PRJNA802976 is the main accession carried forward.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#step-8-included-study-assembly",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#step-8-included-study-assembly",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Step 8: Included Study Assembly",
+    "text": "Step 8: Included Study Assembly\nThe final discovery outputs are assembled into a CDI-DAS-ready package.\n#| label: case-study-08a-build-included-study-package\n\nbash scripts/bash/08a-build-included-study-package.sh\nExpected outputs:\noutputs/cdi-das-input-accessions.txt\noutputs/cdi-das-test-accessions.txt\noutputs/included-study-package.tsv\nThe CDI-DAS input accession file contains:\nPRJNA802976\nThe CDI-DAS test accession file contains:\nSRR17868090\nSRR17868091\nSRR17868092\nThe included study package records the accession type, source, priority label, screening decision, downstream role, CDI-DAS readiness, and notes.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#final-case-study-output",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#final-case-study-output",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Final Case Study Output",
+    "text": "Final Case Study Output\nThe final output of the case study is a structured handoff package:\noutputs/\n├── discovery-plan.tsv\n├── repository-sources.tsv\n├── search-strategy.tsv\n├── bioproject-search-results.tsv\n├── literature-search-results.tsv\n├── candidate-studies.tsv\n├── inclusion-criteria.tsv\n├── exclusion-criteria.tsv\n├── screened-studies.tsv\n├── included-studies.tsv\n├── excluded-studies.tsv\n├── review-studies.tsv\n├── prioritization-table.tsv\n├── included-study-package.tsv\n├── cdi-das-input-accessions.txt\n└── cdi-das-test-accessions.txt\nTogether, these files document the full discovery process.\nThey show what was planned, where records were searched, which candidates were identified, how criteria were applied, which studies were prioritized, and what was handed off to CDI-DAS.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#manual-judgment-in-the-case-study",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#manual-judgment-in-the-case-study",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Manual Judgment in the Case Study",
+    "text": "Manual Judgment in the Case Study\nThis case study is executable and reproducible, but it is not fully automatic.\nManual judgment is required when defining the research question, interpreting search results, reviewing metadata, applying eligibility criteria, resolving ambiguous records, and approving the final handoff.\nThe scripts make these decisions structured and documented.\nThey do not replace scientific judgment.\nManual Judgment\n        ↓\nDocumented Decision\n        ↓\nStructured Output\n        ↓\nReproducible Handoff\nFor this case study, the key manual decision is that PRJNA802976 is prioritized as the main BioProject, while PRJNA322554 is retained only as a secondary comparison.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#handoff-to-cdi-das",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#handoff-to-cdi-das",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Handoff to CDI-DAS",
+    "text": "Handoff to CDI-DAS\nAt the end of this workflow, CDI-DAS receives a clear input package.\nCDI Systematic Dataset Discovery\n        ↓\nPRJNA802976\n        ↓\nSRR17868090\nSRR17868091\nSRR17868092\n        ↓\nCDI Data Acquisition System\nCDI-DAS can then use these accessions for metadata acquisition, manifest generation, data download, file validation, and reference dataset assembly.\nThis completes the bridge between systematic discovery and reproducible acquisition.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#case-study-summary",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#case-study-summary",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Case Study Summary",
+    "text": "Case Study Summary\nThe healthy human gut microbiome case study demonstrates how a broad public-data topic can be converted into a documented, executable, and reproducible discovery workflow.\nThe workflow begins with a research question and ends with CDI-DAS-ready accessions.\nThe primary case-study BioProject is:\nPRJNA802976\nThe primary test subset is:\nSRR17868090\nSRR17868091\nSRR17868092\nThe secondary comparison BioProject is:\nPRJNA322554\nThe result is a transparent and reproducible handoff from dataset discovery into data acquisition.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-healthy-human-gut-microbiome.html#looking-ahead",
+    "href": "09-case-study-healthy-human-gut-microbiome.html#looking-ahead",
+    "title": "Case Study: Healthy Human Gut Microbiome",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nThis concludes the CDI Systematic Dataset Discovery guide.\nThe same workflow can be adapted to other omics domains, including RNA-seq, single-cell, metagenomics, GWAS, proteomics, metabolomics, and multi-omics studies.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Case Study: Healthy Human Gut Microbiome</span>"
+    ]
+  }
+]

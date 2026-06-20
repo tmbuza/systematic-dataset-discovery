@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Search Strategy Development – CDI Systematic Dataset Discovery</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-eligibility-criteria.html" rel="next">
+<link href="./03-data-sources-and-repositories.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="assets/css/cdi.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-data-sources-and-repositories.html">Discovery System</a></li><li class="breadcrumb-item"><a href="./04-search-strategy-development.html"><span class="chapter-title">Search Strategy Development</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">CDI Systematic Dataset Discovery</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-why-dataset-discovery-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Why Dataset Discovery Matters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-research-questions-and-objectives.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Questions and Objectives</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Discovery System</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-sources-and-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Sources and Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-search-strategy-development.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Search Strategy Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-eligibility-criteria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Eligibility Criteria</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Screening and Prioritization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-dataset-screening.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dataset Screening</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-study-prioritization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Prioritization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-included-study-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Included Study Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-case-study-healthy-human-gut-microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Case Study: Healthy Human Gut Microbiome</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references.html</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-search-strategy-matters" id="toc-why-search-strategy-matters" class="nav-link active" data-scroll-target="#why-search-strategy-matters">Why Search Strategy Matters</a></li>
+  <li><a href="#from-research-question-to-search-concepts" id="toc-from-research-question-to-search-concepts" class="nav-link" data-scroll-target="#from-research-question-to-search-concepts">From Research Question to Search Concepts</a></li>
+  <li><a href="#search-term-expansion" id="toc-search-term-expansion" class="nav-link" data-scroll-target="#search-term-expansion">Search Term Expansion</a></li>
+  <li><a href="#combining-search-concepts" id="toc-combining-search-concepts" class="nav-link" data-scroll-target="#combining-search-concepts">Combining Search Concepts</a></li>
+  <li><a href="#source-specific-search-strategy" id="toc-source-specific-search-strategy" class="nav-link" data-scroll-target="#source-specific-search-strategy">Source-Specific Search Strategy</a></li>
+  <li><a href="#pubmed-search-strategy" id="toc-pubmed-search-strategy" class="nav-link" data-scroll-target="#pubmed-search-strategy">PubMed Search Strategy</a></li>
+  <li><a href="#ncbi-bioproject-search-strategy" id="toc-ncbi-bioproject-search-strategy" class="nav-link" data-scroll-target="#ncbi-bioproject-search-strategy">NCBI BioProject Search Strategy</a></li>
+  <li><a href="#sra-search-strategy" id="toc-sra-search-strategy" class="nav-link" data-scroll-target="#sra-search-strategy">SRA Search Strategy</a></li>
+  <li><a href="#ena-search-strategy" id="toc-ena-search-strategy" class="nav-link" data-scroll-target="#ena-search-strategy">ENA Search Strategy</a></li>
+  <li><a href="#recording-and-running-the-search-strategy" id="toc-recording-and-running-the-search-strategy" class="nav-link" data-scroll-target="#recording-and-running-the-search-strategy">Recording and Running the Search Strategy</a></li>
+  <li><a href="#candidate-study-capture" id="toc-candidate-study-capture" class="nav-link" data-scroll-target="#candidate-study-capture">Candidate Study Capture</a></li>
+  <li><a href="#search-strategy-for-the-case-study" id="toc-search-strategy-for-the-case-study" class="nav-link" data-scroll-target="#search-strategy-for-the-case-study">Search Strategy for the Case Study</a></li>
+  <li><a href="#search-strategy-boundaries" id="toc-search-strategy-boundaries" class="nav-link" data-scroll-target="#search-strategy-boundaries">Search Strategy Boundaries</a></li>
+  <li><a href="#avoiding-overly-narrow-searches" id="toc-avoiding-overly-narrow-searches" class="nav-link" data-scroll-target="#avoiding-overly-narrow-searches">Avoiding Overly Narrow Searches</a></li>
+  <li><a href="#avoiding-overly-broad-searches" id="toc-avoiding-overly-broad-searches" class="nav-link" data-scroll-target="#avoiding-overly-broad-searches">Avoiding Overly Broad Searches</a></li>
+  <li><a href="#updating-the-search-strategy" id="toc-updating-the-search-strategy" class="nav-link" data-scroll-target="#updating-the-search-strategy">Updating the Search Strategy</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-data-sources-and-repositories.html">Discovery System</a></li><li class="breadcrumb-item"><a href="./04-search-strategy-development.html"><span class="chapter-title">Search Strategy Development</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Search Strategy Development</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Jun 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="why-search-strategy-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-search-strategy-matters">Why Search Strategy Matters</h2>
+<p>A systematic dataset discovery workflow requires a clear search strategy.</p>
+<p>The search strategy defines how candidate public studies will be identified across literature databases, project repositories, sequence archives, and linked records.</p>
+<p>Without a documented search strategy, dataset discovery can become inconsistent and difficult to reproduce. Different analysts may search different sources, use different keywords, apply different assumptions, and produce different candidate study lists.</p>
+<p>A structured search strategy helps make the discovery process transparent.</p>
+<p>It records:</p>
+<ul>
+<li>what was searched</li>
+<li>where it was searched</li>
+<li>which terms were used</li>
+<li>when the search was performed</li>
+<li>what types of records were expected</li>
+<li>how candidate studies were captured</li>
+<li>how records were prepared for screening</li>
+</ul>
+<p>The search strategy does not decide which studies are eligible. That happens later during eligibility assessment and screening.</p>
+<p>The purpose of the search strategy is to identify candidate records in a reproducible way.</p>
+</section>
+<section id="from-research-question-to-search-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="from-research-question-to-search-concepts">From Research Question to Search Concepts</h2>
+<p>A search strategy begins by translating the research question into searchable concepts.</p>
+<p>For the case study in this guide, the discovery question is:</p>
+<blockquote class="blockquote">
+<p>Which public omics studies contain healthy human gut microbiome sequencing data suitable for reference dataset assembly?</p>
+</blockquote>
+<p>This question can be broken into major concepts:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Human</td>
+<td>Studies involving human participants or samples</td>
+</tr>
+<tr class="even">
+<td>Gut microbiome</td>
+<td>Studies involving gut, stool, fecal, or intestinal microbiome samples</td>
+</tr>
+<tr class="odd">
+<td>Healthy</td>
+<td>Studies involving healthy, non-diseased, control, or baseline participants</td>
+</tr>
+<tr class="even">
+<td>Sequencing data</td>
+<td>Studies with public omics sequencing accessions</td>
+</tr>
+<tr class="odd">
+<td>Reference dataset assembly</td>
+<td>Studies suitable for reuse and downstream CDI-DAS acquisition</td>
+</tr>
+</tbody>
+</table>
+<p>Each concept can then be expanded into search terms.</p>
+</section>
+<section id="search-term-expansion" class="level2">
+<h2 class="anchored" data-anchor-id="search-term-expansion">Search Term Expansion</h2>
+<p>Public records may use different words for similar ideas.</p>
+<p>For example, a study may refer to “gut microbiome,” “intestinal microbiota,” “fecal microbiome,” or “stool microbial communities.” A strict search for only one phrase may miss relevant studies.</p>
+<p>Search term expansion helps improve recall.</p>
+<p>For the healthy human gut microbiome case study, possible terms include:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Example Search Terms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Human</td>
+<td>human, Homo sapiens, adult, participant, subject</td>
+</tr>
+<tr class="even">
+<td>Gut</td>
+<td>gut, intestinal, gastrointestinal, stool, fecal, faecal</td>
+</tr>
+<tr class="odd">
+<td>Microbiome</td>
+<td>microbiome, microbiota, microbial community, metagenome</td>
+</tr>
+<tr class="even">
+<td>Healthy</td>
+<td>healthy, control, non-diseased, baseline, normal</td>
+</tr>
+<tr class="odd">
+<td>Sequencing</td>
+<td>sequencing, 16S, metagenomic, amplicon, Illumina, MiSeq</td>
+</tr>
+<tr class="even">
+<td>Public data</td>
+<td>BioProject, SRA, ENA, accession, public dataset</td>
+</tr>
+</tbody>
+</table>
+<p>Search terms should be broad enough to find relevant studies but focused enough to avoid overwhelming irrelevant results.</p>
+</section>
+<section id="combining-search-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="combining-search-concepts">Combining Search Concepts</h2>
+<p>Search concepts can be combined using Boolean logic.</p>
+<p>Common Boolean operators include:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AND</td>
+<td>Requires both concepts to be present</td>
+</tr>
+<tr class="even">
+<td>OR</td>
+<td>Allows alternative terms for the same concept</td>
+</tr>
+<tr class="odd">
+<td>NOT</td>
+<td>Excludes unwanted concepts</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre class="text"><code>human AND gut AND microbiome</code></pre>
+<p>is narrower than:</p>
+<pre class="text"><code>human AND (gut OR stool OR fecal) AND (microbiome OR microbiota)</code></pre>
+<p>A more structured search expression may look like:</p>
+<pre class="text"><code>(human OR "Homo sapiens")
+AND
+(gut OR intestinal OR stool OR fecal OR faecal)
+AND
+(microbiome OR microbiota OR metagenome)
+AND
+(healthy OR control OR baseline)</code></pre>
+<p>The exact syntax may differ by source. PubMed, NCBI BioProject, SRA, and ENA may support different search fields and search behavior.</p>
+</section>
+<section id="source-specific-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="source-specific-search-strategy">Source-Specific Search Strategy</h2>
+<p>A single search string may not work equally well across all sources.</p>
+<p>Each source should be searched according to its role.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Search Strategy Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PubMed</td>
+<td>Find candidate publications and study context</td>
+</tr>
+<tr class="even">
+<td>NCBI BioProject</td>
+<td>Find project-level accessions</td>
+</tr>
+<tr class="odd">
+<td>NCBI SRA</td>
+<td>Validate sequencing runs and technical metadata</td>
+</tr>
+<tr class="even">
+<td>NCBI BioSample</td>
+<td>Check sample-level metadata</td>
+</tr>
+<tr class="odd">
+<td>ENA</td>
+<td>Validate FASTQ links, layout, and checksums</td>
+</tr>
+<tr class="even">
+<td>Supplementary materials</td>
+<td>Confirm sample annotations and accession mapping</td>
+</tr>
+</tbody>
+</table>
+<p>This means the search strategy should include both broad discovery searches and targeted validation searches.</p>
+</section>
+<section id="pubmed-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="pubmed-search-strategy">PubMed Search Strategy</h2>
+<p>PubMed is useful for identifying candidate publications.</p>
+<p>A PubMed search may combine biological context, sample type, and sequencing terms.</p>
+<p>Example:</p>
+<pre class="text"><code>(human[Title/Abstract] OR "Homo sapiens"[Title/Abstract])
+AND
+(gut[Title/Abstract] OR intestinal[Title/Abstract] OR stool[Title/Abstract] OR fecal[Title/Abstract] OR faecal[Title/Abstract])
+AND
+(microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR metagenome[Title/Abstract])
+AND
+(healthy[Title/Abstract] OR control[Title/Abstract] OR baseline[Title/Abstract])</code></pre>
+<p>This search is used to identify publications that may describe eligible public datasets.</p>
+<p>Publication records should then be checked for repository accessions, data availability statements, and supplementary materials.</p>
+</section>
+<section id="ncbi-bioproject-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="ncbi-bioproject-search-strategy">NCBI BioProject Search Strategy</h2>
+<p>NCBI BioProject is useful for finding project-level public dataset records.</p>
+<p>A BioProject search may use a simpler query because repository records may contain shorter descriptions than publications.</p>
+<p>Example:</p>
+<pre class="text"><code>human gut microbiome healthy</code></pre>
+<p>or:</p>
+<pre class="text"><code>human stool microbiome</code></pre>
+<p>BioProject search results should be reviewed for relevance and accession information.</p>
+<p>For the case study, the prioritized BioProject is:</p>
+<pre class="text"><code>PRJNA802976</code></pre>
+<p>This BioProject becomes the main case-study accession for downstream validation and CDI-DAS handoff.</p>
+</section>
+<section id="sra-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="sra-search-strategy">SRA Search Strategy</h2>
+<p>SRA is useful for validating whether a candidate study contains sequencing runs suitable for acquisition.</p>
+<p>For a known BioProject, SRA can be queried using the BioProject accession.</p>
+<p>Example:</p>
+<pre class="text"><code>PRJNA802976[BioProject]</code></pre>
+<p>The expected output is a set of run accessions and technical metadata.</p>
+<p>For the prioritized case study, the primary test subset is:</p>
+<pre class="text"><code>SRR17868090
+SRR17868091
+SRR17868092</code></pre>
+<p>These accessions provide a small test set for validating the downstream acquisition workflow before scaling to the full BioProject.</p>
+</section>
+<section id="ena-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="ena-search-strategy">ENA Search Strategy</h2>
+<p>ENA is useful for validating file-level availability.</p>
+<p>For a candidate BioProject or run accession list, ENA can be used to check:</p>
+<ul>
+<li>FASTQ file links</li>
+<li>file sizes</li>
+<li>checksums</li>
+<li>library layout</li>
+<li>sequencing platform</li>
+<li>study and sample accessions</li>
+</ul>
+<p>The ENA validation step helps determine whether a candidate study can be acquired efficiently through direct FASTQ download.</p>
+<p>For CDI-DAS, ENA is especially useful when FASTQ links and checksums are available.</p>
+</section>
+<section id="recording-and-running-the-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="recording-and-running-the-search-strategy">Recording and Running the Search Strategy</h2>
+<p>Every search strategy should be documented before candidate studies are screened.</p>
+<p>At minimum, the workflow should record:</p>
+<ul>
+<li>source searched</li>
+<li>search date</li>
+<li>search query</li>
+<li>search purpose</li>
+<li>expected output</li>
+<li>notes</li>
+<li>number of records found, when available</li>
+</ul>
+<p>A search log allows the discovery workflow to be reviewed and repeated.</p>
+<p>The main search record for this chapter is:</p>
+<pre class="text"><code>outputs/search-strategy.tsv</code></pre>
+<p>This file becomes part of the discovery audit trail.</p>
+<p>The search workflow is implemented through three scripts:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/04a-search-bioprojects.sh</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/04b-search-literature.sh</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/04c-create-candidate-studies-template.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The expected outputs are:</p>
+<pre class="text"><code>outputs/search-strategy.tsv
+outputs/bioproject-search-results.tsv
+outputs/literature-search-results.tsv
+outputs/candidate-studies.tsv</code></pre>
+<p>The BioProject search identifies candidate project-level accessions.</p>
+<p>The literature search identifies candidate publications, study context, data availability statements, and possible accession-linked records.</p>
+<p>The candidate study template provides a consistent table structure for recording and screening candidate studies.</p>
+<p>Together, these outputs provide the starting evidence base for dataset screening.</p>
+<pre class="text"><code>Search Strategy
+        ↓
+BioProject Search
+        ↓
+Literature Search
+        ↓
+Candidate Study Template
+        ↓
+Candidate Study Evidence
+        ↓
+Dataset Screening</code></pre>
+</section>
+<section id="candidate-study-capture" class="level2">
+<h2 class="anchored" data-anchor-id="candidate-study-capture">Candidate Study Capture</h2>
+<p>Search results should be captured into a candidate study table.</p>
+<p>A candidate study table may include:</p>
+<ul>
+<li>candidate ID</li>
+<li>source</li>
+<li>title or record name</li>
+<li>accession</li>
+<li>publication identifier</li>
+<li>organism</li>
+<li>sample context</li>
+<li>data type</li>
+<li>repository link or accession</li>
+<li>notes</li>
+<li>screening status</li>
+</ul>
+<p>The candidate study table is not yet the included study list.</p>
+<p>It is the working list of records that will be screened in later chapters.</p>
+<p>The expected output is:</p>
+<pre class="text"><code>outputs/candidate-studies.tsv</code></pre>
+<p>The candidate study template is generated as part of the Chapter 04 script sequence:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/04c-create-candidate-studies-template.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This template provides a consistent structure for recording candidate studies identified during the BioProject and literature searches.</p>
+</section>
+<section id="search-strategy-for-the-case-study" class="level2">
+<h2 class="anchored" data-anchor-id="search-strategy-for-the-case-study">Search Strategy for the Case Study</h2>
+<p>For the healthy human gut microbiome case study, the search strategy focuses on identifying public studies that contain human gut or stool microbiome sequencing data with enough metadata and accession clarity for reuse.</p>
+<p>The prioritized case-study accession is:</p>
+<pre class="text"><code>PRJNA802976</code></pre>
+<p>The primary test subset is:</p>
+<pre class="text"><code>SRR17868090
+SRR17868091
+SRR17868092</code></pre>
+<p>A secondary comparison BioProject may be retained for technical contrast:</p>
+<pre class="text"><code>PRJNA322554</code></pre>
+<p>This secondary accession can help demonstrate why sequencing layout, platform, metadata completeness, and acquisition readiness matter during prioritization.</p>
+</section>
+<section id="search-strategy-boundaries" class="level2">
+<h2 class="anchored" data-anchor-id="search-strategy-boundaries">Search Strategy Boundaries</h2>
+<p>The search strategy should also define boundaries.</p>
+<p>For this guide, the initial search focuses on:</p>
+<ul>
+<li>human samples</li>
+<li>gut, stool, fecal, or intestinal microbiome context</li>
+<li>public sequence data</li>
+<li>accession-linked studies</li>
+<li>records that can support CDI-DAS handoff</li>
+</ul>
+<p>The search does not aim to capture every possible microbiome publication. It focuses on studies that can move from discovery into acquisition and validation.</p>
+</section>
+<section id="avoiding-overly-narrow-searches" class="level2">
+<h2 class="anchored" data-anchor-id="avoiding-overly-narrow-searches">Avoiding Overly Narrow Searches</h2>
+<p>A search that is too narrow may miss relevant datasets.</p>
+<p>For example, searching only for:</p>
+<pre class="text"><code>healthy human gut microbiome</code></pre>
+<p>may miss records described as:</p>
+<pre class="text"><code>control stool microbiota</code></pre>
+<p>or:</p>
+<pre class="text"><code>intestinal microbial communities in adults</code></pre>
+<p>This is why search term expansion is important.</p>
+<p>A broad initial search can be followed by structured screening.</p>
+</section>
+<section id="avoiding-overly-broad-searches" class="level2">
+<h2 class="anchored" data-anchor-id="avoiding-overly-broad-searches">Avoiding Overly Broad Searches</h2>
+<p>A search that is too broad can produce too many irrelevant records.</p>
+<p>For example:</p>
+<pre class="text"><code>microbiome</code></pre>
+<p>may return studies from soil, plants, animals, oral samples, disease cohorts, and environmental samples.</p>
+<p>The search strategy should balance sensitivity and specificity.</p>
+<p>For systematic discovery, the goal is not simply to maximize search results. The goal is to identify a manageable and relevant candidate set that can be screened transparently.</p>
+</section>
+<section id="updating-the-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="updating-the-search-strategy">Updating the Search Strategy</h2>
+<p>Search strategies may be refined during early exploration.</p>
+<p>For example, the analyst may discover that relevant records use “fecal microbiota” more often than “gut microbiome,” or that a repository uses different metadata fields than expected.</p>
+<p>When changes are made, they should be documented.</p>
+<p>A reproducible workflow should preserve:</p>
+<ul>
+<li>original search terms</li>
+<li>revised search terms</li>
+<li>reason for revision</li>
+<li>date of revision</li>
+<li>effect on candidate records, when known</li>
+</ul>
+<p>This prevents silent changes from weakening the audit trail.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Search strategy development translates the research question into a reproducible discovery plan.</p>
+<p>It defines the concepts, search terms, sources, queries, and candidate capture process used to identify public omics studies.</p>
+<p>For the healthy human gut microbiome case study, the search strategy prioritizes accession-linked public studies that can be screened, evaluated, and handed off to the CDI Data Acquisition System.</p>
+<p>The prioritized case-study BioProject is <strong>PRJNA802976</strong>, with <strong>SRR17868090</strong>, <strong>SRR17868091</strong>, and <strong>SRR17868092</strong> used as the primary test subset.</p>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>In the next chapter, we define eligibility criteria for deciding which candidate studies should be included, excluded, or set aside for later review.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-data-sources-and-repositories.html" class="pagination-link" aria-label="Data Sources and Repositories">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data Sources and Repositories</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05-eligibility-criteria.html" class="pagination-link" aria-label="Eligibility Criteria">
+        <span class="nav-page-text"><span class="chapter-title">Eligibility Criteria</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
